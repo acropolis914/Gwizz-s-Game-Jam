@@ -20,3 +20,4 @@ position = Vector2(253, 0)
 [node name="CheckButton" type="CheckButton" parent="CanvasLayer"]
 offset_right = 44.0
 offset_bottom = 24.0
+toggle_mode = false

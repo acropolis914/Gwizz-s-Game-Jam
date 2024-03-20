@@ -1,5 +1,8 @@
 extends Node2D
 
+func _ready():
+	pass
+	
 func _process(delta):
 	# Simple camera pan lang try
 	if $Player && $Player.velocity != Vector2.ZERO:
@@ -7,3 +10,4 @@ func _process(delta):
 
 	if $CanvasLayer/CheckButton.button_pressed:
 		$"Enemy Type 1".change_art()
+	
