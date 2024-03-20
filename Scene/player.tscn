@@ -1,13 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwbgo21cx8lyu"]
+[gd_scene load_steps=7 format=3 uid="uid://dwbgo21cx8lyu"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_1fjau"]
 [ext_resource type="Texture2D" uid="uid://cqx0p8hxa6pj1" path="res://ImageAssets/player_programmerart_64.png" id="2_6ddoa"]
+[ext_resource type="Texture2D" uid="uid://djupu0ttnro4v" path="res://ImageAssets/player_dash_programmerart_64.png" id="2_380vl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5w6aj"]
 size = Vector2(54, 58)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q1c81"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_380vl")
+}],
+"loop": true,
+"name": &"dash",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_6ddoa")
@@ -27,7 +36,7 @@ shape = SubResource("RectangleShape2D_5w6aj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_q1c81")
-animation = &"walk"
+animation = &"dash"
 
 [node name="Killer Area" type="Area2D" parent="." groups=["player_attack"]]
 

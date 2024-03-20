@@ -1,4 +1,11 @@
 extends Area2D
 
+func _ready():
+	$AnimatedSprite2D.hide()
+
 func _on_area_entered(area):
-	queue_free()
+	area.kill()
+	
+func change_art():
+	$Sprite2D.hide()
+	$AnimatedSprite2D.show()

@@ -14,3 +14,9 @@ position = Vector2(-93, -27)
 
 [node name="Enemy Type 1" parent="." instance=ExtResource("3_3wxef")]
 position = Vector2(253, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CheckButton" type="CheckButton" parent="CanvasLayer"]
+offset_right = 44.0
+offset_bottom = 24.0

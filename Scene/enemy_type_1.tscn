@@ -1,22 +1,39 @@
-[gd_scene load_steps=5 format=3 uid="uid://bioel72emf3f1"]
+[gd_scene load_steps=7 format=3 uid="uid://bioel72emf3f1"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_type_1.gd" id="1_dhl5t"]
 [ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="1_gawkg"]
+[ext_resource type="Texture2D" uid="uid://ddofncep5nh56" path="res://ImageAssets/enemy1_programmerart_64.png" id="2_ht0kc"]
 [ext_resource type="Script" path="res://Scripts/Components/Enemy Death Comp.gd" id="3_ocjtw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uod3q"]
 size = Vector2(24, 58)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_cpxq5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ht0kc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Enemy Type 1" type="Area2D"]
 script = ExtResource("1_dhl5t")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_uod3q")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0.368627, 0.368627, 1)
 scale = Vector2(0.2, 0.466667)
 texture = ExtResource("1_gawkg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_uod3q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 1)
+scale = Vector2(0.84375, 0.890625)
+sprite_frames = SubResource("SpriteFrames_cpxq5")
 
 [node name="Enemy Death Comp" type="Node" parent="."]
 script = ExtResource("3_ocjtw")
