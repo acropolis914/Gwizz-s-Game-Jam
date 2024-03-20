@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://Art/White.png" id="2_nrwsy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5w6aj"]
-size = Vector2(24, 58)
+size = Vector2(46, 74)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_1fjau")
@@ -13,5 +13,5 @@ script = ExtResource("1_1fjau")
 shape = SubResource("RectangleShape2D_5w6aj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.466667)
+scale = Vector2(0.366667, 1)
 texture = ExtResource("2_nrwsy")
