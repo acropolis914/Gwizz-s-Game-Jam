@@ -4,7 +4,7 @@ func _ready():
 	$AnimatedSprite2D.hide()
 
 func _on_area_entered(area):
-	area.queue_free()
+	queue_free()
 	
 func change_art():
 	$Sprite2D.hide()
