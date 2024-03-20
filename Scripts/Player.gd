@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var speed = 300
 @onready var killer_area = $"Killer Area/CollisionShape2D"
+var dead = false
 
 func _ready():
 	killer_area.disabled = true
@@ -20,17 +21,18 @@ func for_dash_and_kill():
 		$AnimatedSprite2D.animation = "dash"
 		$AnimatedSprite2D.play()
 		speed = 1400
-		killer_area.disabled = false
-		
+		killer_area.disabled = true
 		await get_tree().create_timer(0.1).timeout
 		var tween = create_tween()
 		#tween.tween_property($AnimatedSprite2D, "animation", "walk" , .5)
 		$AnimatedSprite2D.animation = "walk"
 		speed= 300
-		killer_area.disabled = true 
-	
+		await get_tree().create_timer(1).timeout
+		killer_area.disabled = false
 
 func _physics_process(_delta):
+	if dead:
+		return
 	for_movement()
 	for_dash_and_kill()
 	move_and_slide()
@@ -39,4 +41,10 @@ func _process(delta):
 	pass
 
 func kill():
-	hide()
+	print("player killed")
+	position = position
+	var tween = get_tree().create_tween()
+	tween.tween_property($AnimatedSprite2D, "modulate", Color.RED, .2).set_trans(Tween.TRANS_SINE)
+	tween.tween_property($AnimatedSprite2D, "scale", Vector2(), .2).set_trans(Tween.TRANS_BOUNCE)
+	tween.tween_callback($AnimatedSprite2D.queue_free)
+	dead = true
