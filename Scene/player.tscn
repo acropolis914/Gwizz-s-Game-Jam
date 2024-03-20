@@ -52,20 +52,20 @@ height = 3
 fill_from = Vector2(1, 1)
 fill_to = Vector2(0, 0)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_1fjau")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5w6aj")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="GwizzSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_q1c81")
 animation = &"idle"
-frame_progress = 0.396531
+frame_progress = 0.722012
 
-[node name="Killer Area" type="Area2D" parent="." groups=["player_attack"]]
+[node name="KillerArea" type="Area2D" parent="." groups=["player_attack"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killer Area"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillerArea"]
 shape = SubResource("CapsuleShape2D_ixhdl")
 
 [node name="DashParticle" type="CPUParticles2D" parent="."]

@@ -1,11 +1,22 @@
 extends Area2D
 
-func _ready():
-	$AnimatedSprite2D.hide()
+@onready var enemy_1_sprite = $Enemy_1_sprite
+@onready var enemy_block_1 = $Enemy_block_1
+@onready var player = get_parent().get_node("Player")
 
-func _on_area_entered(area):
+
+func _ready():
+	enemy_1_sprite.hide()
+
+func _on_area_entered(_area):
 	queue_free()
-	
+
 func change_art():
-	$Sprite2D.hide()
-	$AnimatedSprite2D.show()
+	enemy_block_1.hide()
+	enemy_1_sprite.show()
+
+func _process(delta):
+	global_position = player.get_position()
+
+func _follow_player():
+	

@@ -1,35 +1,40 @@
 extends CharacterBody2D
 
 @export var speed = 300
-@onready var killer_area = $"Killer Area/CollisionShape2D"
-var dead = false
+@onready var killer_area = $"KillerArea/CollisionShape2D"
+@onready var gwizz_sprite = $GwizzSprite
 
+
+
+
+var dead = false
 
 func _ready():
 	killer_area.disabled = true
-	$AnimatedSprite2D.animation = "walk"
+	gwizz_sprite.animation = "walk"
+	
 
 func for_movement():
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = input_direction * speed
 	
 	if velocity.x != 0:
-		$AnimatedSprite2D.flip_v = false
-		$AnimatedSprite2D.flip_h = velocity.x < 0
+		gwizz_sprite.flip_v = false
+		gwizz_sprite.flip_h = velocity.x < 0
 		
 	if velocity == Vector2.ZERO:
-		$AnimatedSprite2D.animation = "idle"
+		gwizz_sprite.animation = "idle"
 		
 func for_dash_and_kill():
 	if Input.is_action_just_pressed("dash") && velocity.x != 0:
-		$AnimatedSprite2D.animation = "dash"
+		gwizz_sprite.animation = "dash"
 		$DashParticle.emitting = true
 		speed = 1400
 		killer_area.disabled = false
 		await get_tree().create_timer(0.1).timeout
 		#var tween = create_tween()
-		#tween.tween_property($AnimatedSprite2D, "animation", "walk" , .5)
-		$AnimatedSprite2D.animation = "walk"
+		#tween.tween_property(gwizz_sprite, "animation", "walk" , .5)
+		gwizz_sprite.animation = "walk"
 		speed= 300
 		killer_area.disabled = true
 		
@@ -40,16 +45,13 @@ func _physics_process(_delta):
 	for_movement()
 	for_dash_and_kill()
 	move_and_slide()
-	$AnimatedSprite2D.play()
-	
-func _process(delta):
-	pass
+	gwizz_sprite.play()
 
 func kill():
 	print("player killed")
 	position = position
 	var tween = get_tree().create_tween()
-	tween.tween_property($AnimatedSprite2D, "modulate", Color.RED, .2).set_trans(Tween.TRANS_SINE)
-	tween.tween_property($AnimatedSprite2D, "scale", Vector2(), .2).set_trans(Tween.TRANS_BOUNCE)
-	tween.tween_callback($AnimatedSprite2D.queue_free)
+	tween.tween_property(gwizz_sprite, "modulate", Color.RED, .2).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(gwizz_sprite, "scale", Vector2(), .2).set_trans(Tween.TRANS_BOUNCE)
+	tween.tween_callback(gwizz_sprite.queue_free)
 	dead = true
