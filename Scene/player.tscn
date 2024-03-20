@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwbgo21cx8lyu"]
+[gd_scene load_steps=5 format=3 uid="uid://dwbgo21cx8lyu"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_1fjau"]
-[ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://Art/White.png" id="2_nrwsy"]
+[ext_resource type="Texture2D" uid="uid://cqx0p8hxa6pj1" path="res://ImageAssets/player_programmerart_64.png" id="2_6ddoa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5w6aj"]
-size = Vector2(24, 58)
+size = Vector2(54, 58)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4yka8"]
+size = Vector2(62, 62)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_1fjau")
@@ -13,5 +16,9 @@ script = ExtResource("1_1fjau")
 shape = SubResource("RectangleShape2D_5w6aj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.466667)
-texture = ExtResource("2_nrwsy")
+texture = ExtResource("2_6ddoa")
+
+[node name="Killer Area" type="Area2D" parent="." groups=["player_attack"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killer Area"]
+shape = SubResource("RectangleShape2D_4yka8")
