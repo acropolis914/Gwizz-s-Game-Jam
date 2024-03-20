@@ -5,8 +5,6 @@ extends CharacterBody2D
 @onready var gwizz_sprite = $GwizzSprite
 
 
-
-
 var dead = false
 
 func _ready():
@@ -14,7 +12,7 @@ func _ready():
 	gwizz_sprite.animation = "walk"
 	
 
-func for_movement():
+func for_movement(delta):
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = input_direction * speed
 	
@@ -25,6 +23,7 @@ func for_movement():
 	if velocity == Vector2.ZERO:
 		gwizz_sprite.animation = "idle"
 		
+	#position = position.clamp(Vector2.ZERO,get_parent().screen_size)
 func for_dash_and_kill():
 	if Input.is_action_just_pressed("dash") && velocity.x != 0:
 		gwizz_sprite.animation = "dash"
@@ -39,15 +38,17 @@ func for_dash_and_kill():
 		killer_area.disabled = true
 		
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	if dead:
 		return
-	for_movement()
+	for_movement(delta)
 	for_dash_and_kill()
 	move_and_slide()
 	gwizz_sprite.play()
 
 func kill():
+	if dead:
+		return
 	print("player killed")
 	position = position
 	var tween = get_tree().create_tween()

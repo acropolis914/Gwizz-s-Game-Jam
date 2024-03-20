@@ -16,7 +16,8 @@ func change_art():
 	enemy_1_sprite.show()
 
 func _process(delta):
-	global_position = player.get_position()
+	pass
+	#global_position = player.get_position()
 
 func _follow_player():
-	
+	pass

@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://b0weg8ntix058"]
+
+[ext_resource type="Script" path="res://Scripts/enemy_type_2.gd" id="1_8ynjm"]
+[ext_resource type="Texture2D" uid="uid://cmvq7i5mkbdji" path="res://ImageAssets/fly1 (20240321023820).png" id="2_hkw14"]
+[ext_resource type="Texture2D" uid="uid://241ys4grd60i" path="res://ImageAssets/fly2 (20240321023808).png" id="3_k7bbw"]
+[ext_resource type="Texture2D" uid="uid://fdpwdo0xk51o" path="res://ImageAssets/fly3 (20240321023741).png" id="4_h6w52"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bgnkv"]
+radius = 11.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iiiwm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hkw14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_k7bbw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_h6w52")
+}],
+"loop": true,
+"name": &"flap",
+"speed": 7.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_hrpp7"]
+interpolation_mode = 2
+colors = PackedColorArray(0.99, 0.6963, 0.1089, 1, 0.95, 0.767125, 0.6175, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5njbp"]
+gradient = SubResource("Gradient_hrpp7")
+width = 4
+height = 4
+fill_to = Vector2(1, 1)
+
+[node name="enemy_type_2" type="Area2D"]
+script = ExtResource("1_8ynjm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_bgnkv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_iiiwm")
+animation = &"flap"
+frame_progress = 0.018873
+
+[node name="Life" type="Timer" parent="."]
+wait_time = 15.0
+
+[node name="run" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="rest" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="DeathBlood" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 50
+lifetime = 0.5
+one_shot = true
+texture = SubResource("GradientTexture2D_5njbp")
+emission_shape = 1
+emission_sphere_radius = 15.22
+particle_flag_align_y = true
+direction = Vector2(0, -10)
+spread = 12.27
+gravity = Vector2(0, -10)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Life" to="." method="_on_life_timeout"]
+[connection signal="timeout" from="run" to="." method="_on_run_timeout"]
+[connection signal="timeout" from="rest" to="." method="_on_rest_timeout"]

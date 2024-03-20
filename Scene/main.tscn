@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4ehycwbenis3"]
+[gd_scene load_steps=5 format=3 uid="uid://c4ehycwbenis3"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_0qhc5"]
 [ext_resource type="PackedScene" uid="uid://dwbgo21cx8lyu" path="res://Scene/player.tscn" id="2_b3uek"]
+[ext_resource type="PackedScene" uid="uid://b0weg8ntix058" path="res://Scene/enemy_type_2.tscn" id="2_ixmfe"]
 [ext_resource type="PackedScene" uid="uid://bioel72emf3f1" path="res://Scene/enemy_type_1.tscn" id="3_3wxef"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0qhc5")
+enemy2 = ExtResource("2_ixmfe")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -15,9 +17,18 @@ position = Vector2(-93, -27)
 [node name="Enemy Type 1" parent="." instance=ExtResource("3_3wxef")]
 position = Vector2(253, 0)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Debug" type="CanvasLayer" parent="."]
 
-[node name="CheckButton" type="CheckButton" parent="CanvasLayer"]
+[node name="CheckButton" type="CheckButton" parent="Debug"]
 offset_right = 44.0
 offset_bottom = 24.0
 toggle_mode = false
+
+[node name="SpawnEnemy2" type="Button" parent="Debug"]
+offset_left = 55.0
+offset_top = 5.0
+offset_right = 129.0
+offset_bottom = 36.0
+text = "Enemy 2"
+
+[connection signal="pressed" from="Debug/SpawnEnemy2" to="." method="_on_spawn_enemy_2_pressed"]
