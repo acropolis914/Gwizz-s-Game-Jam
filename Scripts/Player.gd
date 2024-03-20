@@ -26,14 +26,12 @@ func for_dash_and_kill():
 		$DashParticle.emitting = true
 		speed = 1400
 		killer_area.disabled = false
-		$CollisionShape2D.disabled=true
 		await get_tree().create_timer(0.1).timeout
 		#var tween = create_tween()
 		#tween.tween_property($AnimatedSprite2D, "animation", "walk" , .5)
 		$AnimatedSprite2D.animation = "walk"
 		speed= 300
 		killer_area.disabled = true
-		$CollisionShape2D.disabled=false
 		
 
 func _physics_process(_delta):
