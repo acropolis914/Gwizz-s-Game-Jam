@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c4ehycwbenis3"]
+[gd_scene load_steps=10 format=3 uid="uid://c4ehycwbenis3"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_0qhc5"]
 [ext_resource type="PackedScene" uid="uid://dwbgo21cx8lyu" path="res://Scene/player.tscn" id="2_b3uek"]
@@ -6,9 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://bioel72emf3f1" path="res://Scene/enemy_type_1.tscn" id="3_3wxef"]
 [ext_resource type="PackedScene" uid="uid://mwp7x6mnuwj5" path="res://Scene/trap.tscn" id="5_i4fi0"]
 [ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="6_vglg2"]
+[ext_resource type="PackedScene" uid="uid://cr8t15u2vq6hx" path="res://Scene/story_mode.tscn" id="7_qvbas"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_euuoh"]
 size = Vector2(264, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h7kn0"]
+size = Vector2(253, 114.5)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0qhc5")
@@ -45,27 +49,26 @@ position = Vector2(-276, -193)
 position = Vector2(-270, -105)
 shape = SubResource("RectangleShape2D_euuoh")
 
-[node name="Sprite2D" type="Sprite2D" parent="Walls_StaticBody2D"]
-position = Vector2(-266, -108)
-scale = Vector2(2.175, 0.141667)
-texture = ExtResource("6_vglg2")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls_StaticBody2D"]
-position = Vector2(-503.5, -361.5)
-shape = SubResource("RectangleShape2D_euuoh")
-
-[node name="Sprite2D3" type="Sprite2D" parent="Walls_StaticBody2D"]
-position = Vector2(-499.5, -364.5)
+[node name="Sprite2D" type="Sprite2D" parent="Walls_StaticBody2D/CollisionShape2D"]
+position = Vector2(4, -3)
 scale = Vector2(2.175, 0.141667)
 texture = ExtResource("6_vglg2")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls_StaticBody2D"]
-position = Vector2(-269.5, -212.5)
-shape = SubResource("RectangleShape2D_euuoh")
+position = Vector2(-268, -263)
+shape = SubResource("RectangleShape2D_h7kn0")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Walls_StaticBody2D"]
-position = Vector2(-265.5, -215.5)
-scale = Vector2(2.175, 0.141667)
+[node name="Sprite2D2" type="Sprite2D" parent="Walls_StaticBody2D/CollisionShape2D2"]
+position = Vector2(2.5, 1.50001)
+scale = Vector2(2.175, 0.908333)
 texture = ExtResource("6_vglg2")
 
+[node name="Story_mode" parent="." instance=ExtResource("7_qvbas")]
+
+[node name="Done_Playtest_Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Done Playtest"
+
 [connection signal="pressed" from="Debug/SpawnEnemy2" to="." method="_on_spawn_enemy_2_pressed"]
+[connection signal="button_down" from="Done_Playtest_Button" to="." method="_on_done_playtest_button_button_down"]

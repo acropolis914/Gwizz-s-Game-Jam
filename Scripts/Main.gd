@@ -20,3 +20,7 @@ func _on_spawn_enemy_2_pressed():
 	var enemy2_instance = enemy2.instantiate()
 	enemy2_instance.position = Vector2(randi_range(0,screen_size.x),randi_range(0,screen_size.y))
 	add_child(enemy2_instance)
+
+
+func _on_done_playtest_button_button_down():
+	$Story_mode.show() 
