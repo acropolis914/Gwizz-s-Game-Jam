@@ -56,3 +56,6 @@ func kill():
 	tween.tween_property(gwizz_sprite, "scale", Vector2(), .2).set_trans(Tween.TRANS_BOUNCE)
 	tween.tween_callback(gwizz_sprite.queue_free)
 	dead = true
+	await get_tree().create_timer(1.0).timeout
+	dead = false
+	get_tree().reload_current_scene()

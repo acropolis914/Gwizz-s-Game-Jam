@@ -3,9 +3,19 @@ extends Node2D
 @export var enemy2 : PackedScene
 var screen_size
 
+func _ready():
+	if GlobalScript.trap:
+		var trap = preload("res://Scene/trap.tscn")
+		var traps = trap.instantiate()
+		traps.position = Vector2(-276, -193)
+		add_child(traps)
+	if GlobalScript.emeny_1:
+		var trap = preload("res://Scene/enemy_type_1.tscn")
+		var traps = trap.instantiate()
+		traps.position = Vector2(-253, 50)
+		add_child(traps)
 
 
-	
 func _process(_delta):
 	# Simple camera pan lang try
 	#if $Player && $Player.velocity != Vector2.ZERO:

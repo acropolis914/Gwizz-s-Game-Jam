@@ -7,13 +7,15 @@ var background_sprite = {
 }
 
 var dialog_text = {
+	#for Level1
 	0 : "I wanna make a game.",
 	1 : "A gwizz jam? This looks.. fun. Alright, let's do it!",
 	
 	2 : "KEY SMASH!!!",
 	3 : "PLAY TEST IT!",
+	
 	4 : "Hmm... too easy. Let's add more features.",
-	5 : "test1",
+	5 : "CHOOSE",
 	6 : "test1"
 }
 
@@ -72,3 +74,4 @@ func _input(event):
 func _on_play_button_button_down():
 	hide()
 	GlobalScript.isCoding = false
+	get_tree().change_scene_to_file("res://Scene/main.tscn")

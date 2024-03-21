@@ -1,10 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://c4ehycwbenis3"]
+[gd_scene load_steps=9 format=3 uid="uid://c4ehycwbenis3"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_0qhc5"]
 [ext_resource type="PackedScene" uid="uid://dwbgo21cx8lyu" path="res://Scene/player.tscn" id="2_b3uek"]
 [ext_resource type="PackedScene" uid="uid://b0weg8ntix058" path="res://Scene/enemy_type_2.tscn" id="2_ixmfe"]
-[ext_resource type="PackedScene" uid="uid://bioel72emf3f1" path="res://Scene/enemy_type_1.tscn" id="3_3wxef"]
-[ext_resource type="PackedScene" uid="uid://mwp7x6mnuwj5" path="res://Scene/trap.tscn" id="5_i4fi0"]
 [ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="6_vglg2"]
 [ext_resource type="PackedScene" uid="uid://cr8t15u2vq6hx" path="res://Scene/story_mode.tscn" id="7_qvbas"]
 [ext_resource type="PackedScene" uid="uid://b8dd2kjotn5vx" path="res://Scene/princess.tscn" id="8_x7y06"]
@@ -24,9 +22,6 @@ enemy2 = ExtResource("2_ixmfe")
 [node name="Player" parent="." instance=ExtResource("2_b3uek")]
 position = Vector2(-93, -27)
 
-[node name="Enemy Type 1" parent="." instance=ExtResource("3_3wxef")]
-position = Vector2(253, 0)
-
 [node name="Debug" type="CanvasLayer" parent="."]
 
 [node name="CheckButton" type="CheckButton" parent="Debug"]
@@ -40,9 +35,6 @@ offset_top = 5.0
 offset_right = 129.0
 offset_bottom = 36.0
 text = "Enemy 2"
-
-[node name="Trap" parent="." instance=ExtResource("5_i4fi0")]
-position = Vector2(-276, -193)
 
 [node name="Walls_StaticBody2D" type="StaticBody2D" parent="."]
 
