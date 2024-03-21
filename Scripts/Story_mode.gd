@@ -75,3 +75,7 @@ func _on_play_button_button_down():
 	hide()
 	GlobalScript.isCoding = false
 	get_tree().change_scene_to_file("res://Scene/main.tscn")
+
+func _on_skip_button_button_down():
+	GlobalScript.isCoding = false
+	get_tree().change_scene_to_file("res://Scene/main.tscn")

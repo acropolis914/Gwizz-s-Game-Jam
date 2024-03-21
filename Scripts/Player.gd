@@ -42,7 +42,8 @@ func _physics_process(delta):
 	if dead || GlobalScript.isCoding:
 		return
 	for_movement(delta)
-	for_dash_and_kill()
+	if GlobalScript.dash:
+		for_dash_and_kill()
 	move_and_slide()
 	gwizz_sprite.play()
 
