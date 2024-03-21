@@ -20,7 +20,7 @@ enemy2 = ExtResource("2_ixmfe")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("2_b3uek")]
-position = Vector2(-93, -27)
+position = Vector2(-523, -5)
 
 [node name="Debug" type="CanvasLayer" parent="."]
 
@@ -37,6 +37,7 @@ offset_bottom = 36.0
 text = "Enemy 2"
 
 [node name="Walls_StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(618, 156)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls_StaticBody2D"]
 position = Vector2(-270, -105)
@@ -60,6 +61,6 @@ texture = ExtResource("6_vglg2")
 visible = false
 
 [node name="Princess" parent="." instance=ExtResource("8_x7y06")]
-position = Vector2(9, -285)
+position = Vector2(541, -15)
 
 [connection signal="pressed" from="Debug/SpawnEnemy2" to="." method="_on_spawn_enemy_2_pressed"]

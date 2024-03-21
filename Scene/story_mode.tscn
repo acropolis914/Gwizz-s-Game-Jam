@@ -55,5 +55,13 @@ offset_bottom = 77.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 text = "PLAY"
 
+[node name="Skip_Button" type="Button" parent="."]
+offset_left = 1063.0
+offset_top = 622.0
+offset_right = 1105.0
+offset_bottom = 653.0
+text = "SKIP"
+
 [connection signal="button_up" from="Next_Button" to="." method="_on_next_button_button_up"]
 [connection signal="button_down" from="Play_Button" to="." method="_on_play_button_button_down"]
+[connection signal="button_down" from="Skip_Button" to="." method="_on_skip_button_button_down"]
