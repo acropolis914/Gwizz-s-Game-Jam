@@ -67,7 +67,13 @@ texture = ExtResource("6_vglg2")
 [node name="Story_mode" parent="." instance=ExtResource("7_qvbas")]
 visible = false
 
+[node name="Done_Playtest_Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Done Playtest"
+
 [node name="Princess" parent="." instance=ExtResource("8_x7y06")]
 position = Vector2(9, -285)
 
 [connection signal="pressed" from="Debug/SpawnEnemy2" to="." method="_on_spawn_enemy_2_pressed"]
+[connection signal="button_down" from="Done_Playtest_Button" to="." method="_on_done_playtest_button_button_down"]

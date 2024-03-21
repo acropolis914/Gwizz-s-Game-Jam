@@ -12,7 +12,7 @@ var dialog_text = {
 	
 	2 : "KEY SMASH!!!",
 	3 : "PLAY TEST IT!",
-	4 : "test1",
+	4 : "Hmm... too easy. Let's add more features.",
 	5 : "test1",
 	6 : "test1"
 }
@@ -22,6 +22,12 @@ var code_text = {
   then game is made
 		ELSE:
   game crash and I cry",
+	1 :
+	"Make game little harder
+	LOOP then something:
+		level += 1
+	func _add_feature():
+		game is now baby level",
 }
 @onready var next_button = $Next_Button
 @onready var play_button = $Play_Button
@@ -37,8 +43,9 @@ func _ready():
 	coding_label.visible_ratio = 0
 	play_button.hide()
 
-func _process(delta):
-	
+func _process(_delta):
+	if GlobalScript.isCoding == true:
+		show()
 	
 	dialog_label.text = dialog_text[dialog_num]
 	coding_label.text = code_text[code_num]
@@ -64,3 +71,4 @@ func _input(event):
 
 func _on_play_button_button_down():
 	hide()
+	GlobalScript.isCoding = false

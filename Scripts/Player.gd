@@ -39,7 +39,7 @@ func for_dash_and_kill():
 		
 
 func _physics_process(delta):
-	if dead:
+	if dead || GlobalScript.isCoding:
 		return
 	for_movement(delta)
 	for_dash_and_kill()
