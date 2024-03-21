@@ -9,6 +9,7 @@ func _ready():
 		var traps = trap.instantiate()
 		traps.position = Vector2(-276, -193)
 		add_child(traps)
+	
 	if GlobalScript.emeny_1:
 		var trap = preload("res://Scene/enemy_type_1.tscn")
 		var traps = trap.instantiate()
