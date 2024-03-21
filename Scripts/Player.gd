@@ -28,7 +28,7 @@ func for_dash_and_kill():
 	if Input.is_action_just_pressed("dash") && velocity.x != 0:
 		gwizz_sprite.animation = "dash"
 		$DashParticle.emitting = true
-		speed = 1400
+		speed = 1800
 		killer_area.disabled = false
 		await get_tree().create_timer(0.1).timeout
 		#var tween = create_tween()

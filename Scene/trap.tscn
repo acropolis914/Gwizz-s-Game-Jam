@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://mwp7x6mnuwj5"]
+
+[ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="1_ask54"]
+[ext_resource type="Script" path="res://Scripts/trap.gd" id="1_vl2tj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w106n"]
+size = Vector2(72, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lp3dw"]
+size = Vector2(3, 77)
+
+[sub_resource type="Animation" id="Animation_rktxd"]
+resource_name = "trap"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 2, 3.5),
+"transitions": PackedFloat32Array(2.07053, 142.025, 1, 1),
+"update": 0,
+"values": [Vector2(0, -25), Vector2(0, 63), Vector2(0, 63), Vector2(0, -25)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hsm8s"]
+_data = {
+"trap": SubResource("Animation_rktxd")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wng08"]
+size = Vector2(52, 48)
+
+[node name="Trap" type="Area2D"]
+script = ExtResource("1_vl2tj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -25)
+shape = SubResource("RectangleShape2D_w106n")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+position = Vector2(0, -35)
+scale = Vector2(0.633333, 0.666667)
+texture = ExtResource("1_ask54")
+
+[node name="Sides_StaticBody2D" type="StaticBody2D" parent="CollisionShape2D"]
+position = Vector2(0, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D/Sides_StaticBody2D"]
+position = Vector2(-38, -24)
+shape = SubResource("RectangleShape2D_lp3dw")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CollisionShape2D/Sides_StaticBody2D"]
+position = Vector2(38, -24)
+shape = SubResource("RectangleShape2D_lp3dw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hsm8s")
+}
+
+[node name="X_Area2D" type="Area2D" parent="."]
+
+[node name="Sprite2D2" type="Sprite2D" parent="X_Area2D"]
+position = Vector2(0, 38.5)
+scale = Vector2(0.433333, 0.391667)
+texture = ExtResource("1_ask54")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="X_Area2D"]
+position = Vector2(0, 39)
+shape = SubResource("RectangleShape2D_wng08")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="X_Area2D" to="." method="_on_x_area_2d_body_entered"]

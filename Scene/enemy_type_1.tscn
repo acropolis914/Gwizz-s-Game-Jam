@@ -37,5 +37,5 @@ position = Vector2(1, 1)
 scale = Vector2(0.84375, 0.890625)
 sprite_frames = SubResource("SpriteFrames_cpxq5")
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="body_entered" from="." to="Enemy Death Comp" method="_on_enemy_type_1_body_entered"]
+[connection signal="area_entered" from="." to="Enemy Death Comp" method="_on_enemy_type_1_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

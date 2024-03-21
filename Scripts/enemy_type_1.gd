@@ -4,12 +4,8 @@ extends Area2D
 @onready var enemy_block_1 = $Enemy_block_1
 @onready var player = get_parent().get_node("Player")
 
-
 func _ready():
 	enemy_1_sprite.hide()
-
-func _on_area_entered(_area):
-	queue_free()
 
 func change_art():
 	enemy_block_1.hide()
@@ -21,3 +17,6 @@ func _process(delta):
 
 func _follow_player():
 	pass
+
+func _on_body_entered(body):
+	body.kill()

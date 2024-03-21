@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4ehycwbenis3"]
+[gd_scene load_steps=8 format=3 uid="uid://c4ehycwbenis3"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_0qhc5"]
 [ext_resource type="PackedScene" uid="uid://dwbgo21cx8lyu" path="res://Scene/player.tscn" id="2_b3uek"]
 [ext_resource type="PackedScene" uid="uid://b0weg8ntix058" path="res://Scene/enemy_type_2.tscn" id="2_ixmfe"]
 [ext_resource type="PackedScene" uid="uid://bioel72emf3f1" path="res://Scene/enemy_type_1.tscn" id="3_3wxef"]
+[ext_resource type="PackedScene" uid="uid://mwp7x6mnuwj5" path="res://Scene/trap.tscn" id="5_i4fi0"]
+[ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="6_vglg2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_euuoh"]
+size = Vector2(264, 20)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0qhc5")
@@ -30,5 +35,37 @@ offset_top = 5.0
 offset_right = 129.0
 offset_bottom = 36.0
 text = "Enemy 2"
+
+[node name="Trap" parent="." instance=ExtResource("5_i4fi0")]
+position = Vector2(-276, -193)
+
+[node name="Walls_StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls_StaticBody2D"]
+position = Vector2(-270, -105)
+shape = SubResource("RectangleShape2D_euuoh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls_StaticBody2D"]
+position = Vector2(-266, -108)
+scale = Vector2(2.175, 0.141667)
+texture = ExtResource("6_vglg2")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls_StaticBody2D"]
+position = Vector2(-503.5, -361.5)
+shape = SubResource("RectangleShape2D_euuoh")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Walls_StaticBody2D"]
+position = Vector2(-499.5, -364.5)
+scale = Vector2(2.175, 0.141667)
+texture = ExtResource("6_vglg2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls_StaticBody2D"]
+position = Vector2(-269.5, -212.5)
+shape = SubResource("RectangleShape2D_euuoh")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Walls_StaticBody2D"]
+position = Vector2(-265.5, -215.5)
+scale = Vector2(2.175, 0.141667)
+texture = ExtResource("6_vglg2")
 
 [connection signal="pressed" from="Debug/SpawnEnemy2" to="." method="_on_spawn_enemy_2_pressed"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b0weg8ntix058"]
+[gd_scene load_steps=10 format=3 uid="uid://b0weg8ntix058"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_type_2.gd" id="1_8ynjm"]
 [ext_resource type="Texture2D" uid="uid://cmvq7i5mkbdji" path="res://ImageAssets/fly1 (20240321023820).png" id="2_hkw14"]
 [ext_resource type="Texture2D" uid="uid://241ys4grd60i" path="res://ImageAssets/fly2 (20240321023808).png" id="3_k7bbw"]
 [ext_resource type="Texture2D" uid="uid://fdpwdo0xk51o" path="res://ImageAssets/fly3 (20240321023741).png" id="4_h6w52"]
+[ext_resource type="Script" path="res://Scripts/Components/Enemy Death Comp.gd" id="5_ghhsy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bgnkv"]
 radius = 11.0
@@ -44,7 +45,7 @@ shape = SubResource("CapsuleShape2D_bgnkv")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_iiiwm")
 animation = &"flap"
-frame_progress = 0.018873
+frame_progress = 0.307081
 
 [node name="Life" type="Timer" parent="."]
 wait_time = 15.0
@@ -72,6 +73,10 @@ gravity = Vector2(0, -10)
 initial_velocity_min = 10.0
 initial_velocity_max = 20.0
 
+[node name="Enemy Death Comp" type="Node" parent="."]
+script = ExtResource("5_ghhsy")
+
+[connection signal="area_entered" from="." to="Enemy Death Comp" method="_on_enemy_type_1_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Life" to="." method="_on_life_timeout"]
 [connection signal="timeout" from="run" to="." method="_on_run_timeout"]

@@ -38,9 +38,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ixhdl"]
-radius = 6.0
-height = 18.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tr350"]
+size = Vector2(58, 62)
 
 [sub_resource type="Gradient" id="Gradient_tjhf7"]
 colors = PackedColorArray(2.88785e-07, 0.731922, 0.78956, 1, 1, 1, 1, 1)
@@ -66,7 +65,7 @@ frame_progress = 0.722012
 [node name="KillerArea" type="Area2D" parent="." groups=["player_attack"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillerArea"]
-shape = SubResource("CapsuleShape2D_ixhdl")
+shape = SubResource("RectangleShape2D_tr350")
 
 [node name="DashParticle" type="CPUParticles2D" parent="."]
 emitting = false
