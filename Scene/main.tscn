@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c4ehycwbenis3"]
+[gd_scene load_steps=12 format=3 uid="uid://c4ehycwbenis3"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_0qhc5"]
 [ext_resource type="PackedScene" uid="uid://dwbgo21cx8lyu" path="res://Scene/player.tscn" id="2_b3uek"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cr8t15u2vq6hx" path="res://Scene/story_mode.tscn" id="7_qvbas"]
 [ext_resource type="PackedScene" uid="uid://f12olo3uq6e6" path="res://Scene/gate.tscn" id="8_5nvpr"]
 [ext_resource type="PackedScene" uid="uid://b8dd2kjotn5vx" path="res://Scene/princess.tscn" id="8_x7y06"]
+[ext_resource type="Script" path="res://Scripts/Timer_CanvasLayer.gd" id="9_5lsd1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_euuoh"]
 size = Vector2(264, 20)
@@ -93,4 +94,19 @@ position = Vector2(574, -10)
 [node name="Gate" parent="." instance=ExtResource("8_5nvpr")]
 position = Vector2(218, 260)
 
+[node name="Timer_CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("9_5lsd1")
+
+[node name="Game_Timer" type="Timer" parent="Timer_CanvasLayer"]
+wait_time = 60.0
+one_shot = true
+autostart = true
+
+[node name="Label" type="Label" parent="Timer_CanvasLayer"]
+offset_left = 36.0
+offset_top = 33.0
+offset_right = 76.0
+offset_bottom = 56.0
+
 [connection signal="pressed" from="Debug/SpawnEnemy2" to="." method="_on_spawn_enemy_2_pressed"]
+[connection signal="timeout" from="Timer_CanvasLayer/Game_Timer" to="Player" method="_on_game_timer_timeout"]

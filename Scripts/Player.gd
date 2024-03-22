@@ -66,3 +66,7 @@ func has_key():
 
 func gate_unlocked():
 	$Key_Sprite2D.hide()
+
+
+func _on_game_timer_timeout():
+	kill()
