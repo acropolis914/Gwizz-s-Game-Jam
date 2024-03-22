@@ -24,7 +24,8 @@ func _process(delta):
 		#position += atan2((player_position.x -position.x),(player_position.y-position.y))
 
 func _on_body_entered(body):
-	body.kill()
+	if body.is_in_group("player"):
+		body.kill()
 
 func _on_run_timeout():
 	resting = true

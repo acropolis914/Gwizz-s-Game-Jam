@@ -1,4 +1,4 @@
-extends Area2D
+extends CharacterBody2D
 
 var speed = 1
 var toAttack = false
@@ -8,7 +8,7 @@ func _process(delta):
 		position += speed * (player_pos-position) * delta
 	if toAttack:
 		_attack()
-		
+	move_and_slide
 
 func _on_attack_timer_timeout():
 	toAttack = true

@@ -65,6 +65,8 @@ visible = false
 position = Vector2(541, -15)
 
 [node name="enemy_type_3" parent="." instance=ExtResource("7_4dygs")]
-position = Vector2(-271, 154)
+
+[node name="enemy_type_2" parent="." instance=ExtResource("2_ixmfe")]
+position = Vector2(-169, -147)
 
 [connection signal="pressed" from="Debug/SpawnEnemy2" to="." method="_on_spawn_enemy_2_pressed"]
