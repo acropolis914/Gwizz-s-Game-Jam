@@ -76,7 +76,7 @@ initial_velocity_max = 20.0
 [node name="Enemy Death Comp" type="Node" parent="."]
 script = ExtResource("5_ghhsy")
 
-[connection signal="area_entered" from="." to="Enemy Death Comp" method="_on_enemy_type_1_area_entered"]
+[connection signal="area_entered" from="." to="Enemy Death Comp" method="_on_killer_area_2d_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Life" to="." method="_on_life_timeout"]
 [connection signal="timeout" from="run" to="." method="_on_run_timeout"]

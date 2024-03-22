@@ -1,15 +1,16 @@
 extends Node
 
-var isCoding = true
+var isCoding = false
 
 var level = 0
 
 var story_number = 0
 
 #UPGRADES
-#it's spelled enemy
-var emeny_1 = false
-var emeny_2 = false
-var emeny_3 = false
-var trap = false
-var dash = false
+var emeny_1 = true
+var emeny_2 = true
+var emeny_3 = true
+var trap = true
+var dash = true
+
+var key = false

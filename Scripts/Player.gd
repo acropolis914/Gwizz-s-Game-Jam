@@ -60,3 +60,13 @@ func kill():
 	await get_tree().create_timer(1.0).timeout
 	dead = false
 	get_tree().reload_current_scene()
+
+func has_key():
+	$Key_Sprite2D.show()
+
+func gate_unlocked():
+	$Key_Sprite2D.hide()
+
+
+func _on_game_timer_timeout():
+	kill()

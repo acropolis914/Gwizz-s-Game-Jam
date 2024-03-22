@@ -1,4 +1,5 @@
 extends Node
 
-func _on_enemy_type_1_area_entered(_area):
-	$"..".queue_free()
+func _on_killer_area_2d_area_entered(area):
+	if area.is_in_group("player_attack"):
+		$"..".queue_free()

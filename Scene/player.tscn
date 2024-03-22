@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dwbgo21cx8lyu"]
+[gd_scene load_steps=11 format=3 uid="uid://dwbgo21cx8lyu"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_1fjau"]
 [ext_resource type="Texture2D" uid="uid://cqx0p8hxa6pj1" path="res://ImageAssets/player_programmerart_64.png" id="2_6ddoa"]
 [ext_resource type="Texture2D" uid="uid://djupu0ttnro4v" path="res://ImageAssets/player_dash_programmerart_64.png" id="2_380vl"]
 [ext_resource type="Texture2D" uid="uid://bhrjflbuiikul" path="res://ImageAssets/player_idle1_programmerart_64.png" id="4_2emre"]
+[ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="5_echeq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5w6aj"]
 size = Vector2(54, 58)
@@ -55,7 +56,6 @@ fill_to = Vector2(0, 0)
 script = ExtResource("1_1fjau")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("RectangleShape2D_5w6aj")
 
 [node name="GwizzSprite" type="AnimatedSprite2D" parent="."]
@@ -66,7 +66,6 @@ frame_progress = 0.722012
 [node name="KillerArea" type="Area2D" parent="." groups=["player_attack"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillerArea"]
-visible = false
 shape = SubResource("RectangleShape2D_tr350")
 
 [node name="DashParticle" type="CPUParticles2D" parent="."]
@@ -82,3 +81,10 @@ direction = Vector2(-10, 0)
 spread = 97.73
 gravity = Vector2(-20, -100)
 linear_accel_max = 12.12
+
+[node name="Key_Sprite2D" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 0.27451, 1)
+position = Vector2(0, -40)
+scale = Vector2(0.183333, 0.233333)
+texture = ExtResource("5_echeq")

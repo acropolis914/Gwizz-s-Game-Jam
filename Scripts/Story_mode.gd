@@ -42,6 +42,7 @@ var code_num = 0
 var bg_number = 0
 
 func _ready():
+	hide()
 	coding_label.visible_ratio = 0
 	play_button.hide()
 

@@ -24,7 +24,7 @@ func _process(_delta):
 	#	$Camera2D.position += ($Player.position - $Camera2D.position)/3 * delta
 
 	if $Debug/CheckButton.button_pressed:
-		$"Enemy Type 1".change_art()
+		$"enemy_type_1".change_art()
 
 
 func _on_spawn_enemy_2_pressed():

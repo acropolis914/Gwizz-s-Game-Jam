@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bioel72emf3f1"]
+[gd_scene load_steps=8 format=3 uid="uid://bioel72emf3f1"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_type_1.gd" id="1_dhl5t"]
 [ext_resource type="Texture2D" uid="uid://ddofncep5nh56" path="res://ImageAssets/enemy1_programmerart_64.png" id="2_ht0kc"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="4_yluhq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uod3q"]
-size = Vector2(46, 50)
+size = Vector2(38, 42)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cpxq5"]
 animations = [{
@@ -19,13 +19,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Enemy Type 1" type="Area2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_17sbu"]
+size = Vector2(40, 46)
+
+[node name="enemy_type_1" type="CharacterBody2D"]
 script = ExtResource("1_dhl5t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_uod3q")
 
 [node name="Enemy_block_1" type="Sprite2D" parent="."]
+modulate = Color(0.592157, 1, 0.592157, 1)
 scale = Vector2(0.333333, 0.366667)
 texture = ExtResource("4_yluhq")
 
@@ -37,5 +41,10 @@ position = Vector2(1, 1)
 scale = Vector2(0.84375, 0.890625)
 sprite_frames = SubResource("SpriteFrames_cpxq5")
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="body_entered" from="." to="Enemy Death Comp" method="_on_enemy_type_1_body_entered"]
+[node name="Killer_Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killer_Area2D"]
+shape = SubResource("RectangleShape2D_17sbu")
+
+[connection signal="area_entered" from="Killer_Area2D" to="Enemy Death Comp" method="_on_killer_area_2d_area_entered"]
+[connection signal="body_entered" from="Killer_Area2D" to="." method="_on_killer_area_2d_body_entered"]
