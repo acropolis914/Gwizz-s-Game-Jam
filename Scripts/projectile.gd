@@ -1,6 +1,6 @@
 extends Area2D
 
-var speed = 1000
+var speed = 800
 var player_pos
 var dir
 

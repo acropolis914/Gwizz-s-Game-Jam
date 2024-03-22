@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://f12olo3uq6e6"]
+
+[ext_resource type="Script" path="res://Scripts/gate.gd" id="1_fo5on"]
+[ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="1_v1e5c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_77716"]
+size = Vector2(124, 138)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ilp8y"]
+size = Vector2(122, 126)
+
+[node name="Gate" type="Area2D"]
+script = ExtResource("1_fo5on")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_77716")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.247059, 0.25098, 1, 1)
+texture = ExtResource("1_v1e5c")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_ilp8y")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -12,3 +12,5 @@ var emeny_2 = true
 var emeny_3 = true
 var trap = true
 var dash = true
+
+var key = false
