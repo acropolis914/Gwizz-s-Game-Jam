@@ -9,7 +9,6 @@ func _ready():
 	$AnimatedSprite2D.animation = "flap"
 	$AnimatedSprite2D.play()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	speed_multiplier = randf_range(0.75, 1.1)
@@ -24,21 +23,18 @@ func _process(delta):
 		#position += atan2((player_position.x -position.x),(player_position.y-position.y))
 
 func _on_body_entered(body):
-	body.kill()
+	if body.has_method("kill"):
+		body.kill()
 
 func _on_run_timeout():
 	resting = true
 	$rest.set_wait_time(randf_range(3,7))
 	$rest.start()
-	print("started resting")
 	
 func _on_rest_timeout():
 	resting = false
 	$run.set_wait_time(randf_range(3,7))
 	$run.start()
-	print("stopped resting")
-	print(self.name)
-
 
 func _on_life_timeout():
 	$DeathBlood.emitting = true

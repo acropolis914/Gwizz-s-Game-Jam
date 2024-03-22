@@ -1,18 +1,19 @@
 extends Node2D
 
+@export var enemy1 : PackedScene
 @export var enemy2 : PackedScene
+@export var trap : PackedScene
 var screen_size
 
 func _ready():
+	screen_size = get_viewport_rect().size
 	if GlobalScript.trap:
-		var trap = preload("res://Scene/trap.tscn")
 		var traps = trap.instantiate()
 		traps.position = Vector2(335, -40)
 		add_child(traps)
 	
 	if GlobalScript.emeny_1:
-		var trap = preload("res://Scene/enemy_type_1.tscn")
-		var traps = trap.instantiate()
+		var traps = enemy1.instantiate()
 		traps.position = Vector2(-253, 50)
 		add_child(traps)
 
