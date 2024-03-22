@@ -55,7 +55,6 @@ fill_to = Vector2(0, 0)
 script = ExtResource("1_1fjau")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("RectangleShape2D_5w6aj")
 
 [node name="GwizzSprite" type="AnimatedSprite2D" parent="."]
@@ -66,7 +65,6 @@ frame_progress = 0.722012
 [node name="KillerArea" type="Area2D" parent="." groups=["player_attack"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillerArea"]
-visible = false
 shape = SubResource("RectangleShape2D_tr350")
 
 [node name="DashParticle" type="CPUParticles2D" parent="."]

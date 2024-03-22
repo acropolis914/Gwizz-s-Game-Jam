@@ -17,3 +17,4 @@ func _follow_player():
 
 func _on_body_entered(body):
 	body.kill()
+
