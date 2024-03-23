@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cr8t15u2vq6hx"]
+[gd_scene load_steps=8 format=3 uid="uid://cr8t15u2vq6hx"]
 
 [ext_resource type="Script" path="res://Scripts/Story_mode.gd" id="1_i7m82"]
 [ext_resource type="Texture2D" uid="uid://cl0nu3aeu7dk2" path="res://ImageAssets/Screenshot Godot.png" id="2_xvy74"]
+[ext_resource type="Texture2D" uid="uid://cnybskrryfdby" path="res://ImageAssets/Screenshot Error.png" id="3_a52ai"]
+[ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="4_7gl02"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2bs7b"]
 bg_color = Color(0.494118, 0.494118, 0.494118, 0.356863)
@@ -9,6 +11,27 @@ expand_margin_left = 10.0
 expand_margin_top = 10.0
 expand_margin_right = 10.0
 expand_margin_bottom = 10.0
+
+[sub_resource type="Animation" id="Animation_t8628"]
+resource_name = "Fade"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s4qnk"]
+_data = {
+"Fade": SubResource("Animation_t8628")
+}
 
 [node name="Story_mode" type="CanvasLayer"]
 script = ExtResource("1_i7m82")
@@ -55,13 +78,72 @@ offset_bottom = 77.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 text = "PLAY"
 
-[node name="Skip_Button" type="Button" parent="."]
-offset_left = 1063.0
-offset_top = 622.0
-offset_right = 1105.0
-offset_bottom = 653.0
-text = "SKIP"
+[node name="Card_Button" type="Button" parent="."]
+visible = false
+offset_left = 151.0
+offset_top = 151.0
+offset_right = 398.0
+offset_bottom = 375.0
+text = "CARD!!!"
+
+[node name="Error_Card_Button" type="Button" parent="."]
+visible = false
+offset_left = 927.0
+offset_top = 155.0
+offset_right = 1174.0
+offset_bottom = 379.0
+text = "Hard to code feature"
+
+[node name="Error" type="Node2D" parent="."]
+visible = false
+
+[node name="Button2" type="Button" parent="Error"]
+offset_left = -31.0
+offset_top = -39.0
+offset_right = 1334.0
+offset_bottom = 783.0
+flat = true
+
+[node name="Button" type="Button" parent="Error"]
+offset_left = -31.0
+offset_top = -39.0
+offset_right = 1334.0
+offset_bottom = 783.0
+flat = true
+
+[node name="Error_Sprite2D" type="Sprite2D" parent="Error"]
+position = Vector2(638, 337)
+scale = Vector2(1, 1)
+texture = ExtResource("3_a52ai")
+
+[node name="Sprite2D" type="Sprite2D" parent="Error"]
+modulate = Color(1, 1, 1, 0.380392)
+position = Vector2(639.5, 353.5)
+scale = Vector2(10.7583, 6.19167)
+texture = ExtResource("4_7gl02")
+
+[node name="Fade" type="AnimationPlayer" parent="Error"]
+root_node = NodePath("../black_Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_s4qnk")
+}
+
+[node name="black_Sprite2D" type="Sprite2D" parent="Error"]
+modulate = Color(0, 0, 0, 0)
+position = Vector2(639.5, 353.5)
+scale = Vector2(10.7583, 6.19167)
+texture = ExtResource("4_7gl02")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 494.0
+offset_top = 205.0
+offset_right = 868.0
+offset_bottom = 405.0
 
 [connection signal="button_up" from="Next_Button" to="." method="_on_next_button_button_up"]
 [connection signal="button_down" from="Play_Button" to="." method="_on_play_button_button_down"]
-[connection signal="button_down" from="Skip_Button" to="." method="_on_skip_button_button_down"]
+[connection signal="button_down" from="Card_Button" to="." method="_on_card_button_button_down"]
+[connection signal="button_down" from="Error_Card_Button" to="." method="_on_error_card_button_button_down"]
+[connection signal="button_down" from="Error_Card_Button" to="." method="_on_card_button_button_down"]
+[connection signal="button_down" from="Error/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="Button" to="." method="_on_button_button_downsccs"]

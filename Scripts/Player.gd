@@ -32,7 +32,7 @@ func for_mouse_movement(delta):
 func for_dash_and_kill():
 	var mouse_dis = position.distance_to(get_global_mouse_position())
 	if Input.is_action_just_pressed("dash") && velocity.x != 0:
-			speed = 1800
+			speed = speed*6
 			gwizz_sprite.animation = "dash"
 			$DashParticle.emitting = true
 			killer_area.disabled = false
@@ -45,7 +45,7 @@ func for_dash_and_kill():
 		
 
 func _physics_process(delta):
-	if dead || GlobalScript.isCoding:
+	if dead:
 		return
 	if GlobalScript.mouse_mode:
 		for_mouse_movement(delta)
@@ -72,9 +72,13 @@ func kill():
 
 func has_key():
 	$Key_Sprite2D.show()
-
 func gate_unlocked():
 	$Key_Sprite2D.hide()
+
+func slimed():
+	speed = .3 * speed
+func unslimed():
+	speed = 300
 
 func _on_game_timer_timeout():
 	kill()

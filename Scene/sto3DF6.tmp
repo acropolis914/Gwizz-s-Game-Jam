@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=3 uid="uid://cr8t15u2vq6hx"]
+
+[ext_resource type="Script" path="res://Scripts/Story_mode.gd" id="1_i7m82"]
+[ext_resource type="Texture2D" uid="uid://cl0nu3aeu7dk2" path="res://ImageAssets/Screenshot Godot.png" id="2_xvy74"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2bs7b"]
+bg_color = Color(0.494118, 0.494118, 0.494118, 0.356863)
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[node name="Story_mode" type="CanvasLayer"]
+script = ExtResource("1_i7m82")
+
+[node name="Background_Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(639, 350)
+scale = Vector2(0.660761, 0.641335)
+texture = ExtResource("2_xvy74")
+
+[node name="Dialog_Label" type="Label" parent="."]
+offset_left = 44.0
+offset_top = 552.0
+offset_right = 1206.0
+offset_bottom = 647.0
+theme_type_variation = &"GraphNodeTitleLabel"
+theme_override_styles/normal = SubResource("StyleBoxFlat_2bs7b")
+text = "tesinggngikspsn;lfsd"
+
+[node name="Next_Button" type="Button" parent="."]
+offset_left = 1080.0
+offset_top = 619.0
+offset_right = 1202.0
+offset_bottom = 650.0
+text = "Next"
+flat = true
+
+[node name="Coding_Label" type="Label" parent="."]
+offset_left = 251.0
+offset_top = 156.0
+offset_right = 388.0
+offset_bottom = 231.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "efsvsbjdwgrVDwg
+GWrjbjovd
+rbjlsnvd"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Play_Button" type="Button" parent="."]
+offset_left = 1020.0
+offset_top = 16.0
+offset_right = 1081.0
+offset_bottom = 77.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "PLAY"
+
+[node name="Card_Button" type="Button" parent="."]
+visible = false
+offset_left = 472.0
+offset_top = 211.0
+offset_right = 719.0
+offset_bottom = 435.0
+text = "CARD!!!"
+
+[connection signal="button_up" from="Next_Button" to="." method="_on_next_button_button_up"]
+[connection signal="button_down" from="Play_Button" to="." method="_on_play_button_button_down"]
+[connection signal="button_down" from="Card_Button" to="." method="_on_card_button_button_down"]

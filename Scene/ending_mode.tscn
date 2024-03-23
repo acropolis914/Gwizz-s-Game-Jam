@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://df5ioo34xm154"]
+
+[ext_resource type="Script" path="res://Scripts/ending_mode.gd" id="1_kejtb"]
+[ext_resource type="Texture2D" uid="uid://cx0ylvqts013l" path="res://ImageAssets/Screenshot Submit.png" id="2_h34lo"]
+
+[node name="Ending_mode" type="CanvasLayer"]
+script = ExtResource("1_kejtb")
+
+[node name="ScreenshotSubmit" type="Sprite2D" parent="."]
+position = Vector2(641, 358.5)
+scale = Vector2(0.66493, 0.670065)
+texture = ExtResource("2_h34lo")
+
+[node name="Submit_Button" type="Button" parent="."]
+offset_left = 702.0
+offset_top = 521.0
+offset_right = 859.0
+offset_bottom = 557.0
+text = "SUBMIT PROJECT"
+
+[connection signal="button_down" from="Submit_Button" to="." method="_on_submit_button_button_down"]

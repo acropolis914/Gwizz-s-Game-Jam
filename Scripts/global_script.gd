@@ -1,10 +1,7 @@
 extends Node
 
-var isCoding = false
-
 var level = 0
-
-var story_number = 0
+var aesthetic = 0
 
 #UPGRADES
 var emeny_1 = true
@@ -15,4 +12,6 @@ var dash = true
 
 var key = false
 var coins = 0
+
+#Settings
 var mouse_mode = true

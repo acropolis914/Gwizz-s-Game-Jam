@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c4ehycwbenis3"]
+[gd_scene load_steps=17 format=3 uid="uid://c4ehycwbenis3"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_0qhc5"]
 [ext_resource type="PackedScene" uid="uid://dwbgo21cx8lyu" path="res://Scene/player.tscn" id="2_b3uek"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://b8dd2kjotn5vx" path="res://Scene/princess.tscn" id="8_x7y06"]
 [ext_resource type="Script" path="res://Scripts/Timer_CanvasLayer.gd" id="9_5lsd1"]
 [ext_resource type="PackedScene" uid="uid://cfh6fu6sg2kyy" path="res://Scene/coin.tscn" id="12_gs1c4"]
+[ext_resource type="PackedScene" uid="uid://gwrdgj65fsr4" path="res://Scene/enemy_type_3.tscn" id="13_1u1k8"]
+[ext_resource type="PackedScene" uid="uid://03tyh5acohqu" path="res://Scene/slime.tscn" id="14_orumr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_euuoh"]
 size = Vector2(264, 20)
@@ -28,7 +30,7 @@ trap = ExtResource("4_b7axx")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("2_b3uek")]
-position = Vector2(-523, -5)
+position = Vector2(-478, -6)
 
 [node name="Debug" type="CanvasLayer" parent="."]
 
@@ -138,6 +140,12 @@ position = Vector2(-710, 110)
 
 [node name="Coin5" parent="Coins" instance=ExtResource("12_gs1c4")]
 position = Vector2(-614, -164)
+
+[node name="enemy_type_3" parent="." instance=ExtResource("13_1u1k8")]
+position = Vector2(106, -156)
+
+[node name="Slime" parent="." instance=ExtResource("14_orumr")]
+position = Vector2(-267, -11)
 
 [connection signal="pressed" from="Debug/SpawnEnemy2" to="." method="_on_spawn_enemy_2_pressed"]
 [connection signal="timeout" from="UI_CanvasLayer/Game_Timer" to="Player" method="_on_game_timer_timeout"]
