@@ -1,14 +1,51 @@
-[gd_scene load_steps=6 format=3 uid="uid://gwrdgj65fsr4"]
+[gd_scene load_steps=12 format=3 uid="uid://gwrdgj65fsr4"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_type_3.gd" id="1_gymja"]
 [ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="2_oye23"]
 [ext_resource type="Script" path="res://Scripts/Components/Enemy Death Comp.gd" id="3_0bwcu"]
+[ext_resource type="Texture2D" uid="uid://dn8t76r6j5rdp" path="res://ImageAssets/Enemy3/enemy3_0003_5.png" id="4_n0nu7"]
+[ext_resource type="Texture2D" uid="uid://yusjwm0q80fd" path="res://ImageAssets/Enemy3/enemy3_0004_4.png" id="5_fpp2s"]
+[ext_resource type="Texture2D" uid="uid://mkl2jw4gbx4e" path="res://ImageAssets/Enemy3/enemy3_0005_3.png" id="6_hryq7"]
+[ext_resource type="Texture2D" uid="uid://c52cixm4ayj2a" path="res://ImageAssets/Enemy3/enemy3_0007_1.png" id="7_mbdvq"]
+[ext_resource type="Texture2D" uid="uid://dy6w23lhgmkna" path="res://ImageAssets/Enemy3/enemy3_0006_2.png" id="8_qyjtv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trlfs"]
 size = Vector2(36, 43)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q0fgh"]
 size = Vector2(40, 46)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wfy6l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_n0nu7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fpp2s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hryq7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_mbdvq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qyjtv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_mbdvq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hryq7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fpp2s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
 
 [node name="enemy_type_3" type="CharacterBody2D"]
 script = ExtResource("1_gymja")
@@ -33,6 +70,10 @@ autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killer_Area2D"]
 shape = SubResource("RectangleShape2D_q0fgh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wfy6l")
+frame_progress = 0.734254
 
 [connection signal="timeout" from="Attack_Timer" to="." method="_on_attack_timer_timeout"]
 [connection signal="area_entered" from="Killer_Area2D" to="Enemy Death Comp" method="_on_killer_area_2d_area_entered"]

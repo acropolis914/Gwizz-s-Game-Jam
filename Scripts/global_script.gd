@@ -14,4 +14,4 @@ var key = false
 var coins = 0
 
 #Settings
-var mouse_mode = true
+var mouse_mode = false

@@ -9,7 +9,7 @@ func _ready():
 	screen_size = get_viewport_rect().size
 	if GlobalScript.trap:
 		var traps = trap.instantiate()
-		traps.position = Vector2(335, -40)
+		traps.position = $trap_position.position
 		add_child(traps)
 	
 	if GlobalScript.emeny_1:
@@ -20,7 +20,7 @@ func _ready():
 
 func _process(delta):
 	#Simple camera pan lang try
-	if $Player && $Player.velocity != Vector2.ZERO:
+	if $Player:
 		$Camera2D.position += ($Player.position - $Camera2D.position)/1.5 * delta
 
 	if $Debug/CheckButton.button_pressed:

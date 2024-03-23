@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @export var speed = 300
 @onready var killer_area = $"KillerArea/CollisionShape2D"
