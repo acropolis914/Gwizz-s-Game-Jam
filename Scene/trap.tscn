@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://bfh71fonobawn"]
 
-[ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="1_ask54"]
 [ext_resource type="Script" path="res://Scripts/trap.gd" id="1_vl2tj"]
+[ext_resource type="Texture2D" uid="uid://hrmxcdr3lett" path="res://ImageAssets/TilesAndStonesbyPol/rocktrap.png" id="2_1c2aq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w106n"]
-size = Vector2(66, 6)
+size = Vector2(42, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lp3dw"]
 size = Vector2(3, 77)
@@ -45,19 +45,19 @@ position = Vector2(1, -51)
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
 modulate = Color(0.682353, 0.682353, 0.682353, 1)
-position = Vector2(0, -35)
+position = Vector2(0, -34)
 scale = Vector2(0.633333, 0.666667)
-texture = ExtResource("1_ask54")
+texture = ExtResource("2_1c2aq")
 
 [node name="Sides_StaticBody2D" type="StaticBody2D" parent="CollisionShape2D"]
 position = Vector2(0, -10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D/Sides_StaticBody2D"]
-position = Vector2(-38, -24)
+position = Vector2(-21, -26)
 shape = SubResource("RectangleShape2D_lp3dw")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CollisionShape2D/Sides_StaticBody2D"]
-position = Vector2(38, -24)
+position = Vector2(20, -26)
 shape = SubResource("RectangleShape2D_lp3dw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

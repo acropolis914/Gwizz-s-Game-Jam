@@ -24,13 +24,14 @@ func for_movement(_delta):
 var mouse_pos
 func for_mouse_movement(delta):
 	mouse_pos = get_global_mouse_position()
-	if position.distance_to(mouse_pos) > 10:
-		global_position += speed * (mouse_pos-global_position).normalized() * delta
+	if position.distance_to(mouse_pos) > 30:
+		velocity = speed * (mouse_pos-global_position).normalized()
+	else:
+		velocity = Vector2.ZERO
 
 func for_dash_and_kill():
-	var mouse_dis = position.distance_to(get_global_mouse_position()-global_position)
-	if Input.is_action_just_pressed("dash"):
-		if (velocity.x != 0 && !GlobalScript.mouse_mode) || (mouse_dis != 0 && GlobalScript.mouse_mode):
+	var mouse_dis = position.distance_to(get_global_mouse_position())
+	if Input.is_action_just_pressed("dash") && velocity.x != 0:
 			speed = 1800
 			gwizz_sprite.animation = "dash"
 			$DashParticle.emitting = true
