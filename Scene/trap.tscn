@@ -43,6 +43,7 @@ position = Vector2(0, -25)
 shape = SubResource("RectangleShape2D_w106n")
 
 [node name="Rocktrap" type="Sprite2D" parent="CollisionShape2D"]
+z_index = -2
 position = Vector2(1, -51)
 texture = ExtResource("2_1c2aq")
 
@@ -72,7 +73,7 @@ libraries = {
 [node name="X_Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="X_Area2D"]
-position = Vector2(0, 39)
+position = Vector2(0, 84)
 shape = SubResource("RectangleShape2D_wng08")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

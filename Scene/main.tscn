@@ -41,6 +41,7 @@ position = Vector2(137, 519)
 offset_right = 44.0
 offset_bottom = 24.0
 toggle_mode = false
+metadata/_edit_use_anchors_ = true
 
 [node name="SpawnEnemy2" type="Button" parent="Debug"]
 offset_left = 55.0
@@ -48,6 +49,7 @@ offset_top = 5.0
 offset_right = 129.0
 offset_bottom = 36.0
 text = "Enemy 2"
+metadata/_edit_use_anchors_ = true
 
 [node name="Walls_Trap_StaticBody2D" type="StaticBody2D" parent="."]
 visible = false
@@ -107,8 +109,7 @@ position = Vector2(2638, 444)
 position = Vector2(1384, 415)
 
 [node name="Gate" parent="." instance=ExtResource("8_5nvpr")]
-visible = false
-position = Vector2(218, 260)
+position = Vector2(2053, 576)
 
 [node name="UI_CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
