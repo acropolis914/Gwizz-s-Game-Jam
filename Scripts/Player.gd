@@ -12,14 +12,12 @@ func _ready():
 	gwizz_sprite.animation = "walk"
 	
 
-func for_movement(delta):
+func for_movement(_delta):
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = input_direction * speed
-	
 	if velocity.x != 0:
 		gwizz_sprite.flip_v = false
 		gwizz_sprite.flip_h = velocity.x < 0
-		
 	if velocity == Vector2.ZERO:
 		gwizz_sprite.animation = "idle"
 		
