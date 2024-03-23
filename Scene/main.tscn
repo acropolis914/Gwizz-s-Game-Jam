@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c4ehycwbenis3"]
+[gd_scene load_steps=18 format=3 uid="uid://c4ehycwbenis3"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_0qhc5"]
 [ext_resource type="PackedScene" uid="uid://dwbgo21cx8lyu" path="res://Scene/player.tscn" id="2_b3uek"]
@@ -8,12 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="6_vglg2"]
 [ext_resource type="PackedScene" uid="uid://1qgfs1qinp1g" path="res://Scene/key.tscn" id="7_25gxa"]
 [ext_resource type="PackedScene" uid="uid://cr8t15u2vq6hx" path="res://Scene/story_mode.tscn" id="7_qvbas"]
+[ext_resource type="PackedScene" uid="uid://qrv2sr1c543e" path="res://Scene/Map.tscn" id="7_t2y8m"]
 [ext_resource type="PackedScene" uid="uid://f12olo3uq6e6" path="res://Scene/gate.tscn" id="8_5nvpr"]
 [ext_resource type="PackedScene" uid="uid://b8dd2kjotn5vx" path="res://Scene/princess.tscn" id="8_x7y06"]
 [ext_resource type="Script" path="res://Scripts/Timer_CanvasLayer.gd" id="9_5lsd1"]
 [ext_resource type="PackedScene" uid="uid://cfh6fu6sg2kyy" path="res://Scene/coin.tscn" id="12_gs1c4"]
 [ext_resource type="PackedScene" uid="uid://gwrdgj65fsr4" path="res://Scene/enemy_type_3.tscn" id="13_1u1k8"]
-[ext_resource type="PackedScene" uid="uid://03tyh5acohqu" path="res://Scene/slime.tscn" id="14_orumr"]
+[ext_resource type="PackedScene" path="res://Scene/slime.tscn" id="14_orumr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_euuoh"]
 size = Vector2(264, 20)
@@ -89,6 +90,8 @@ shape = SubResource("RectangleShape2D_h7kn0")
 position = Vector2(2.5, 1.50001)
 scale = Vector2(2.175, 0.908333)
 texture = ExtResource("6_vglg2")
+
+[node name="Map" parent="." instance=ExtResource("7_t2y8m")]
 
 [node name="Story_mode" parent="." instance=ExtResource("7_qvbas")]
 visible = false

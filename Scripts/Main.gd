@@ -18,10 +18,10 @@ func _ready():
 		add_child(traps)
 
 
-func _process(_delta):
-	# Simple camera pan lang try
-	#if $Player && $Player.velocity != Vector2.ZERO:
-	#	$Camera2D.position += ($Player.position - $Camera2D.position)/3 * delta
+func _process(delta):
+	#Simple camera pan lang try
+	if $Player && $Player.velocity != Vector2.ZERO:
+		$Camera2D.position += ($Player.position - $Camera2D.position)/3 * delta
 
 	if $Debug/CheckButton.button_pressed:
 		$"enemy_type_1".change_art()

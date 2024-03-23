@@ -113,7 +113,6 @@ flat = true
 
 [node name="Error_Sprite2D" type="Sprite2D" parent="Error"]
 position = Vector2(638, 337)
-scale = Vector2(1, 1)
 texture = ExtResource("3_a52ai")
 
 [node name="Sprite2D" type="Sprite2D" parent="Error"]
