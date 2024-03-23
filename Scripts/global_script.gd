@@ -14,3 +14,5 @@ var trap = true
 var dash = true
 
 var key = false
+var coins = 0
+var mouse_mode = false
