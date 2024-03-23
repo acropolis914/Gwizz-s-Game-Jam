@@ -5,7 +5,8 @@ func _ready():
 	canvas_layer.hide()
 
 func _on_body_entered(body):
-	canvas_layer.show()
+	if body.is_in_group("player"):
+		canvas_layer.show()
 
 func _on_button_down():
 	GlobalScript.isCoding = true

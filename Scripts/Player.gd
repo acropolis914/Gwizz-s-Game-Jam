@@ -12,36 +12,44 @@ func _ready():
 	gwizz_sprite.animation = "walk"
 	
 
-func for_movement(delta):
+func for_movement(_delta):
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = input_direction * speed
-	
 	if velocity.x != 0:
 		gwizz_sprite.flip_v = false
 		gwizz_sprite.flip_h = velocity.x < 0
-		
 	if velocity == Vector2.ZERO:
 		gwizz_sprite.animation = "idle"
-		
 	#position = position.clamp(Vector2.ZERO,get_parent().screen_size)
+var mouse_pos
+func for_mouse_movement(delta):
+	mouse_pos = get_global_mouse_position()
+	if position.distance_to(mouse_pos) > 10:
+		global_position += speed * (mouse_pos-global_position).normalized() * delta
+
 func for_dash_and_kill():
-	if Input.is_action_just_pressed("dash") && velocity.x != 0:
-		gwizz_sprite.animation = "dash"
-		$DashParticle.emitting = true
-		speed = 1800
-		killer_area.disabled = false
-		await get_tree().create_timer(0.1).timeout
-		#var tween = create_tween()
-		#tween.tween_property(gwizz_sprite, "animation", "walk" , .5)
-		gwizz_sprite.animation = "walk"
-		speed= 300
-		killer_area.disabled = true
+	var mouse_dis = position.distance_to(get_global_mouse_position()-global_position)
+	if Input.is_action_just_pressed("dash"):
+		if (velocity.x != 0 && !GlobalScript.mouse_mode) || (mouse_dis != 0 && GlobalScript.mouse_mode):
+			speed = 1800
+			gwizz_sprite.animation = "dash"
+			$DashParticle.emitting = true
+			killer_area.disabled = false
+			await get_tree().create_timer(0.1).timeout
+			#var tween = create_tween()
+			#tween.tween_property(gwizz_sprite, "animation", "walk" , .5)
+			gwizz_sprite.animation = "walk"
+			speed= 300
+			killer_area.disabled = true
 		
 
 func _physics_process(delta):
 	if dead || GlobalScript.isCoding:
 		return
-	for_movement(delta)
+	if GlobalScript.mouse_mode:
+		for_mouse_movement(delta)
+	else:
+		for_movement(delta)
 	if GlobalScript.dash:
 		for_dash_and_kill()
 	move_and_slide()
@@ -66,7 +74,6 @@ func has_key():
 
 func gate_unlocked():
 	$Key_Sprite2D.hide()
-
 
 func _on_game_timer_timeout():
 	kill()
