@@ -21,7 +21,7 @@ func _ready():
 func _process(delta):
 	#Simple camera pan lang try
 	if $Player && $Player.velocity != Vector2.ZERO:
-		$Camera2D.position += ($Player.position - $Camera2D.position)/3 * delta
+		$Camera2D.position += ($Player.position - $Camera2D.position)/1.5 * delta
 
 	if $Debug/CheckButton.button_pressed:
 		$"enemy_type_1".change_art()
