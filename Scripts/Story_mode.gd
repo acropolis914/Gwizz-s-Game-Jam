@@ -137,6 +137,14 @@ func _on_play_button_button_down():
 	else:
 		get_tree().change_scene_to_file("res://Scene/main.tscn")
 
+func reset_game_stats():
+	var var_false = ["emeny_1", "emeny_2", "emeny_3", "trap", "dash", "key"]
+	for vars in var_false:
+		GlobalScript[vars] = false
+	var var_zero = ["level", "aesthetic", "coins"]
+	for vars_z in var_zero:
+		GlobalScript[vars_z] = 0
+
 #Below are temporary for the cards
 func _on_card_button_button_down():
 	dialog_num += 1
@@ -145,26 +153,13 @@ func _on_card_button_button_down():
 	
 func _on_error_card_button_button_down():
 	bad_end = true
-	
-func reset_game_stats():
-		GlobalScript.level = 0
-		GlobalScript.aesthetic = 0
-		GlobalScript.emeny_1 = true
-		GlobalScript.emeny_2 = true
-		GlobalScript.emeny_3 = true
-		GlobalScript.trap = true
-		GlobalScript.dash = true
-		GlobalScript.key = false
-		GlobalScript.coins = 0
 
-
-func _on_button_button_down():
+func _on_error_button_button_down():
 	$Error/Button.hide()
 	fade.play("Fade")
 	await fade.animation_finished
 	reset_game_stats()
 	get_tree().reload_current_scene()
 
-
-func _on_button_button_downsccs():
-	get_tree().reload_current_scene()
+func _on_testing_button_button_down():
+	print(GlobalScript.coins)

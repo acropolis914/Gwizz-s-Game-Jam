@@ -68,6 +68,7 @@ func kill():
 	dead = true
 	await get_tree().create_timer(1.0).timeout
 	dead = false
+	GlobalScript.coins = 0
 	get_tree().reload_current_scene()
 
 func has_key():
