@@ -1,13 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://c4ehycwbenis3"]
+[gd_scene load_steps=15 format=3 uid="uid://c4ehycwbenis3"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_0qhc5"]
 [ext_resource type="PackedScene" uid="uid://dwbgo21cx8lyu" path="res://Scene/player.tscn" id="2_b3uek"]
 [ext_resource type="PackedScene" uid="uid://b0weg8ntix058" path="res://Scene/enemy_type_2.tscn" id="2_ixmfe"]
 [ext_resource type="PackedScene" uid="uid://bioel72emf3f1" path="res://Scene/enemy_type_1.tscn" id="2_m0uvw"]
 [ext_resource type="PackedScene" uid="uid://bfh71fonobawn" path="res://Scene/trap.tscn" id="4_b7axx"]
-[ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="6_vglg2"]
 [ext_resource type="PackedScene" uid="uid://1qgfs1qinp1g" path="res://Scene/key.tscn" id="7_25gxa"]
-[ext_resource type="PackedScene" uid="uid://cr8t15u2vq6hx" path="res://Scene/story_mode.tscn" id="7_qvbas"]
 [ext_resource type="PackedScene" uid="uid://qrv2sr1c543e" path="res://Scene/Map.tscn" id="7_t2y8m"]
 [ext_resource type="PackedScene" uid="uid://f12olo3uq6e6" path="res://Scene/gate.tscn" id="8_5nvpr"]
 [ext_resource type="PackedScene" uid="uid://b8dd2kjotn5vx" path="res://Scene/princess.tscn" id="8_x7y06"]
@@ -15,12 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cfh6fu6sg2kyy" path="res://Scene/coin.tscn" id="12_gs1c4"]
 [ext_resource type="PackedScene" uid="uid://gwrdgj65fsr4" path="res://Scene/enemy_type_3.tscn" id="13_1u1k8"]
 [ext_resource type="PackedScene" uid="uid://03tyh5acohqu" path="res://Scene/slime.tscn" id="14_orumr"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_euuoh"]
-size = Vector2(264, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h7kn0"]
-size = Vector2(253, 114.5)
+[ext_resource type="PackedScene" uid="uid://b8v23jfry1r7" path="res://Scene/pot.tscn" id="14_yj3bj"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0qhc5")
@@ -28,12 +21,11 @@ enemy1 = ExtResource("2_m0uvw")
 enemy2 = ExtResource("2_ixmfe")
 trap = ExtResource("4_b7axx")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(454, 432)
-zoom = Vector2(1.17, 1.17)
-
 [node name="Player" parent="." instance=ExtResource("2_b3uek")]
-position = Vector2(137, 519)
+position = Vector2(2444, 444)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(1.17, 1.17)
 
 [node name="Debug" type="CanvasLayer" parent="."]
 
@@ -51,56 +43,7 @@ offset_bottom = 36.0
 text = "Enemy 2"
 metadata/_edit_use_anchors_ = true
 
-[node name="Walls_Trap_StaticBody2D" type="StaticBody2D" parent="."]
-visible = false
-position = Vector2(1195, 611)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls_Trap_StaticBody2D"]
-position = Vector2(-270, -105)
-shape = SubResource("RectangleShape2D_euuoh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Walls_Trap_StaticBody2D/CollisionShape2D"]
-position = Vector2(4, -3)
-scale = Vector2(2.175, 0.141667)
-texture = ExtResource("6_vglg2")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls_Trap_StaticBody2D"]
-position = Vector2(-268, -263)
-shape = SubResource("RectangleShape2D_h7kn0")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Walls_Trap_StaticBody2D/CollisionShape2D2"]
-position = Vector2(2.5, 1.50001)
-scale = Vector2(2.175, 0.908333)
-texture = ExtResource("6_vglg2")
-
-[node name="Walls_Gate_StaticBody2D2" type="StaticBody2D" parent="."]
-visible = false
-position = Vector2(1042, 886)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls_Gate_StaticBody2D2"]
-position = Vector2(-270, -105)
-shape = SubResource("RectangleShape2D_euuoh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Walls_Gate_StaticBody2D2/CollisionShape2D"]
-position = Vector2(4, -3)
-scale = Vector2(2.175, 0.141667)
-texture = ExtResource("6_vglg2")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls_Gate_StaticBody2D2"]
-position = Vector2(-268, -263)
-shape = SubResource("RectangleShape2D_h7kn0")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Walls_Gate_StaticBody2D2/CollisionShape2D2"]
-position = Vector2(2.5, 1.50001)
-scale = Vector2(2.175, 0.908333)
-texture = ExtResource("6_vglg2")
-
 [node name="Map" parent="." instance=ExtResource("7_t2y8m")]
-
-[node name="Story_mode" parent="." instance=ExtResource("7_qvbas")]
-visible = false
 
 [node name="Princess" parent="." instance=ExtResource("8_x7y06")]
 position = Vector2(2638, 444)
@@ -112,36 +55,30 @@ position = Vector2(1384, 415)
 position = Vector2(2053, 576)
 
 [node name="UI_CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("9_5lsd1")
 
-[node name="Game_Timer" type="Timer" parent="UI_CanvasLayer"]
-wait_time = 60.0
-one_shot = true
-autostart = true
-
-[node name="Timer_Label" type="Label" parent="UI_CanvasLayer"]
+[node name="Level_Label" type="Label" parent="UI_CanvasLayer"]
 offset_left = 36.0
 offset_top = 33.0
 offset_right = 76.0
 offset_bottom = 56.0
-text = "Timer: 00"
+text = "Level: 0"
 
 [node name="Coins_Label" type="Label" parent="UI_CanvasLayer"]
-offset_left = 546.0
-offset_top = 21.0
-offset_right = 618.0
-offset_bottom = 44.0
+offset_left = 1173.0
+offset_top = 32.0
+offset_right = 1245.0
+offset_bottom = 55.0
 text = "Coins: 00"
 
 [node name="Coins" type="Node2D" parent="."]
 position = Vector2(1165, 445)
 
 [node name="Coin" parent="Coins" instance=ExtResource("12_gs1c4")]
-position = Vector2(-1031, -315)
+position = Vector2(-891, -158)
 
 [node name="Coin2" parent="Coins" instance=ExtResource("12_gs1c4")]
-position = Vector2(-933, 259)
+position = Vector2(-974, 181)
 
 [node name="Coin3" parent="Coins" instance=ExtResource("12_gs1c4")]
 position = Vector2(-730, -229)
@@ -150,19 +87,21 @@ position = Vector2(-730, -229)
 position = Vector2(-710, 110)
 
 [node name="Coin5" parent="Coins" instance=ExtResource("12_gs1c4")]
-position = Vector2(-614, -164)
-
-[node name="enemy_type_3" parent="." instance=ExtResource("13_1u1k8")]
-position = Vector2(317, 353)
+position = Vector2(-554, 163)
 
 [node name="Slime" parent="." instance=ExtResource("14_orumr")]
-position = Vector2(601, 534)
+position = Vector2(1247, 317)
 
 [node name="trap_position" type="Marker2D" parent="."]
 position = Vector2(892, 398)
 
 [node name="enemy_type_1" parent="." instance=ExtResource("2_m0uvw")]
-position = Vector2(1287, 662)
+position = Vector2(1334, 692)
+
+[node name="enemy_type_3" parent="." instance=ExtResource("13_1u1k8")]
+position = Vector2(542, 231)
+
+[node name="Pot" parent="." instance=ExtResource("14_yj3bj")]
+position = Vector2(2206, 305)
 
 [connection signal="pressed" from="Debug/SpawnEnemy2" to="." method="_on_spawn_enemy_2_pressed"]
-[connection signal="timeout" from="UI_CanvasLayer/Game_Timer" to="Player" method="_on_game_timer_timeout"]

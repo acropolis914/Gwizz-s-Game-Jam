@@ -1,7 +1,7 @@
 extends Node2D
 
 func _ready():
-	if GlobalScript.trap:
+	if GlobalScript.trap_rock:
 		$Trap_Button.hide()
 	if GlobalScript.emeny_1:
 		$Enemy_1_Button.hide()
