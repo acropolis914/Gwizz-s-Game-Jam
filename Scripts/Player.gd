@@ -45,7 +45,7 @@ func for_dash_and_kill():
 		killer_area.disabled = true
 
 func _physics_process(delta):
-	if dead:
+	if dead || !GlobalScript.in_game:
 		return
 	if GlobalScript.mouse_mode:
 		for_mouse_movement(delta)
@@ -69,6 +69,8 @@ func kill():
 	await get_tree().create_timer(1.0).timeout
 	dead = false
 	GlobalScript.coins = 0
+	
+	
 	get_tree().reload_current_scene()
 
 func has_key():

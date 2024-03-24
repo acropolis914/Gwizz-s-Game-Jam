@@ -14,7 +14,8 @@ func change_art():
 
 func _process(delta):
 	var player_pos = get_parent().get_node("Player").get_position()
-	position += speed * (player_pos-position) * delta
+	if GlobalScript.in_game:
+		position += speed * (player_pos-position) * delta
 	move_and_slide()
 
 func _on_killer_area_2d_body_entered(body):

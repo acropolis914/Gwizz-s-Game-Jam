@@ -4,10 +4,10 @@
 [ext_resource type="Script" path="res://Scripts/pot.gd" id="1_w53b8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vd2lb"]
-size = Vector2(90, 98)
+size = Vector2(66, 74)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k2kip"]
-size = Vector2(80, 86)
+size = Vector2(58, 70)
 
 [node name="Pot" type="Area2D"]
 script = ExtResource("1_w53b8")
@@ -17,7 +17,7 @@ shape = SubResource("RectangleShape2D_vd2lb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.47451, 0.266667, 0.223529, 1)
-scale = Vector2(0.7, 0.75)
+scale = Vector2(0.5, 0.583333)
 texture = ExtResource("1_em2a2")
 
 [node name="staticbody" type="StaticBody2D" parent="."]

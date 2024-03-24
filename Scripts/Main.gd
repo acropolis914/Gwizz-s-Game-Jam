@@ -4,8 +4,11 @@ extends Node2D
 @export var enemy2 : PackedScene
 @export var trap : PackedScene
 var screen_size
+@onready var fade = $Fade
 
 func _ready():
+	fade.play("fade")
+	$Story_in_Game.show()
 	screen_size = get_viewport_rect().size
 	if GlobalScript.trap_rock:
 		var traps = trap.instantiate()
@@ -31,3 +34,7 @@ func _on_spawn_enemy_2_pressed():
 	var enemy2_instance = enemy2.instantiate()
 	enemy2_instance.position = Vector2(randi_range(0,screen_size.x),randi_range(0,screen_size.y))
 	add_child(enemy2_instance)
+
+
+func _on_room_3_trigger_area_2d_body_entered(body):
+	pass # Replace with function body.

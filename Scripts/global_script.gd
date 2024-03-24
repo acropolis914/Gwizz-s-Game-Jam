@@ -22,5 +22,10 @@ var skip = true
 var key = false
 var coins = 0
 
+#Game holding
+var in_game = false
+var in_room2 = false
+var in_room3 = false
+
 #Settings
 var mouse_mode = false

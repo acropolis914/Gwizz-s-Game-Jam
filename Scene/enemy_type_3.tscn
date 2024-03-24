@@ -66,8 +66,7 @@ texture = ExtResource("2_oye23")
 script = ExtResource("3_0bwcu")
 
 [node name="Attack_Timer" type="Timer" parent="."]
-wait_time = 3.0
-autostart = true
+one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wfy6l")

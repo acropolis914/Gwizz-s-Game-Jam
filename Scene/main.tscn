@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c4ehycwbenis3"]
+[gd_scene load_steps=22 format=3 uid="uid://c4ehycwbenis3"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_0qhc5"]
 [ext_resource type="PackedScene" uid="uid://dwbgo21cx8lyu" path="res://Scene/player.tscn" id="2_b3uek"]
@@ -12,8 +12,36 @@
 [ext_resource type="Script" path="res://Scripts/Timer_CanvasLayer.gd" id="9_5lsd1"]
 [ext_resource type="PackedScene" uid="uid://cfh6fu6sg2kyy" path="res://Scene/coin.tscn" id="12_gs1c4"]
 [ext_resource type="PackedScene" uid="uid://gwrdgj65fsr4" path="res://Scene/enemy_type_3.tscn" id="13_1u1k8"]
+[ext_resource type="Texture2D" uid="uid://hrmxcdr3lett" path="res://ImageAssets/TilesAndStonesbyPol/rocktrap.png" id="14_jecnv"]
 [ext_resource type="PackedScene" uid="uid://03tyh5acohqu" path="res://Scene/slime.tscn" id="14_orumr"]
+[ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="14_upyrm"]
 [ext_resource type="PackedScene" uid="uid://b8v23jfry1r7" path="res://Scene/pot.tscn" id="14_yj3bj"]
+[ext_resource type="Script" path="res://Scripts/Enemy_Move_Triggers.gd" id="15_1mu1m"]
+[ext_resource type="PackedScene" uid="uid://td8el4u2my65" path="res://Scene/story_in_game.tscn" id="15_dc871"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpe1n"]
+size = Vector2(49, 108)
+
+[sub_resource type="Animation" id="Animation_atqlq"]
+resource_name = "fade"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ovo7"]
+_data = {
+"fade": SubResource("Animation_atqlq")
+}
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0qhc5")
@@ -22,10 +50,13 @@ enemy2 = ExtResource("2_ixmfe")
 trap = ExtResource("4_b7axx")
 
 [node name="Player" parent="." instance=ExtResource("2_b3uek")]
-position = Vector2(2444, 444)
+position = Vector2(157, 442)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(1.17, 1.17)
+
+[node name="Story_in_Game" parent="." instance=ExtResource("15_dc871")]
+visible = false
 
 [node name="Debug" type="CanvasLayer" parent="."]
 
@@ -49,7 +80,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(2638, 444)
 
 [node name="Key" parent="." instance=ExtResource("7_25gxa")]
-position = Vector2(1384, 415)
+position = Vector2(1326, 495)
 
 [node name="Gate" parent="." instance=ExtResource("8_5nvpr")]
 position = Vector2(2053, 576)
@@ -78,7 +109,10 @@ position = Vector2(1165, 445)
 position = Vector2(-1023, -240)
 
 [node name="Coin2" parent="Coins" instance=ExtResource("12_gs1c4")]
-position = Vector2(-974, 181)
+position = Vector2(561, -134)
+
+[node name="Coin6" parent="Coins" instance=ExtResource("12_gs1c4")]
+position = Vector2(1037, -230)
 
 [node name="Coin3" parent="Coins" instance=ExtResource("12_gs1c4")]
 position = Vector2(-730, -229)
@@ -89,27 +123,104 @@ position = Vector2(-710, 110)
 [node name="Coin5" parent="Coins" instance=ExtResource("12_gs1c4")]
 position = Vector2(-554, 163)
 
-[node name="Slime" parent="." instance=ExtResource("14_orumr")]
+[node name="Slime" type="Node2D" parent="."]
 position = Vector2(1247, 317)
 
-[node name="Slime2" parent="." instance=ExtResource("14_orumr")]
-position = Vector2(142, 303)
+[node name="Slime1" parent="Slime" instance=ExtResource("14_orumr")]
 
-[node name="Slime2" parent="Slime2" instance=ExtResource("14_orumr")]
-position = Vector2(124, -101)
+[node name="Slime2" parent="Slime" instance=ExtResource("14_orumr")]
+position = Vector2(-1105, -14)
+
+[node name="Slime3" parent="Slime" instance=ExtResource("14_orumr")]
+position = Vector2(449, 320)
+
+[node name="Slime4" parent="Slime" instance=ExtResource("14_orumr")]
+position = Vector2(-981, -115)
 
 [node name="trap_position" type="Marker2D" parent="."]
 position = Vector2(892, 398)
 
-[node name="Pot" parent="." instance=ExtResource("14_yj3bj")]
-position = Vector2(2206, 305)
+[node name="Shadow_Sprite2D" type="Sprite2D" parent="trap_position"]
+modulate = Color(0, 0, 0.835294, 0.184314)
+position = Vector2(7.62939e-06, 47)
+scale = Vector2(0.885715, 0.575)
+texture = ExtResource("14_jecnv")
 
-[node name="enemy_type_1" parent="." instance=ExtResource("2_m0uvw")]
-position = Vector2(1334, 692)
+[node name="Pot" type="Node2D" parent="."]
+visible = false
+position = Vector2(2195, 358)
 
-[node name="enemy_type_3" parent="." instance=ExtResource("13_1u1k8")]
-position = Vector2(542, 231)
+[node name="Pot" parent="Pot" instance=ExtResource("14_yj3bj")]
 
-[node name="Enemies" type="Node2D" parent="."]
+[node name="Pot2" parent="Pot" instance=ExtResource("14_yj3bj")]
+position = Vector2(-877, 152)
+
+[node name="Pot3" parent="Pot" instance=ExtResource("14_yj3bj")]
+position = Vector2(-1757, -137)
+
+[node name="Pot4" parent="Pot" instance=ExtResource("14_yj3bj")]
+position = Vector2(-1697, -58)
+
+[node name="Pot5" parent="Pot" instance=ExtResource("14_yj3bj")]
+position = Vector2(-1618, -16)
+
+[node name="enemy_type_1_1" parent="." instance=ExtResource("2_m0uvw")]
+position = Vector2(263, 285)
+
+[node name="enemy_type_1_2" parent="." instance=ExtResource("2_m0uvw")]
+position = Vector2(605, 227)
+
+[node name="enemy_type_1_3" parent="." instance=ExtResource("2_m0uvw")]
+position = Vector2(543, 618)
+
+[node name="enemy_type_2_1" parent="." instance=ExtResource("2_ixmfe")]
+position = Vector2(1472, 315)
+
+[node name="enemy_type_2_2" parent="." instance=ExtResource("2_ixmfe")]
+position = Vector2(1228, 713)
+
+[node name="enemy_type_2_3" parent="." instance=ExtResource("2_ixmfe")]
+position = Vector2(1659, 705)
+
+[node name="enemy_type_3_1" parent="." instance=ExtResource("13_1u1k8")]
+position = Vector2(2318, 192)
+
+[node name="enemy_type_3_2" parent="." instance=ExtResource("13_1u1k8")]
+position = Vector2(2356, 627)
+
+[node name="enemy_type_3_4" parent="." instance=ExtResource("13_1u1k8")]
+position = Vector2(2470, 303)
+
+[node name="enemy_type_3_3" parent="." instance=ExtResource("13_1u1k8")]
+position = Vector2(2653, 659)
+
+[node name="Enemy_Move_Triggers" type="Node2D" parent="."]
+script = ExtResource("15_1mu1m")
+
+[node name="Room2_trigger_Area2D" type="Area2D" parent="Enemy_Move_Triggers"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy_Move_Triggers/Room2_trigger_Area2D"]
+position = Vector2(1174, 463)
+shape = SubResource("RectangleShape2D_rpe1n")
+
+[node name="Room3_trigger_Area2D" type="Area2D" parent="Enemy_Move_Triggers"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy_Move_Triggers/Room3_trigger_Area2D"]
+position = Vector2(2171, 564)
+shape = SubResource("RectangleShape2D_rpe1n")
+
+[node name="Black" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(178.5, 433.5)
+scale = Vector2(9.99167, 6.09167)
+texture = ExtResource("14_upyrm")
+
+[node name="Fade" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Black")
+libraries = {
+"": SubResource("AnimationLibrary_6ovo7")
+}
 
 [connection signal="pressed" from="Debug/SpawnEnemy2" to="." method="_on_spawn_enemy_2_pressed"]
+[connection signal="body_entered" from="Enemy_Move_Triggers/Room2_trigger_Area2D" to="Enemy_Move_Triggers" method="_on_room_2_trigger_area_2d_body_entered"]
+[connection signal="body_entered" from="Enemy_Move_Triggers/Room3_trigger_Area2D" to="Enemy_Move_Triggers" method="_on_room_3_trigger_area_2d_body_entered"]
