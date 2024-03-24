@@ -8,7 +8,7 @@ func _ready() -> void:
 	
 func _process(delta):
 	var player_pos = get_parent().get_node("Player").get_position()
-	if position.distance_to(player_pos) > 200:
+	if position.distance_to(player_pos) > 50:
 		position += speed * (player_pos-position).normalized() * delta
 	if toAttack:
 		_attack()

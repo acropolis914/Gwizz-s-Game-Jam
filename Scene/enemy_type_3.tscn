@@ -12,9 +12,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trlfs"]
 size = Vector2(36, 43)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q0fgh"]
-size = Vector2(40, 46)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_wfy6l"]
 animations = [{
 "frames": [{
@@ -47,15 +44,21 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q0fgh"]
+size = Vector2(40, 46)
+
 [node name="enemy_type_3" type="CharacterBody2D"]
+z_index = 1
 script = ExtResource("1_gymja")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_trlfs")
+debug_color = Color(0, 0.6, 0.701961, 0)
 
 [node name="Enemy_block_1" type="Sprite2D" parent="."]
-modulate = Color(0, 0.643137, 0.643137, 1)
+visible = false
 scale = Vector2(0.333333, 0.366667)
 texture = ExtResource("2_oye23")
 
@@ -66,14 +69,17 @@ script = ExtResource("3_0bwcu")
 wait_time = 3.0
 autostart = true
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wfy6l")
+frame_progress = 0.424296
+
 [node name="Killer_Area2D" type="Area2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killer_Area2D"]
 shape = SubResource("RectangleShape2D_q0fgh")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_wfy6l")
-frame_progress = 0.734254
+debug_color = Color(0, 0.6, 0.701961, 0)
 
 [connection signal="timeout" from="Attack_Timer" to="." method="_on_attack_timer_timeout"]
 [connection signal="area_entered" from="Killer_Area2D" to="Enemy Death Comp" method="_on_killer_area_2d_area_entered"]
