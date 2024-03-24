@@ -71,7 +71,8 @@ autostart = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wfy6l")
-frame_progress = 0.424296
+frame = 7
+frame_progress = 0.788796
 
 [node name="Killer_Area2D" type="Area2D" parent="."]
 modulate = Color(1, 1, 1, 0)
