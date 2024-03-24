@@ -7,9 +7,18 @@ var aesthetic = 0
 var emeny_1 = true
 var emeny_2 = true
 var emeny_3 = true
-var trap = true
-var dash = true
+var trap_rock = true
+var trap_slime = true
+var puzzle = true
 
+var collectible = true #coins
+var dash = true
+var vissuals = true
+var pots = true
+var story = true
+var skip = true
+
+#Plauyer holding
 var key = false
 var coins = 0
 
