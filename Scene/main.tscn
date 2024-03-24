@@ -14,7 +14,7 @@
 [ext_resource type="Script" path="res://Scripts/Timer_CanvasLayer.gd" id="9_5lsd1"]
 [ext_resource type="PackedScene" uid="uid://cfh6fu6sg2kyy" path="res://Scene/coin.tscn" id="12_gs1c4"]
 [ext_resource type="PackedScene" uid="uid://gwrdgj65fsr4" path="res://Scene/enemy_type_3.tscn" id="13_1u1k8"]
-[ext_resource type="PackedScene" path="res://Scene/slime.tscn" id="14_orumr"]
+[ext_resource type="PackedScene" uid="uid://03tyh5acohqu" path="res://Scene/slime.tscn" id="14_orumr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_euuoh"]
 size = Vector2(264, 20)
@@ -153,13 +153,16 @@ position = Vector2(-710, 110)
 position = Vector2(-614, -164)
 
 [node name="enemy_type_3" parent="." instance=ExtResource("13_1u1k8")]
-position = Vector2(628, 206)
+position = Vector2(317, 353)
 
 [node name="Slime" parent="." instance=ExtResource("14_orumr")]
 position = Vector2(601, 534)
 
 [node name="trap_position" type="Marker2D" parent="."]
 position = Vector2(892, 398)
+
+[node name="enemy_type_1" parent="." instance=ExtResource("2_m0uvw")]
+position = Vector2(1287, 662)
 
 [connection signal="pressed" from="Debug/SpawnEnemy2" to="." method="_on_spawn_enemy_2_pressed"]
 [connection signal="timeout" from="UI_CanvasLayer/Game_Timer" to="Player" method="_on_game_timer_timeout"]

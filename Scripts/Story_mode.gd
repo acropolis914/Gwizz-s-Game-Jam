@@ -155,7 +155,7 @@ func _on_error_card_button_button_down():
 	bad_end = true
 
 func _on_error_button_button_down():
-	$Error/Button.hide()
+	$Error/Error_Button.hide()
 	fade.play("Fade")
 	await fade.animation_finished
 	reset_game_stats()

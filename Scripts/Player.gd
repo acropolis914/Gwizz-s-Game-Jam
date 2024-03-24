@@ -32,7 +32,7 @@ func for_mouse_movement(delta):
 
 func for_dash_and_kill():
 	var mouse_dis = position.distance_to(get_global_mouse_position())
-	if Input.is_action_just_pressed("dash") && velocity.x != 0:
+	if Input.is_action_just_pressed("dash") && velocity != Vector2.ZERO:
 			speed = speed*6
 			gwizz_sprite.animation = "dash"
 			$DashParticle.emitting = true
