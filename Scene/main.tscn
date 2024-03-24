@@ -75,7 +75,7 @@ text = "Coins: 00"
 position = Vector2(1165, 445)
 
 [node name="Coin" parent="Coins" instance=ExtResource("12_gs1c4")]
-position = Vector2(-891, -158)
+position = Vector2(-1023, -240)
 
 [node name="Coin2" parent="Coins" instance=ExtResource("12_gs1c4")]
 position = Vector2(-974, 181)
@@ -92,8 +92,17 @@ position = Vector2(-554, 163)
 [node name="Slime" parent="." instance=ExtResource("14_orumr")]
 position = Vector2(1247, 317)
 
+[node name="Slime2" parent="." instance=ExtResource("14_orumr")]
+position = Vector2(142, 303)
+
+[node name="Slime2" parent="Slime2" instance=ExtResource("14_orumr")]
+position = Vector2(124, -101)
+
 [node name="trap_position" type="Marker2D" parent="."]
 position = Vector2(892, 398)
+
+[node name="Pot" parent="." instance=ExtResource("14_yj3bj")]
+position = Vector2(2206, 305)
 
 [node name="enemy_type_1" parent="." instance=ExtResource("2_m0uvw")]
 position = Vector2(1334, 692)
@@ -101,7 +110,6 @@ position = Vector2(1334, 692)
 [node name="enemy_type_3" parent="." instance=ExtResource("13_1u1k8")]
 position = Vector2(542, 231)
 
-[node name="Pot" parent="." instance=ExtResource("14_yj3bj")]
-position = Vector2(2206, 305)
+[node name="Enemies" type="Node2D" parent="."]
 
 [connection signal="pressed" from="Debug/SpawnEnemy2" to="." method="_on_spawn_enemy_2_pressed"]

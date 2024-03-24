@@ -64,6 +64,7 @@ animation = &"idle"
 frame_progress = 0.722012
 
 [node name="KillerArea" type="Area2D" parent="." groups=["player_attack"]]
+z_index = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillerArea"]
 shape = SubResource("RectangleShape2D_tr350")
