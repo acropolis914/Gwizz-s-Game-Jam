@@ -14,12 +14,6 @@ func _ready():
 		var traps = trap.instantiate()
 		traps.position = $trap_position.position
 		add_child(traps)
-	
-	if GlobalScript.emeny_1:
-		var traps = enemy1.instantiate()
-		traps.position = Vector2(-253, 50)
-		add_child(traps)
-
 
 func _process(delta):
 	#Simple camera pan lang try
@@ -36,5 +30,5 @@ func _on_spawn_enemy_2_pressed():
 	add_child(enemy2_instance)
 
 
-func _on_room_3_trigger_area_2d_body_entered(body):
-	pass # Replace with function body.
+func _on_vissual_button_button_down():
+	GlobalScript.vissuals = true

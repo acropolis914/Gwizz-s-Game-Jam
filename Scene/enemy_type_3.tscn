@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://gwrdgj65fsr4"]
+[gd_scene load_steps=13 format=3 uid="uid://gwrdgj65fsr4"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_type_3.gd" id="1_gymja"]
 [ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="2_oye23"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://mkl2jw4gbx4e" path="res://ImageAssets/Enemy3/enemy3_0005_3.png" id="6_hryq7"]
 [ext_resource type="Texture2D" uid="uid://c52cixm4ayj2a" path="res://ImageAssets/Enemy3/enemy3_0007_1.png" id="7_mbdvq"]
 [ext_resource type="Texture2D" uid="uid://dy6w23lhgmkna" path="res://ImageAssets/Enemy3/enemy3_0006_2.png" id="8_qyjtv"]
+[ext_resource type="Script" path="res://Scripts/Vissual_comp.gd" id="9_bg1uk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trlfs"]
 size = Vector2(36, 43)
@@ -57,8 +58,14 @@ position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_trlfs")
 debug_color = Color(0, 0.6, 0.701961, 0)
 
-[node name="Enemy_block_1" type="Sprite2D" parent="."]
+[node name="Art_Sprite" type="AnimatedSprite2D" parent="."]
 visible = false
+sprite_frames = SubResource("SpriteFrames_wfy6l")
+frame = 7
+frame_progress = 0.788796
+
+[node name="Temp_Sprite" type="Sprite2D" parent="."]
+modulate = Color(0.74902, 0.345098, 0.333333, 1)
 scale = Vector2(0.333333, 0.366667)
 texture = ExtResource("2_oye23")
 
@@ -68,11 +75,6 @@ script = ExtResource("3_0bwcu")
 [node name="Attack_Timer" type="Timer" parent="."]
 one_shot = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_wfy6l")
-frame = 7
-frame_progress = 0.788796
-
 [node name="Killer_Area2D" type="Area2D" parent="."]
 modulate = Color(1, 1, 1, 0)
 self_modulate = Color(1, 1, 1, 0)
@@ -80,6 +82,9 @@ self_modulate = Color(1, 1, 1, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killer_Area2D"]
 shape = SubResource("RectangleShape2D_q0fgh")
 debug_color = Color(0, 0.6, 0.701961, 0)
+
+[node name="Vissual_comp" type="Node2D" parent="."]
+script = ExtResource("9_bg1uk")
 
 [connection signal="timeout" from="Attack_Timer" to="." method="_on_attack_timer_timeout"]
 [connection signal="area_entered" from="Killer_Area2D" to="Enemy Death Comp" method="_on_killer_area_2d_area_entered"]

@@ -2,10 +2,16 @@ extends Area2D
 
 var speed_multiplier
 var resting = false
+@onready var art_sprite = $Art_Sprite
+@onready var temp_sprite = $Temp_Sprite
+
+
 func _ready():
+	if !GlobalScript.emeny_2:
+		queue_free()
 	$run.start()
-	$AnimatedSprite2D.animation = "flap"
-	$AnimatedSprite2D.play()
+	art_sprite.animation = "flap"
+	art_sprite.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

@@ -3,8 +3,7 @@ class_name Player
 
 @export var speed = 300
 @onready var killer_area = $"KillerArea/CollisionShape2D"
-@onready var gwizz_sprite = $GwizzSprite
-
+@onready var gwizz_sprite = $Art_Sprite
 
 var dead = false
 
@@ -53,8 +52,8 @@ func _physics_process(delta):
 		for_movement(delta)
 	if GlobalScript.dash:
 		for_dash_and_kill()
-	move_and_slide()
 	gwizz_sprite.play()
+	move_and_slide()
 
 func kill():
 	if dead:
@@ -69,8 +68,6 @@ func kill():
 	await get_tree().create_timer(1.0).timeout
 	dead = false
 	GlobalScript.coins = 0
-	
-	
 	get_tree().reload_current_scene()
 
 func has_key():
@@ -82,3 +79,7 @@ func slimed():
 	speed = .3 * speed
 func unslimed():
 	speed = 300
+
+func change_art():
+	$Sprite2D.hide()
+	$GwizzSprite.show()

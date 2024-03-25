@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0weg8ntix058"]
+[gd_scene load_steps=12 format=3 uid="uid://b0weg8ntix058"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_type_2.gd" id="1_8ynjm"]
 [ext_resource type="Texture2D" uid="uid://cmvq7i5mkbdji" path="res://ImageAssets/fly1 (20240321023820).png" id="2_hkw14"]
 [ext_resource type="Texture2D" uid="uid://241ys4grd60i" path="res://ImageAssets/fly2 (20240321023808).png" id="3_k7bbw"]
 [ext_resource type="Texture2D" uid="uid://fdpwdo0xk51o" path="res://ImageAssets/fly3 (20240321023741).png" id="4_h6w52"]
+[ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="5_06x1y"]
 [ext_resource type="Script" path="res://Scripts/Components/Enemy Death Comp.gd" id="5_ghhsy"]
+[ext_resource type="Script" path="res://Scripts/Vissual_comp.gd" id="7_4dayk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bgnkv"]
 radius = 11.0
@@ -42,10 +44,16 @@ script = ExtResource("1_8ynjm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_bgnkv")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Art_Sprite" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_iiiwm")
 animation = &"flap"
 frame_progress = 0.307081
+
+[node name="Temp_Sprite" type="Sprite2D" parent="."]
+modulate = Color(0.682353, 0.427451, 0.247059, 1)
+scale = Vector2(0.333333, 0.366667)
+texture = ExtResource("5_06x1y")
 
 [node name="Life" type="Timer" parent="."]
 wait_time = 15.0
@@ -75,6 +83,9 @@ initial_velocity_max = 20.0
 
 [node name="Enemy Death Comp" type="Node" parent="."]
 script = ExtResource("5_ghhsy")
+
+[node name="Vissual_comp" type="Node2D" parent="."]
+script = ExtResource("7_4dayk")
 
 [connection signal="area_entered" from="." to="Enemy Death Comp" method="_on_killer_area_2d_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

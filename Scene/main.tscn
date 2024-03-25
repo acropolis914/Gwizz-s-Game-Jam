@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c4ehycwbenis3"]
+[gd_scene load_steps=21 format=3 uid="uid://c4ehycwbenis3"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_0qhc5"]
 [ext_resource type="PackedScene" uid="uid://dwbgo21cx8lyu" path="res://Scene/player.tscn" id="2_b3uek"]
@@ -12,7 +12,6 @@
 [ext_resource type="Script" path="res://Scripts/Timer_CanvasLayer.gd" id="9_5lsd1"]
 [ext_resource type="PackedScene" uid="uid://cfh6fu6sg2kyy" path="res://Scene/coin.tscn" id="12_gs1c4"]
 [ext_resource type="PackedScene" uid="uid://gwrdgj65fsr4" path="res://Scene/enemy_type_3.tscn" id="13_1u1k8"]
-[ext_resource type="Texture2D" uid="uid://hrmxcdr3lett" path="res://ImageAssets/TilesAndStonesbyPol/rocktrap.png" id="14_jecnv"]
 [ext_resource type="PackedScene" uid="uid://03tyh5acohqu" path="res://Scene/slime.tscn" id="14_orumr"]
 [ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="14_upyrm"]
 [ext_resource type="PackedScene" uid="uid://b8v23jfry1r7" path="res://Scene/pot.tscn" id="14_yj3bj"]
@@ -50,7 +49,7 @@ enemy2 = ExtResource("2_ixmfe")
 trap = ExtResource("4_b7axx")
 
 [node name="Player" parent="." instance=ExtResource("2_b3uek")]
-position = Vector2(157, 442)
+position = Vector2(168, 443)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(1.17, 1.17)
@@ -73,6 +72,13 @@ offset_right = 129.0
 offset_bottom = 36.0
 text = "Enemy 2"
 metadata/_edit_use_anchors_ = true
+
+[node name="Vissual_Button" type="Button" parent="Debug"]
+offset_left = 65.0
+offset_top = 79.0
+offset_right = 221.0
+offset_bottom = 168.0
+text = "vissual"
 
 [node name="Map" parent="." instance=ExtResource("7_t2y8m")]
 
@@ -140,14 +146,7 @@ position = Vector2(-981, -115)
 [node name="trap_position" type="Marker2D" parent="."]
 position = Vector2(892, 398)
 
-[node name="Shadow_Sprite2D" type="Sprite2D" parent="trap_position"]
-modulate = Color(0, 0, 0.835294, 0.184314)
-position = Vector2(7.62939e-06, 47)
-scale = Vector2(0.885715, 0.575)
-texture = ExtResource("14_jecnv")
-
 [node name="Pot" type="Node2D" parent="."]
-visible = false
 position = Vector2(2195, 358)
 
 [node name="Pot" parent="Pot" instance=ExtResource("14_yj3bj")]
@@ -210,6 +209,7 @@ position = Vector2(2171, 564)
 shape = SubResource("RectangleShape2D_rpe1n")
 
 [node name="Black" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(0, 0, 0, 1)
 position = Vector2(178.5, 433.5)
 scale = Vector2(9.99167, 6.09167)
@@ -222,5 +222,6 @@ libraries = {
 }
 
 [connection signal="pressed" from="Debug/SpawnEnemy2" to="." method="_on_spawn_enemy_2_pressed"]
+[connection signal="button_down" from="Debug/Vissual_Button" to="." method="_on_vissual_button_button_down"]
 [connection signal="body_entered" from="Enemy_Move_Triggers/Room2_trigger_Area2D" to="Enemy_Move_Triggers" method="_on_room_2_trigger_area_2d_body_entered"]
 [connection signal="body_entered" from="Enemy_Move_Triggers/Room3_trigger_Area2D" to="Enemy_Move_Triggers" method="_on_room_3_trigger_area_2d_body_entered"]

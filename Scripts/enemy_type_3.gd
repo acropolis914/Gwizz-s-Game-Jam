@@ -7,7 +7,9 @@ var toAttack = false
 
 
 func _ready() -> void:
-	$AnimatedSprite2D.play()
+	if !GlobalScript.emeny_3:
+		queue_free()
+	$Art_Sprite.play()
 	
 func _process(delta):
 	var player_pos = get_parent().get_node("Player").get_position()

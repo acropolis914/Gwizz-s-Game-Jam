@@ -1,11 +1,13 @@
 extends CharacterBody2D
 
-@onready var enemy_1_sprite = $Enemy_1_sprite
-@onready var enemy_block_1 = $Enemy_block_1
+@onready var enemy_1_sprite = $Art_Sprite
+@onready var enemy_block_1 = $Temp_Sprite
 @onready var player = get_parent().get_node("Player")
 var speed = .4
 
 func _ready():
+	if !GlobalScript.emeny_1:
+		queue_free()
 	enemy_1_sprite.hide()
 
 func change_art():

@@ -13,7 +13,7 @@ var puzzle = true
 
 var collectible = true #coins
 var dash = true
-var vissuals = true
+var vissuals = false
 var pots = true
 var story = true
 var skip = true
