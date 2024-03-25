@@ -1,12 +1,15 @@
 extends Area2D
 @onready var canvas_layer = $CanvasLayer
 @onready var fade_anim = $CanvasLayer/fade
+@onready var giggle_sfx = $Giggle_sfx
 
 func _ready():
 	canvas_layer.hide()
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):
+		giggle_sfx.play()
+		GlobalScript.in_game = false
 		print(GlobalScript.level)
 		canvas_layer.show()
 

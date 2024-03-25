@@ -4,13 +4,15 @@ class_name Player
 @export var speed = 300
 @onready var killer_area = $"KillerArea/CollisionShape2D"
 @onready var gwizz_sprite = $Art_Sprite
+@onready var whoosh_sfx = $Whoosh_sfx
+@onready var unlock_sfx = $unlock_sfx
 
 var dead = false
+var mouse_pos
 
 func _ready():
 	killer_area.disabled = true
 	gwizz_sprite.animation = "walk"
-	
 
 func for_movement(_delta):
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -21,8 +23,8 @@ func for_movement(_delta):
 	if velocity == Vector2.ZERO:
 		gwizz_sprite.animation = "idle"
 	#position = position.clamp(Vector2.ZERO,get_parent().screen_size)
-var mouse_pos
-func for_mouse_movement(delta):
+
+func for_mouse_movement(_delta):
 	mouse_pos = get_global_mouse_position()
 	if position.distance_to(mouse_pos) > 30:
 		velocity = speed * (mouse_pos-global_position).normalized()
@@ -30,8 +32,9 @@ func for_mouse_movement(delta):
 		velocity = Vector2.ZERO
 
 func for_dash_and_kill():
-	var mouse_dis = position.distance_to(get_global_mouse_position())
+	#var mouse_dis = position.distance_to(get_global_mouse_position())
 	if Input.is_action_just_pressed("dash") && velocity != Vector2.ZERO:
+		whoosh_sfx.play()
 		speed = speed*6
 		gwizz_sprite.animation = "dash"
 		$DashParticle.emitting = true
@@ -52,13 +55,13 @@ func _physics_process(delta):
 		for_movement(delta)
 	if GlobalScript.dash:
 		for_dash_and_kill()
+		
 	gwizz_sprite.play()
 	move_and_slide()
 
 func kill():
 	if dead:
 		return
-	print("player killed")
 	position = position
 	var tween = get_tree().create_tween()
 	tween.tween_property(gwizz_sprite, "modulate", Color.RED, .2).set_trans(Tween.TRANS_SINE)
@@ -70,16 +73,16 @@ func kill():
 	GlobalScript.coins = 0
 	get_tree().reload_current_scene()
 
+@onready var key_bag = $KeyBag
+
+
 func has_key():
-	$Key_Sprite2D.show()
+	$KeyBag.show()
 func gate_unlocked():
-	$Key_Sprite2D.hide()
+	unlock_sfx.play()
+	$KeyBag.hide()
 
 func slimed():
 	speed = .3 * speed
 func unslimed():
 	speed = 300
-
-func change_art():
-	$Sprite2D.hide()
-	$GwizzSprite.show()

@@ -40,7 +40,7 @@ func _ready():
 	else:
 		$Skip_Button.hide()
 
-func _process(delta):
+func _process(_delta):
 	dialog_label.text = dialogs[dialog_num]
 	dialog_label.visible_ratio += .005
 	if dialog_label.visible_ratio == 1:
@@ -56,5 +56,7 @@ func _on_next_button_button_down():
 		dialog_num += 1
 
 func _on_skip_button_button_down():
+	await get_tree().create_timer(.2).timeout
+
 	GlobalScript.in_game = true
 	queue_free()

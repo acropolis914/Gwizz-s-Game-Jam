@@ -2,8 +2,8 @@ extends Node2D
 
 
 
-func _process(delta):
-	if GlobalScript.vissuals:
+func _process(_delta):
+	if GlobalScript.vissuals && $"../Temp_Sprite".is_visible():
 		change_art()
 		
 func change_art():

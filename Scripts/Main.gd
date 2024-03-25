@@ -10,17 +10,16 @@ func _ready():
 	fade.play("fade")
 	$Story_in_Game.show()
 	screen_size = get_viewport_rect().size
-	if GlobalScript.trap_rock:
-		var traps = trap.instantiate()
-		traps.position = $trap_position.position
-		add_child(traps)
 
 func _process(delta):
-
-	if $Player.speed <= 300:
-		$Camera2D.position += ($Player.position - $Camera2D.position)/1.5 * delta
+	if !GlobalScript.camera_mode:
+		if $Player.speed <= 300:
+			$Camera2D.position += ($Player.position - $Camera2D.position)/1.5 * delta
+		else:
+			$Camera2D.position += ($Player.position - $Camera2D.position)/1 * delta
 	else:
-		$Camera2D.position += ($Player.position - $Camera2D.position)/1 * delta
+		$Camera2D.position = $Player.position
+
 
 	if $Debug/CheckButton.button_pressed:
 		$"enemy_type_1".change_art()

@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://1qgfs1qinp1g"]
+[gd_scene load_steps=6 format=3 uid="uid://1qgfs1qinp1g"]
 
 [ext_resource type="Script" path="res://Scripts/key.gd" id="1_xo6a5"]
 [ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="2_mc1cx"]
+[ext_resource type="Texture2D" uid="uid://ddda5xoqonvhu" path="res://ImageAssets/key.png" id="3_nm61n"]
+[ext_resource type="Script" path="res://Scripts/Vissual_comp.gd" id="4_xx3w5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sqpmm"]
-size = Vector2(20, 26)
+size = Vector2(34, 26)
 
 [node name="Key" type="Area2D"]
 script = ExtResource("1_xo6a5")
@@ -12,9 +14,18 @@ script = ExtResource("1_xo6a5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_sqpmm")
 
-[node name="Key_Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 0.27451, 1)
-scale = Vector2(0.183333, 0.233333)
+[node name="Temp_Sprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0.443137, 1)
+scale = Vector2(0.283333, 0.233333)
 texture = ExtResource("2_mc1cx")
 
+[node name="Art_Sprite" type="Sprite2D" parent="."]
+position = Vector2(1, 2)
+scale = Vector2(0.594, 0.594)
+texture = ExtResource("3_nm61n")
+
+[node name="Vissual_comp" type="Node2D" parent="."]
+script = ExtResource("4_xx3w5")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

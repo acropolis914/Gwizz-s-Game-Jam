@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dwbgo21cx8lyu"]
+[gd_scene load_steps=15 format=3 uid="uid://dwbgo21cx8lyu"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_1fjau"]
 [ext_resource type="Texture2D" uid="uid://cqx0p8hxa6pj1" path="res://ImageAssets/player_programmerart_64.png" id="2_6ddoa"]
@@ -6,9 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://bhrjflbuiikul" path="res://ImageAssets/player_idle1_programmerart_64.png" id="4_2emre"]
 [ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="5_echeq"]
 [ext_resource type="Script" path="res://Scripts/Vissual_comp.gd" id="6_6cwco"]
+[ext_resource type="Texture2D" uid="uid://ddda5xoqonvhu" path="res://ImageAssets/key.png" id="6_c6fmo"]
+[ext_resource type="AudioStream" uid="uid://cl0enfjag8ial" path="res://Music/Whoosh.mp3" id="7_86mly"]
+[ext_resource type="AudioStream" uid="uid://b0e5l0w2hi543" path="res://Music/Gate.mp3" id="8_fgop3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5w6aj"]
-size = Vector2(54, 58)
+size = Vector2(54, 37)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q1c81"]
 animations = [{
@@ -54,10 +57,17 @@ fill_from = Vector2(1, 1)
 fill_to = Vector2(0, 0)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 1
 script = ExtResource("1_1fjau")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_5w6aj")
+
+[node name="Temp_Sprite" type="Sprite2D" parent="."]
+modulate = Color(0.356863, 0, 1, 1)
+scale = Vector2(0.433333, 0.5)
+texture = ExtResource("5_echeq")
 
 [node name="Art_Sprite" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -65,10 +75,8 @@ sprite_frames = SubResource("SpriteFrames_q1c81")
 animation = &"idle"
 frame_progress = 0.722012
 
-[node name="Temp_Sprite" type="Sprite2D" parent="."]
-modulate = Color(0.356863, 0, 1, 1)
-scale = Vector2(0.433333, 0.5)
-texture = ExtResource("5_echeq")
+[node name="Vissual_comp" type="Node2D" parent="."]
+script = ExtResource("6_6cwco")
 
 [node name="KillerArea" type="Area2D" parent="." groups=["player_attack"]]
 z_index = 1
@@ -90,12 +98,29 @@ spread = 97.73
 gravity = Vector2(-20, -100)
 linear_accel_max = 12.12
 
-[node name="Key_Sprite2D" type="Sprite2D" parent="."]
+[node name="Whoosh_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_86mly")
+volume_db = -2.857
+
+[node name="unlock_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_fgop3")
+volume_db = -2.286
+
+[node name="KeyBag" type="Node2D" parent="."]
 visible = false
+
+[node name="Temp_Sprite" type="Sprite2D" parent="KeyBag"]
 modulate = Color(1, 1, 0.27451, 1)
-position = Vector2(0, -40)
-scale = Vector2(0.183333, 0.233333)
+position = Vector2(0, -36.5)
+scale = Vector2(0.266667, 0.241666)
 texture = ExtResource("5_echeq")
 
-[node name="Vissual_comp" type="Node2D" parent="."]
+[node name="Art_Sprite" type="Sprite2D" parent="KeyBag"]
+visible = false
+modulate = Color(1, 1, 0.27451, 1)
+position = Vector2(0, -35)
+scale = Vector2(0.5, 0.59375)
+texture = ExtResource("6_c6fmo")
+
+[node name="Vissual_comp" type="Node2D" parent="KeyBag"]
 script = ExtResource("6_6cwco")

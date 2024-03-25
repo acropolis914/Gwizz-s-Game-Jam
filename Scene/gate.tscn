@@ -1,10 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://f12olo3uq6e6"]
+[gd_scene load_steps=7 format=3 uid="uid://f12olo3uq6e6"]
 
 [ext_resource type="Script" path="res://Scripts/gate.gd" id="1_fo5on"]
 [ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="1_v1e5c"]
+[ext_resource type="Texture2D" uid="uid://tcv5cg0xe0rj" path="res://ImageAssets/Gate.png" id="2_irxgy"]
+[ext_resource type="Script" path="res://Scripts/Vissual_comp.gd" id="4_txmvw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_77716"]
-size = Vector2(124, 138)
+size = Vector2(166, 146)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ilp8y"]
 size = Vector2(122, 126)
@@ -13,15 +15,28 @@ size = Vector2(122, 126)
 script = ExtResource("1_fo5on")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 11)
 shape = SubResource("RectangleShape2D_77716")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Temp_Sprite" type="Sprite2D" parent="."]
 modulate = Color(0.247059, 0.25098, 1, 1)
+position = Vector2(0, 8.50001)
+scale = Vector2(1.33333, 1.19167)
 texture = ExtResource("1_v1e5c")
+
+[node name="Art_Sprite" type="Sprite2D" parent="."]
+visible = false
+z_index = -2
+position = Vector2(-1, 2.38419e-07)
+scale = Vector2(1.125, 1.25)
+texture = ExtResource("2_irxgy")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_ilp8y")
+
+[node name="Vissual_comp" type="Node2D" parent="."]
+script = ExtResource("4_txmvw")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

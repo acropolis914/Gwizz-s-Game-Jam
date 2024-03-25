@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://jb0g611bwir3"
+path="res://.godot/imported/Pot Breaking.mp3-212e57029ec350a3f427adeecb972cee.mp3str"
+
+[deps]
+
+source_file="res://Music/Pot Breaking.mp3"
+dest_files=["res://.godot/imported/Pot Breaking.mp3-212e57029ec350a3f427adeecb972cee.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

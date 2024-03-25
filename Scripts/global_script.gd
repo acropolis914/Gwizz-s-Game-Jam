@@ -29,3 +29,4 @@ var in_room3 = false
 
 #Settings
 var mouse_mode = false
+var camera_mode = true

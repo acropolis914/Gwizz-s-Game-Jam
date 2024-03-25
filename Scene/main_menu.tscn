@@ -1,16 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://ewbgkj1lwh8e"]
+[gd_scene load_steps=9 format=3 uid="uid://ewbgkj1lwh8e"]
 
 [ext_resource type="Script" path="res://Scripts/Main_menu.gd" id="1_vepo8"]
 [ext_resource type="Texture2D" uid="uid://bymccu5k2qu5c" path="res://ImageAssets/BG Main Menu.png" id="2_sccpn"]
+[ext_resource type="Texture2D" uid="uid://dmki0lhwcoydg" path="res://ImageAssets/BG Ending 1.png" id="3_bxuo5"]
+[ext_resource type="Texture2D" uid="uid://ch016ye1rqktw" path="res://ImageAssets/BG Ending 2.png" id="4_g6nfh"]
+[ext_resource type="Texture2D" uid="uid://vrgefejb2l3p" path="res://ImageAssets/BG Ending 3.png" id="5_a07uu"]
+[ext_resource type="Texture2D" uid="uid://d00vpkjc2ihgy" path="res://ImageAssets/BG Ending 4 with BG.png" id="6_bcntg"]
+[ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="7_bt82f"]
 
-[node name="Main_menu" type="CanvasLayer"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8v6av"]
+
+[node name="Main_menu" type="Node2D"]
 script = ExtResource("1_vepo8")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
 texture = ExtResource("2_sccpn")
 
-[node name="Label" type="Label" parent="."]
+[node name="Main" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Label" type="Label" parent="Main"]
 offset_left = 343.0
 offset_top = 100.0
 offset_right = 1024.0
@@ -19,19 +29,145 @@ theme_override_font_sizes/font_size = 50
 text = "Game Jam Deving"
 horizontal_alignment = 1
 
-[node name="Start_Button" type="Button" parent="."]
+[node name="Start_Button" type="Button" parent="Main"]
 offset_left = 583.0
 offset_top = 197.0
 offset_right = 817.0
 offset_bottom = 287.0
 text = "Start"
 
-[node name="Options_Button" type="Button" parent="."]
+[node name="Options_Button" type="Button" parent="Main"]
 offset_left = 583.0
 offset_top = 304.0
 offset_right = 817.0
 offset_bottom = 394.0
 text = "Options"
 
-[connection signal="button_down" from="Start_Button" to="." method="_on_start_button_button_down"]
-[connection signal="button_down" from="Options_Button" to="." method="_on_options_button_button_down"]
+[node name="Option" type="CanvasLayer" parent="."]
+
+[node name="Toggles" type="Node2D" parent="Option"]
+position = Vector2(102, 17)
+scale = Vector2(1.5, 1.5)
+
+[node name="Mouse_Mode" type="CheckBox" parent="Option/Toggles"]
+offset_left = 189.5
+offset_top = 56.5
+offset_right = 321.5
+offset_bottom = 87.5
+focus_mode = 0
+text = "Mouse Mode"
+icon = SubResource("CompressedTexture2D_8v6av")
+
+[node name="Camera_Mode" type="CheckBox" parent="Option/Toggles"]
+offset_left = 190.0
+offset_top = 91.3333
+offset_right = 337.0
+offset_bottom = 122.333
+focus_mode = 0
+text = "Camera Follow"
+icon = SubResource("CompressedTexture2D_8v6av")
+
+[node name="Endings" type="Node2D" parent="Option"]
+
+[node name="Ending1" type="Sprite2D" parent="Option/Endings"]
+position = Vector2(433, 366)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_bxuo5")
+
+[node name="Ending2" type="Sprite2D" parent="Option/Endings"]
+position = Vector2(599, 366)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_g6nfh")
+
+[node name="Ending3" type="Sprite2D" parent="Option/Endings"]
+position = Vector2(767, 366)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_a07uu")
+
+[node name="Ending4" type="Sprite2D" parent="Option/Endings"]
+position = Vector2(927, 366)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_bcntg")
+
+[node name="Black1" type="Sprite2D" parent="Option/Endings"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(433, 366)
+scale = Vector2(1.06667, 0.6)
+texture = ExtResource("7_bt82f")
+
+[node name="Button" type="Button" parent="Option/Endings/Black1"]
+offset_left = -60.0
+offset_top = -60.0
+offset_right = 60.0
+offset_bottom = 58.0
+
+[node name="Black2" type="Sprite2D" parent="Option/Endings"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(599, 366)
+scale = Vector2(1.06667, 0.6)
+texture = ExtResource("7_bt82f")
+
+[node name="Button" type="Button" parent="Option/Endings/Black2"]
+offset_left = -60.0
+offset_top = -60.0
+offset_right = 60.0
+offset_bottom = 58.0
+
+[node name="Black3" type="Sprite2D" parent="Option/Endings"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(766, 366)
+scale = Vector2(1.06667, 0.6)
+texture = ExtResource("7_bt82f")
+
+[node name="Button" type="Button" parent="Option/Endings/Black3"]
+offset_left = -60.0
+offset_top = -60.0
+offset_right = 60.0
+offset_bottom = 58.0
+
+[node name="Black4" type="Sprite2D" parent="Option/Endings"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(927, 366)
+scale = Vector2(1.06667, 0.6)
+texture = ExtResource("7_bt82f")
+
+[node name="Button" type="Button" parent="Option/Endings/Black4"]
+offset_left = -60.0
+offset_top = -60.0
+offset_right = 60.0
+offset_bottom = 58.0
+
+[node name="Ending_Label_1" type="Label" parent="Option/Endings"]
+offset_left = 399.0
+offset_top = 301.0
+offset_right = 465.0
+offset_bottom = 324.0
+text = "Ending 1"
+horizontal_alignment = 1
+
+[node name="Ending_Label_2" type="Label" parent="Option/Endings"]
+offset_left = 565.0
+offset_top = 301.0
+offset_right = 631.0
+offset_bottom = 324.0
+text = "Ending 2"
+horizontal_alignment = 1
+
+[node name="Ending_Label_3" type="Label" parent="Option/Endings"]
+offset_left = 735.0
+offset_top = 301.0
+offset_right = 801.0
+offset_bottom = 324.0
+text = "Ending 3"
+horizontal_alignment = 1
+
+[node name="Ending_Label_4" type="Label" parent="Option/Endings"]
+offset_left = 892.0
+offset_top = 301.0
+offset_right = 958.0
+offset_bottom = 324.0
+text = "Ending 4"
+horizontal_alignment = 1
+
+[connection signal="button_down" from="Main/Start_Button" to="." method="_on_start_button_button_down"]
+[connection signal="button_down" from="Main/Options_Button" to="." method="_on_options_button_button_down"]

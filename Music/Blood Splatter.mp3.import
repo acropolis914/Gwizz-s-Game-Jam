@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b14qojfwq4l1"
+path="res://.godot/imported/Blood Splatter.mp3-b195d48d2d73b8cafba5c5c3c14e6e64.mp3str"
+
+[deps]
+
+source_file="res://Music/Blood Splatter.mp3"
+dest_files=["res://.godot/imported/Blood Splatter.mp3-b195d48d2d73b8cafba5c5c3c14e6e64.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

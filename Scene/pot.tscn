@@ -1,28 +1,66 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8v23jfry1r7"]
+[gd_scene load_steps=9 format=3 uid="uid://b8v23jfry1r7"]
 
 [ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="1_em2a2"]
 [ext_resource type="Script" path="res://Scripts/pot.gd" id="1_w53b8"]
+[ext_resource type="Texture2D" uid="uid://c6p6dq3rbudx3" path="res://ImageAssets/Pot.png" id="2_52pt7"]
+[ext_resource type="Texture2D" uid="uid://ddda5xoqonvhu" path="res://ImageAssets/key.png" id="3_p22n3"]
+[ext_resource type="Script" path="res://Scripts/Vissual_comp.gd" id="4_t4ab4"]
+[ext_resource type="AudioStream" uid="uid://jb0g611bwir3" path="res://Music/Pot Breaking.mp3" id="5_56bck"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vd2lb"]
-size = Vector2(66, 74)
+size = Vector2(66, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k2kip"]
-size = Vector2(58, 70)
+size = Vector2(58, 31)
 
 [node name="Pot" type="Area2D"]
 script = ExtResource("1_w53b8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 19)
 shape = SubResource("RectangleShape2D_vd2lb")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Temp_Sprite" type="Sprite2D" parent="."]
 modulate = Color(0.47451, 0.266667, 0.223529, 1)
 scale = Vector2(0.5, 0.583333)
 texture = ExtResource("1_em2a2")
 
-[node name="staticbody" type="StaticBody2D" parent="."]
+[node name="KeyBag" type="Node2D" parent="Temp_Sprite"]
+visible = false
+
+[node name="Temp_Sprite" type="Sprite2D" parent="Temp_Sprite/KeyBag"]
+modulate = Color(1, 1, 0.27451, 1)
+position = Vector2(0, -36.5)
+scale = Vector2(0.183333, 0.175)
+texture = ExtResource("1_em2a2")
+
+[node name="Art_Sprite" type="Sprite2D" parent="Temp_Sprite/KeyBag"]
+visible = false
+modulate = Color(1, 1, 0.27451, 1)
+position = Vector2(0, -35)
+scale = Vector2(0.34375, 0.40625)
+texture = ExtResource("3_p22n3")
+
+[node name="Vissual_comp" type="Node2D" parent="Temp_Sprite/KeyBag"]
+script = ExtResource("4_t4ab4")
+
+[node name="Art_Sprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-1, 2.38419e-07)
+scale = Vector2(1.125, 1.25)
+texture = ExtResource("2_52pt7")
+
+[node name="staticbody" type="StaticBody2D" parent="." groups=["pot"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="staticbody"]
+position = Vector2(0, 19.5)
 shape = SubResource("RectangleShape2D_k2kip")
+
+[node name="Vissual_comp" type="Node2D" parent="."]
+script = ExtResource("4_t4ab4")
+
+[node name="Smack_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_56bck")
+volume_db = -10.429
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

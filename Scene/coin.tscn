@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfh6fu6sg2kyy"]
+[gd_scene load_steps=7 format=3 uid="uid://cfh6fu6sg2kyy"]
 
 [ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="1_0my5m"]
 [ext_resource type="Script" path="res://Scripts/coin.gd" id="1_uavr1"]
+[ext_resource type="AudioStream" uid="uid://f88n7m8bpoiq" path="res://Music/Coin.mp3" id="3_lvwko"]
+[ext_resource type="Texture2D" uid="uid://7kqtu887rjw0" path="res://ImageAssets/Coin.png" id="4_f8gyg"]
+[ext_resource type="Script" path="res://Scripts/Vissual_comp.gd" id="5_236cc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u3itk"]
-size = Vector2(26, 26)
+size = Vector2(16, 26)
 
 [node name="Coin" type="Area2D"]
 script = ExtResource("1_uavr1")
@@ -12,9 +15,22 @@ script = ExtResource("1_uavr1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_u3itk")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Temp_Sprite" type="Sprite2D" parent="."]
 modulate = Color(1, 0.788235, 0, 1)
-scale = Vector2(0.216667, 0.216667)
+scale = Vector2(0.133333, 0.216667)
 texture = ExtResource("1_0my5m")
 
+[node name="Art_Sprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1, 2)
+scale = Vector2(0.594, 0.594)
+texture = ExtResource("4_f8gyg")
+
+[node name="coin_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_lvwko")
+
+[node name="Vissual_comp" type="Node2D" parent="."]
+script = ExtResource("5_236cc")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

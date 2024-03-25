@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://d4dujpa6cb6sw"]
+
+[ext_resource type="Script" path="res://Scripts/Blood.gd" id="1_c33ei"]
+[ext_resource type="AudioStream" uid="uid://b14qojfwq4l1" path="res://Music/Blood Splatter.mp3" id="2_vnome"]
+
+[sub_resource type="Curve" id="Curve_u0qvi"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.810811, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Blood" type="CPUParticles2D"]
+emitting = false
+amount = 30
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 16.27
+direction = Vector2(0, -1)
+spread = 90.0
+initial_velocity_min = 96.59
+initial_velocity_max = 255.68
+scale_amount_min = 3.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_u0qvi")
+color = Color(0.956863, 0, 0.427451, 1)
+script = ExtResource("1_c33ei")
+
+[node name="Blood_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_vnome")
