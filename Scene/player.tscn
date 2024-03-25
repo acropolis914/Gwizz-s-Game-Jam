@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dwbgo21cx8lyu"]
+[gd_scene load_steps=11 format=3 uid="uid://dwbgo21cx8lyu"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_1fjau"]
 [ext_resource type="Texture2D" uid="uid://cqx0p8hxa6pj1" path="res://ImageAssets/player_programmerart_64.png" id="2_6ddoa"]
 [ext_resource type="Texture2D" uid="uid://djupu0ttnro4v" path="res://ImageAssets/player_dash_programmerart_64.png" id="2_380vl"]
 [ext_resource type="Texture2D" uid="uid://bhrjflbuiikul" path="res://ImageAssets/player_idle1_programmerart_64.png" id="4_2emre"]
 [ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="5_echeq"]
-[ext_resource type="Script" path="res://Scripts/Vissual_comp.gd" id="6_6cwco"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5w6aj"]
 size = Vector2(54, 58)
@@ -59,19 +58,12 @@ script = ExtResource("1_1fjau")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5w6aj")
 
-[node name="Art_Sprite" type="AnimatedSprite2D" parent="."]
-visible = false
+[node name="GwizzSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_q1c81")
 animation = &"idle"
 frame_progress = 0.722012
 
-[node name="Temp_Sprite" type="Sprite2D" parent="."]
-modulate = Color(0.356863, 0, 1, 1)
-scale = Vector2(0.433333, 0.5)
-texture = ExtResource("5_echeq")
-
 [node name="KillerArea" type="Area2D" parent="." groups=["player_attack"]]
-z_index = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillerArea"]
 shape = SubResource("RectangleShape2D_tr350")
@@ -96,6 +88,3 @@ modulate = Color(1, 1, 0.27451, 1)
 position = Vector2(0, -40)
 scale = Vector2(0.183333, 0.233333)
 texture = ExtResource("5_echeq")
-
-[node name="Vissual_comp" type="Node2D" parent="."]
-script = ExtResource("6_6cwco")

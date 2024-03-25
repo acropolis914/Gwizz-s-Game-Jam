@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bioel72emf3f1"]
+[gd_scene load_steps=8 format=3 uid="uid://bioel72emf3f1"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_type_1.gd" id="1_dhl5t"]
 [ext_resource type="Texture2D" uid="uid://ddofncep5nh56" path="res://ImageAssets/enemy1_programmerart_64.png" id="2_ht0kc"]
 [ext_resource type="Script" path="res://Scripts/Components/Enemy Death Comp.gd" id="3_ocjtw"]
 [ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="4_yluhq"]
-[ext_resource type="Script" path="res://Scripts/Vissual_comp.gd" id="5_vh8dg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uod3q"]
 size = Vector2(38, 42)
@@ -29,12 +28,7 @@ script = ExtResource("1_dhl5t")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_uod3q")
 
-[node name="Art_Sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(1, 1)
-scale = Vector2(0.84375, 0.890625)
-sprite_frames = SubResource("SpriteFrames_cpxq5")
-
-[node name="Temp_Sprite" type="Sprite2D" parent="."]
+[node name="Enemy_block_1" type="Sprite2D" parent="."]
 modulate = Color(0.592157, 1, 0.592157, 1)
 scale = Vector2(0.333333, 0.366667)
 texture = ExtResource("4_yluhq")
@@ -42,13 +36,15 @@ texture = ExtResource("4_yluhq")
 [node name="Enemy Death Comp" type="Node" parent="."]
 script = ExtResource("3_ocjtw")
 
+[node name="Enemy_1_sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 1)
+scale = Vector2(0.84375, 0.890625)
+sprite_frames = SubResource("SpriteFrames_cpxq5")
+
 [node name="Killer_Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killer_Area2D"]
 shape = SubResource("RectangleShape2D_17sbu")
-
-[node name="Vissual_comp" type="Node2D" parent="."]
-script = ExtResource("5_vh8dg")
 
 [connection signal="area_entered" from="Killer_Area2D" to="Enemy Death Comp" method="_on_killer_area_2d_area_entered"]
 [connection signal="body_entered" from="Killer_Area2D" to="." method="_on_killer_area_2d_body_entered"]

@@ -13,7 +13,7 @@ var puzzle = true
 
 var collectible = true #coins
 var dash = true
-var vissuals = false
+var vissuals = true
 var pots = true
 var story = true
 var skip = true
@@ -21,11 +21,6 @@ var skip = true
 #Plauyer holding
 var key = false
 var coins = 0
-
-#Game holding
-var in_game = false
-var in_room2 = false
-var in_room3 = false
 
 #Settings
 var mouse_mode = false

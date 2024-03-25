@@ -3,7 +3,8 @@ class_name Player
 
 @export var speed = 300
 @onready var killer_area = $"KillerArea/CollisionShape2D"
-@onready var gwizz_sprite = $Art_Sprite
+@onready var gwizz_sprite = $GwizzSprite
+
 
 var dead = false
 
@@ -32,19 +33,20 @@ func for_mouse_movement(delta):
 func for_dash_and_kill():
 	var mouse_dis = position.distance_to(get_global_mouse_position())
 	if Input.is_action_just_pressed("dash") && velocity != Vector2.ZERO:
-		speed = speed*6
-		gwizz_sprite.animation = "dash"
-		$DashParticle.emitting = true
-		killer_area.disabled = false
-		await get_tree().create_timer(0.1).timeout
-		#var tween = create_tween()
-		#tween.tween_property(gwizz_sprite, "animation", "walk" , .5)
-		gwizz_sprite.animation = "walk"
-		speed= 300
-		killer_area.disabled = true
+			speed = speed*6
+			gwizz_sprite.animation = "dash"
+			$DashParticle.emitting = true
+			killer_area.disabled = false
+			await get_tree().create_timer(0.1).timeout
+			#var tween = create_tween()
+			#tween.tween_property(gwizz_sprite, "animation", "walk" , .5)
+			gwizz_sprite.animation = "walk"
+			speed= 300
+			killer_area.disabled = true
+		
 
 func _physics_process(delta):
-	if dead || !GlobalScript.in_game:
+	if dead:
 		return
 	if GlobalScript.mouse_mode:
 		for_mouse_movement(delta)
@@ -52,8 +54,8 @@ func _physics_process(delta):
 		for_movement(delta)
 	if GlobalScript.dash:
 		for_dash_and_kill()
-	gwizz_sprite.play()
 	move_and_slide()
+	gwizz_sprite.play()
 
 func kill():
 	if dead:
@@ -80,6 +82,5 @@ func slimed():
 func unslimed():
 	speed = 300
 
-func change_art():
-	$Sprite2D.hide()
-	$GwizzSprite.show()
+func _on_game_timer_timeout():
+	kill()

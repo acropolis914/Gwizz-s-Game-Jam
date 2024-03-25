@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/coin.gd" id="1_uavr1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u3itk"]
-size = Vector2(26, 26)
+size = Vector2(54, 58)
 
 [node name="Coin" type="Area2D"]
 script = ExtResource("1_uavr1")
@@ -14,7 +14,7 @@ shape = SubResource("RectangleShape2D_u3itk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0.788235, 0, 1)
-scale = Vector2(0.216667, 0.216667)
+scale = Vector2(0.466667, 0.5)
 texture = ExtResource("1_0my5m")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

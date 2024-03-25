@@ -1,90 +1,36 @@
-[gd_scene load_steps=10 format=3 uid="uid://df5ioo34xm154"]
+[gd_scene load_steps=4 format=3 uid="uid://df5ioo34xm154"]
 
 [ext_resource type="Script" path="res://Scripts/ending_mode.gd" id="1_kejtb"]
-[ext_resource type="Texture2D" uid="uid://dhqx6slcop3q4" path="res://ImageAssets/BG Gwizz Jam Site.png" id="2_cbd6o"]
+[ext_resource type="Texture2D" uid="uid://cx0ylvqts013l" path="res://ImageAssets/Screenshot Submit.png" id="2_h34lo"]
 [ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="3_aipnl"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7xsow"]
-bg_color = Color(0.215686, 0.643137, 0.682353, 0.482353)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3f57j"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="Theme" id="Theme_r3pfl"]
-Button/styles/hover = SubResource("StyleBoxFlat_7xsow")
-Button/styles/normal = SubResource("StyleBoxFlat_3f57j")
-
-[sub_resource type="Animation" id="Animation_perhk"]
-resource_name = "fade"
-length = 0.8
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Black_Sprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_eqmt8"]
-resource_name = "fade_to_black"
-length = 0.8
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Black_Sprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_64ld1"]
-_data = {
-"fade": SubResource("Animation_perhk"),
-"fade_to_black": SubResource("Animation_eqmt8")
-}
 
 [node name="Ending_mode" type="CanvasLayer"]
 script = ExtResource("1_kejtb")
 
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(640, 360)
-texture = ExtResource("2_cbd6o")
+[node name="ScreenshotSubmit" type="Sprite2D" parent="."]
+position = Vector2(641, 358.5)
+scale = Vector2(0.66493, 0.670065)
+texture = ExtResource("2_h34lo")
 
 [node name="Submit_Button" type="Button" parent="."]
-offset_left = 707.0
-offset_top = 525.0
-offset_right = 873.0
-offset_bottom = 561.0
-theme = SubResource("Theme_r3pfl")
+offset_left = 702.0
+offset_top = 521.0
+offset_right = 859.0
+offset_bottom = 557.0
+text = "SUBMIT PROJECT"
 
-[node name="End_Button" type="Button" parent="."]
-visible = false
-offset_left = -20.0
-offset_top = -27.0
-offset_right = 1301.0
-offset_bottom = 739.0
-flat = true
+[node name="Endings" type="Node2D" parent="."]
 
-[node name="Black_Sprite2D" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(0, 0, 0, 1)
-position = Vector2(637.5, 365.75)
-scale = Vector2(11.0083, 6.3875)
+[node name="Ending1_Sprite2D" type="Sprite2D" parent="Endings"]
+position = Vector2(437, 272)
 texture = ExtResource("3_aipnl")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_64ld1")
-}
+[node name="Ending2_Sprite2D" type="Sprite2D" parent="Endings"]
+position = Vector2(437, 272)
+texture = ExtResource("3_aipnl")
+
+[node name="Ending3_Sprite2D" type="Sprite2D" parent="Endings"]
+position = Vector2(411, 311)
+texture = ExtResource("3_aipnl")
 
 [connection signal="button_down" from="Submit_Button" to="." method="_on_submit_button_button_down"]
-[connection signal="button_down" from="End_Button" to="." method="_on_end_button_button_down"]
