@@ -1,0 +1,243 @@
+[gd_scene load_steps=15 format=3 uid="uid://da304333dokve"]
+
+[ext_resource type="Script" path="res://Scripts/option.gd" id="1_20ha0"]
+[ext_resource type="Texture2D" uid="uid://dmki0lhwcoydg" path="res://ImageAssets/BG Ending 1.png" id="1_aj5iu"]
+[ext_resource type="Texture2D" uid="uid://bymccu5k2qu5c" path="res://ImageAssets/BG Main Menu.png" id="1_ik8ey"]
+[ext_resource type="Texture2D" uid="uid://ch016ye1rqktw" path="res://ImageAssets/BG Ending 2.png" id="2_hg88i"]
+[ext_resource type="Texture2D" uid="uid://vrgefejb2l3p" path="res://ImageAssets/BG Ending 3.png" id="3_bmwka"]
+[ext_resource type="Texture2D" uid="uid://d00vpkjc2ihgy" path="res://ImageAssets/BG Ending 4 with BG.png" id="4_s2cyl"]
+[ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="5_u1fh5"]
+[ext_resource type="Texture2D" uid="uid://c7tmqeu8f12e1" path="res://ImageAssets/BG Computer Day 0.png" id="6_ixm60"]
+[ext_resource type="Texture2D" uid="uid://74ss7bnbb3y4" path="res://ImageAssets/BG Arrow.png" id="7_dpkg0"]
+[ext_resource type="Texture2D" uid="uid://k5sxd47omogv" path="res://ImageAssets/StickyNote.png" id="8_nam2k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cvr7t"]
+bg_color = Color(1, 0.337255, 0.337255, 0.439216)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jt88p"]
+bg_color = Color(1, 0.337255, 0.337255, 0.392157)
+
+[sub_resource type="Theme" id="Theme_kbufc"]
+Button/styles/hover = SubResource("StyleBoxFlat_cvr7t")
+Button/styles/normal = SubResource("StyleBoxFlat_jt88p")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8v6av"]
+
+[node name="Option" type="CanvasLayer"]
+script = ExtResource("1_20ha0")
+
+[node name="Background2" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("1_ik8ey")
+
+[node name="X_Button" type="Button" parent="."]
+offset_left = 352.0
+offset_top = 93.0
+offset_right = 391.0
+offset_bottom = 128.0
+focus_mode = 0
+theme = SubResource("Theme_kbufc")
+text = "X"
+
+[node name="Toggles" type="Node2D" parent="."]
+position = Vector2(79, 62)
+scale = Vector2(1.5, 1.5)
+
+[node name="Mouse_Mode" type="CheckBox" parent="Toggles"]
+offset_left = 189.5
+offset_top = 56.5
+offset_right = 321.5
+offset_bottom = 87.5
+focus_mode = 0
+text = "Mouse Mode"
+icon = SubResource("CompressedTexture2D_8v6av")
+
+[node name="Camera_Mode" type="CheckBox" parent="Toggles"]
+offset_left = 190.0
+offset_top = 81.3333
+offset_right = 337.0
+offset_bottom = 112.333
+focus_mode = 0
+text = "Camera Follow"
+icon = SubResource("CompressedTexture2D_8v6av")
+
+[node name="Art_Mode" type="CheckBox" parent="Toggles"]
+visible = false
+offset_left = 190.0
+offset_top = 108.0
+offset_right = 337.0
+offset_bottom = 139.0
+focus_mode = 0
+button_pressed = true
+text = "Art Toggle"
+icon = SubResource("CompressedTexture2D_8v6av")
+
+[node name="Endings" type="Node2D" parent="."]
+
+[node name="Black1" type="Sprite2D" parent="Endings"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(433, 366)
+scale = Vector2(1.06667, 0.6)
+texture = ExtResource("5_u1fh5")
+
+[node name="Black2" type="Sprite2D" parent="Endings"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(599, 366)
+scale = Vector2(1.06667, 0.6)
+texture = ExtResource("5_u1fh5")
+
+[node name="Black3" type="Sprite2D" parent="Endings"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(766, 366)
+scale = Vector2(1.06667, 0.6)
+texture = ExtResource("5_u1fh5")
+
+[node name="Black4" type="Sprite2D" parent="Endings"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(927, 366)
+scale = Vector2(1.06667, 0.6)
+texture = ExtResource("5_u1fh5")
+
+[node name="Ending1" type="Sprite2D" parent="Endings"]
+visible = false
+position = Vector2(433, 366)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_aj5iu")
+
+[node name="Button" type="Button" parent="Endings/Ending1"]
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="Ending2" type="Sprite2D" parent="Endings"]
+visible = false
+position = Vector2(599, 366)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_hg88i")
+
+[node name="Button" type="Button" parent="Endings/Ending2"]
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="Ending3" type="Sprite2D" parent="Endings"]
+visible = false
+position = Vector2(767, 366)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_bmwka")
+
+[node name="Button" type="Button" parent="Endings/Ending3"]
+offset_left = -650.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="Ending4" type="Sprite2D" parent="Endings"]
+visible = false
+position = Vector2(927, 366)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_s2cyl")
+
+[node name="Button" type="Button" parent="Endings/Ending4"]
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="Ending_Label_1" type="Label" parent="Endings"]
+offset_left = 399.0
+offset_top = 301.0
+offset_right = 465.0
+offset_bottom = 324.0
+text = "Ending 1"
+horizontal_alignment = 1
+
+[node name="Ending_Label_2" type="Label" parent="Endings"]
+offset_left = 565.0
+offset_top = 301.0
+offset_right = 631.0
+offset_bottom = 324.0
+text = "Ending 2"
+horizontal_alignment = 1
+
+[node name="Ending_Label_3" type="Label" parent="Endings"]
+offset_left = 735.0
+offset_top = 301.0
+offset_right = 801.0
+offset_bottom = 324.0
+text = "Ending 3"
+horizontal_alignment = 1
+
+[node name="Ending_Label_4" type="Label" parent="Endings"]
+offset_left = 892.0
+offset_top = 301.0
+offset_right = 958.0
+offset_bottom = 324.0
+text = "Ending 4"
+horizontal_alignment = 1
+
+[node name="Backgrounds" type="Node2D" parent="."]
+
+[node name="DailyBackground" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(827, 177)
+scale = Vector2(0.204687, 0.205556)
+texture = ExtResource("6_ixm60")
+
+[node name="BgArrowR" type="Sprite2D" parent="Backgrounds"]
+visible = false
+position = Vector2(977, 186)
+scale = Vector2(0.17517, 0.152174)
+texture = ExtResource("7_dpkg0")
+
+[node name="ArrowR" type="Button" parent="Backgrounds/BgArrowR"]
+offset_left = -63.0
+offset_top = -85.0
+offset_right = 63.0
+offset_bottom = 92.0
+focus_mode = 0
+flat = true
+
+[node name="BgArrowL" type="Sprite2D" parent="Backgrounds"]
+visible = false
+position = Vector2(676, 181)
+rotation = 3.14159
+scale = Vector2(0.17517, 0.152174)
+texture = ExtResource("7_dpkg0")
+
+[node name="ArrowL" type="Button" parent="Backgrounds/BgArrowL"]
+offset_left = -63.0
+offset_top = -85.0
+offset_right = 63.0
+offset_bottom = 92.0
+focus_mode = 0
+flat = true
+
+[node name="StickyNote" type="Sprite2D" parent="."]
+position = Vector2(1026.5, 115.3)
+texture = ExtResource("8_nam2k")
+
+[node name="Endings_sprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("1_aj5iu")
+
+[node name="End_Close_Button" type="Button" parent="Endings_sprite"]
+offset_left = -658.0
+offset_top = -378.0
+offset_right = 654.0
+offset_bottom = 370.0
+focus_mode = 0
+flat = true
+
+[connection signal="button_down" from="X_Button" to="." method="_on_x_button_button_down"]
+[connection signal="toggled" from="Toggles/Mouse_Mode" to="." method="_on_mouse_mode_toggled"]
+[connection signal="toggled" from="Toggles/Camera_Mode" to="." method="_on_camera_mode_toggled"]
+[connection signal="toggled" from="Toggles/Art_Mode" to="." method="_on_art_mode_toggled"]
+[connection signal="button_down" from="Endings/Ending1/Button" to="." method="_on_button_button_down" binds= [1]]
+[connection signal="button_down" from="Endings/Ending2/Button" to="." method="_on_button_button_down" binds= [2]]
+[connection signal="button_down" from="Endings/Ending3/Button" to="." method="_on_button_button_down" binds= [3]]
+[connection signal="button_down" from="Endings/Ending4/Button" to="." method="_on_button_button_down" binds= [4]]
+[connection signal="button_down" from="Backgrounds/BgArrowR/ArrowR" to="." method="_on_arrow_button_down" binds= [1]]
+[connection signal="button_down" from="Endings_sprite/End_Close_Button" to="." method="_on_end_close_button_button_down"]

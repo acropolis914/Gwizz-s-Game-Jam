@@ -19,7 +19,7 @@ func _process(delta):
 	if resting:
 		pass
 	else: 
-		if GlobalScript.in_room2:
+		if GlobalScript.in_room2 && GlobalScript.in_game:
 			$Life.start()
 			#pangit apaka basic na follow. seems stupid. let me get my cartesian plane
 			var player_position = get_parent().get_node("Player").get_position()

@@ -12,6 +12,14 @@ func _ready():
 	screen_size = get_viewport_rect().size
 
 func _process(delta):
+	camera_mode(delta)
+	if has_node("Story_in_Game"):
+		if $Option.is_visible():
+			$Story_in_Game.hide()
+		else:
+			$Story_in_Game.show()
+
+func camera_mode(delta):
 	if !GlobalScript.camera_mode:
 		if $Player.speed <= 300:
 			$Camera2D.position += ($Player.position - $Camera2D.position)/1.5 * delta
@@ -19,17 +27,3 @@ func _process(delta):
 			$Camera2D.position += ($Player.position - $Camera2D.position)/1 * delta
 	else:
 		$Camera2D.position = $Player.position
-
-
-	if $Debug/CheckButton.button_pressed:
-		$"enemy_type_1".change_art()
-
-
-func _on_spawn_enemy_2_pressed():
-	var enemy2_instance = enemy2.instantiate()
-	enemy2_instance.position = Vector2(randi_range(0,screen_size.x),randi_range(0,screen_size.y))
-	add_child(enemy2_instance)
-
-
-func _on_vissual_button_button_down():
-	GlobalScript.vissuals = true

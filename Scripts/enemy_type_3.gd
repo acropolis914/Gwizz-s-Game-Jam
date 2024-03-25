@@ -13,7 +13,7 @@ func _ready() -> void:
 	
 func _process(delta):
 	var player_pos = get_parent().get_node("Player").get_position()
-	if GlobalScript.in_room3:
+	if GlobalScript.in_room3 && GlobalScript.in_game:
 		if attack_timer.is_stopped():
 			attack_timer.set_wait_time(randi_range(3,6))
 			attack_timer.start()

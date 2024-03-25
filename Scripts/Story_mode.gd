@@ -156,7 +156,7 @@ func _on_next_button_button_up():
 func _input(event):
 	if event is InputEventKey && event.pressed:
 		if dialog_num == 20:
-			coding_label.visible_ratio += .5
+			coding_label.visible_ratio += .07
 
 var bad_end = false
 @onready var fade = $Error/Fade

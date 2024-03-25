@@ -57,6 +57,5 @@ func _on_next_button_button_down():
 
 func _on_skip_button_button_down():
 	await get_tree().create_timer(.2).timeout
-
 	GlobalScript.in_game = true
 	queue_free()

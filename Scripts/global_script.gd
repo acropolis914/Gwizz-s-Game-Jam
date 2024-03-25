@@ -30,3 +30,9 @@ var in_room3 = false
 #Settings
 var mouse_mode = false
 var camera_mode = true
+var vissual_got = false #indicates if already got vissual
+
+var ending_1 = false
+var ending_2 = false
+var ending_3 = false
+var ending_4 = false
