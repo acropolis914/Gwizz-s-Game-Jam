@@ -16,9 +16,11 @@ func _ready():
 		add_child(traps)
 
 func _process(delta):
-	#Simple camera pan lang try
-	#if $Player:
-	#	$Camera2D.position += ($Player.position - $Camera2D.position)/1 * delta
+
+	if $Player.speed <= 300:
+		$Camera2D.position += ($Player.position - $Camera2D.position)/1.5 * delta
+	else:
+		$Camera2D.position += ($Player.position - $Camera2D.position)/1 * delta
 
 	if $Debug/CheckButton.button_pressed:
 		$"enemy_type_1".change_art()

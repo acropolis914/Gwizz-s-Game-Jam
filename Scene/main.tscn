@@ -48,11 +48,12 @@ enemy1 = ExtResource("2_m0uvw")
 enemy2 = ExtResource("2_ixmfe")
 trap = ExtResource("4_b7axx")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(168, 443)
+zoom = Vector2(1.17, 1.17)
+
 [node name="Player" parent="." instance=ExtResource("2_b3uek")]
 position = Vector2(168, 443)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(1.17, 1.17)
 
 [node name="Story_in_Game" parent="." instance=ExtResource("15_dc871")]
 visible = false
