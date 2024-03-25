@@ -1,27 +1,55 @@
+<<<<<<< HEAD
 [gd_scene load_steps=19 format=3 uid="uid://c4ehycwbenis3"]
+=======
+[gd_scene load_steps=21 format=3 uid="uid://c4ehycwbenis3"]
+>>>>>>> f6caa69660c8631087eac7a3b355775b24c04cb6
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_0qhc5"]
 [ext_resource type="PackedScene" uid="uid://dwbgo21cx8lyu" path="res://Scene/player.tscn" id="2_b3uek"]
 [ext_resource type="PackedScene" uid="uid://b0weg8ntix058" path="res://Scene/enemy_type_2.tscn" id="2_ixmfe"]
 [ext_resource type="PackedScene" uid="uid://bioel72emf3f1" path="res://Scene/enemy_type_1.tscn" id="2_m0uvw"]
 [ext_resource type="PackedScene" uid="uid://bfh71fonobawn" path="res://Scene/trap.tscn" id="4_b7axx"]
-[ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="6_vglg2"]
 [ext_resource type="PackedScene" uid="uid://1qgfs1qinp1g" path="res://Scene/key.tscn" id="7_25gxa"]
-[ext_resource type="PackedScene" uid="uid://cr8t15u2vq6hx" path="res://Scene/story_mode.tscn" id="7_qvbas"]
 [ext_resource type="PackedScene" uid="uid://qrv2sr1c543e" path="res://Scene/Map.tscn" id="7_t2y8m"]
 [ext_resource type="PackedScene" uid="uid://f12olo3uq6e6" path="res://Scene/gate.tscn" id="8_5nvpr"]
 [ext_resource type="PackedScene" uid="uid://b8dd2kjotn5vx" path="res://Scene/princess.tscn" id="8_x7y06"]
 [ext_resource type="Script" path="res://Scripts/Timer_CanvasLayer.gd" id="9_5lsd1"]
 [ext_resource type="PackedScene" uid="uid://cfh6fu6sg2kyy" path="res://Scene/coin.tscn" id="12_gs1c4"]
 [ext_resource type="PackedScene" uid="uid://gwrdgj65fsr4" path="res://Scene/enemy_type_3.tscn" id="13_1u1k8"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" path="res://Scene/slime.tscn" id="14_orumr"]
 [ext_resource type="PackedScene" uid="uid://ch5x0doigc5ge" path="res://Scene/feature_chooser_ui.tscn" id="16_3ut77"]
+=======
+[ext_resource type="PackedScene" uid="uid://03tyh5acohqu" path="res://Scene/slime.tscn" id="14_orumr"]
+[ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="14_upyrm"]
+[ext_resource type="PackedScene" uid="uid://b8v23jfry1r7" path="res://Scene/pot.tscn" id="14_yj3bj"]
+[ext_resource type="Script" path="res://Scripts/Enemy_Move_Triggers.gd" id="15_1mu1m"]
+[ext_resource type="PackedScene" uid="uid://td8el4u2my65" path="res://Scene/story_in_game.tscn" id="15_dc871"]
+>>>>>>> f6caa69660c8631087eac7a3b355775b24c04cb6
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_euuoh"]
-size = Vector2(264, 20)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpe1n"]
+size = Vector2(49, 108)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h7kn0"]
-size = Vector2(253, 114.5)
+[sub_resource type="Animation" id="Animation_atqlq"]
+resource_name = "fade"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ovo7"]
+_data = {
+"fade": SubResource("Animation_atqlq")
+}
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0qhc5")
@@ -29,6 +57,7 @@ enemy1 = ExtResource("2_m0uvw")
 enemy2 = ExtResource("2_ixmfe")
 trap = ExtResource("4_b7axx")
 
+<<<<<<< HEAD
 [node name="FeatureChooser" type="CanvasLayer" parent="."]
 visible = false
 
@@ -37,10 +66,16 @@ z_index = 3
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(454, 432)
+=======
+[node name="Player" parent="." instance=ExtResource("2_b3uek")]
+position = Vector2(168, 443)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+>>>>>>> f6caa69660c8631087eac7a3b355775b24c04cb6
 zoom = Vector2(1.17, 1.17)
 
-[node name="Player" parent="." instance=ExtResource("2_b3uek")]
-position = Vector2(137, 519)
+[node name="Story_in_Game" parent="." instance=ExtResource("15_dc871")]
+visible = false
 
 [node name="Debug" type="CanvasLayer" parent="."]
 visible = false
@@ -59,6 +94,7 @@ offset_bottom = 36.0
 text = "Enemy 2"
 metadata/_edit_use_anchors_ = true
 
+<<<<<<< HEAD
 [node name="Story_mode" parent="." instance=ExtResource("7_qvbas")]
 visible = false
 
@@ -107,6 +143,14 @@ shape = SubResource("RectangleShape2D_h7kn0")
 position = Vector2(2.5, 1.50001)
 scale = Vector2(2.175, 0.908333)
 texture = ExtResource("6_vglg2")
+=======
+[node name="Vissual_Button" type="Button" parent="Debug"]
+offset_left = 65.0
+offset_top = 79.0
+offset_right = 221.0
+offset_bottom = 168.0
+text = "vissual"
+>>>>>>> f6caa69660c8631087eac7a3b355775b24c04cb6
 
 [node name="Map" parent="." instance=ExtResource("7_t2y8m")]
 
@@ -114,19 +158,42 @@ texture = ExtResource("6_vglg2")
 position = Vector2(2638, 444)
 
 [node name="Key" parent="." instance=ExtResource("7_25gxa")]
-position = Vector2(1384, 415)
+position = Vector2(1326, 495)
 
 [node name="Gate" parent="." instance=ExtResource("8_5nvpr")]
 position = Vector2(2053, 576)
 
+<<<<<<< HEAD
+=======
+[node name="UI_CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("9_5lsd1")
+
+[node name="Level_Label" type="Label" parent="UI_CanvasLayer"]
+offset_left = 36.0
+offset_top = 33.0
+offset_right = 76.0
+offset_bottom = 56.0
+text = "Level: 0"
+
+[node name="Coins_Label" type="Label" parent="UI_CanvasLayer"]
+offset_left = 1173.0
+offset_top = 32.0
+offset_right = 1245.0
+offset_bottom = 55.0
+text = "Coins: 00"
+
+>>>>>>> f6caa69660c8631087eac7a3b355775b24c04cb6
 [node name="Coins" type="Node2D" parent="."]
 position = Vector2(1165, 445)
 
 [node name="Coin" parent="Coins" instance=ExtResource("12_gs1c4")]
-position = Vector2(-1031, -315)
+position = Vector2(-1023, -240)
 
 [node name="Coin2" parent="Coins" instance=ExtResource("12_gs1c4")]
-position = Vector2(-933, 259)
+position = Vector2(561, -134)
+
+[node name="Coin6" parent="Coins" instance=ExtResource("12_gs1c4")]
+position = Vector2(1037, -230)
 
 [node name="Coin3" parent="Coins" instance=ExtResource("12_gs1c4")]
 position = Vector2(-730, -229)
@@ -135,19 +202,101 @@ position = Vector2(-730, -229)
 position = Vector2(-710, 110)
 
 [node name="Coin5" parent="Coins" instance=ExtResource("12_gs1c4")]
-position = Vector2(-614, -164)
+position = Vector2(-554, 163)
 
-[node name="enemy_type_3" parent="." instance=ExtResource("13_1u1k8")]
-position = Vector2(317, 353)
+[node name="Slime" type="Node2D" parent="."]
+position = Vector2(1247, 317)
 
-[node name="Slime" parent="." instance=ExtResource("14_orumr")]
-position = Vector2(601, 534)
+[node name="Slime1" parent="Slime" instance=ExtResource("14_orumr")]
+
+[node name="Slime2" parent="Slime" instance=ExtResource("14_orumr")]
+position = Vector2(-1105, -14)
+
+[node name="Slime3" parent="Slime" instance=ExtResource("14_orumr")]
+position = Vector2(449, 320)
+
+[node name="Slime4" parent="Slime" instance=ExtResource("14_orumr")]
+position = Vector2(-981, -115)
 
 [node name="trap_position" type="Marker2D" parent="."]
 position = Vector2(892, 398)
 
-[node name="enemy_type_1" parent="." instance=ExtResource("2_m0uvw")]
-position = Vector2(1287, 662)
+[node name="Pot" type="Node2D" parent="."]
+position = Vector2(2195, 358)
+
+[node name="Pot" parent="Pot" instance=ExtResource("14_yj3bj")]
+
+[node name="Pot2" parent="Pot" instance=ExtResource("14_yj3bj")]
+position = Vector2(-877, 152)
+
+[node name="Pot3" parent="Pot" instance=ExtResource("14_yj3bj")]
+position = Vector2(-1757, -137)
+
+[node name="Pot4" parent="Pot" instance=ExtResource("14_yj3bj")]
+position = Vector2(-1697, -58)
+
+[node name="Pot5" parent="Pot" instance=ExtResource("14_yj3bj")]
+position = Vector2(-1618, -16)
+
+[node name="enemy_type_1_1" parent="." instance=ExtResource("2_m0uvw")]
+position = Vector2(263, 285)
+
+[node name="enemy_type_1_2" parent="." instance=ExtResource("2_m0uvw")]
+position = Vector2(605, 227)
+
+[node name="enemy_type_1_3" parent="." instance=ExtResource("2_m0uvw")]
+position = Vector2(543, 618)
+
+[node name="enemy_type_2_1" parent="." instance=ExtResource("2_ixmfe")]
+position = Vector2(1472, 315)
+
+[node name="enemy_type_2_2" parent="." instance=ExtResource("2_ixmfe")]
+position = Vector2(1228, 713)
+
+[node name="enemy_type_2_3" parent="." instance=ExtResource("2_ixmfe")]
+position = Vector2(1659, 705)
+
+[node name="enemy_type_3_1" parent="." instance=ExtResource("13_1u1k8")]
+position = Vector2(2318, 192)
+
+[node name="enemy_type_3_2" parent="." instance=ExtResource("13_1u1k8")]
+position = Vector2(2356, 627)
+
+[node name="enemy_type_3_4" parent="." instance=ExtResource("13_1u1k8")]
+position = Vector2(2470, 303)
+
+[node name="enemy_type_3_3" parent="." instance=ExtResource("13_1u1k8")]
+position = Vector2(2653, 659)
+
+[node name="Enemy_Move_Triggers" type="Node2D" parent="."]
+script = ExtResource("15_1mu1m")
+
+[node name="Room2_trigger_Area2D" type="Area2D" parent="Enemy_Move_Triggers"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy_Move_Triggers/Room2_trigger_Area2D"]
+position = Vector2(1174, 463)
+shape = SubResource("RectangleShape2D_rpe1n")
+
+[node name="Room3_trigger_Area2D" type="Area2D" parent="Enemy_Move_Triggers"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy_Move_Triggers/Room3_trigger_Area2D"]
+position = Vector2(2171, 564)
+shape = SubResource("RectangleShape2D_rpe1n")
+
+[node name="Black" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0, 0, 0, 1)
+position = Vector2(178.5, 433.5)
+scale = Vector2(9.99167, 6.09167)
+texture = ExtResource("14_upyrm")
+
+[node name="Fade" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Black")
+libraries = {
+"": SubResource("AnimationLibrary_6ovo7")
+}
 
 [connection signal="pressed" from="Debug/SpawnEnemy2" to="." method="_on_spawn_enemy_2_pressed"]
-[connection signal="timeout" from="UI_CanvasLayer/Game_Timer" to="Player" method="_on_game_timer_timeout"]
+[connection signal="button_down" from="Debug/Vissual_Button" to="." method="_on_vissual_button_button_down"]
+[connection signal="body_entered" from="Enemy_Move_Triggers/Room2_trigger_Area2D" to="Enemy_Move_Triggers" method="_on_room_2_trigger_area_2d_body_entered"]
+[connection signal="body_entered" from="Enemy_Move_Triggers/Room3_trigger_Area2D" to="Enemy_Move_Triggers" method="_on_room_3_trigger_area_2d_body_entered"]

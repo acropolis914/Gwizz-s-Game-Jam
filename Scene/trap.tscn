@@ -76,5 +76,11 @@ libraries = {
 position = Vector2(0, 84)
 shape = SubResource("RectangleShape2D_wng08")
 
+[node name="Shadow_Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0.835294, 0.184314)
+position = Vector2(-1, 52)
+scale = Vector2(0.885715, 0.575)
+texture = ExtResource("2_1c2aq")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="X_Area2D" to="." method="_on_x_area_2d_body_entered"]
