@@ -17,3 +17,5 @@ func _on_body_entered(body):
 		body.kill()
 	if body is TileMap:
 		queue_free()
+	if body is Trap:
+		queue_free()

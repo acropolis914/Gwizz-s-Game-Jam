@@ -5,7 +5,7 @@ func _ready():
 	canvas_layer.hide()
 
 func _on_body_entered(body):
-	if body.is_in_group("player"):
+	if body is Player:
 		if GlobalScript.level == 5:
 			pass #ENDING
 		else:

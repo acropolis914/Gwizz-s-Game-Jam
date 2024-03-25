@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://ctmdihf4wqh7f" path="res://ImageAssets/Enemy3/enemy3_0000_Ellipse-1.png" id="2_qb6ll"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sontd"]
-radius = 1.0
-height = 12.0
+radius = 2.0
+height = 4.0
 
 [node name="Projectile" type="Area2D"]
 script = ExtResource("1_wks65")

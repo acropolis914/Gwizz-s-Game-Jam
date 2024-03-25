@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c4ehycwbenis3"]
+[gd_scene load_steps=19 format=3 uid="uid://c4ehycwbenis3"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_0qhc5"]
 [ext_resource type="PackedScene" uid="uid://dwbgo21cx8lyu" path="res://Scene/player.tscn" id="2_b3uek"]
@@ -14,7 +14,8 @@
 [ext_resource type="Script" path="res://Scripts/Timer_CanvasLayer.gd" id="9_5lsd1"]
 [ext_resource type="PackedScene" uid="uid://cfh6fu6sg2kyy" path="res://Scene/coin.tscn" id="12_gs1c4"]
 [ext_resource type="PackedScene" uid="uid://gwrdgj65fsr4" path="res://Scene/enemy_type_3.tscn" id="13_1u1k8"]
-[ext_resource type="PackedScene" uid="uid://03tyh5acohqu" path="res://Scene/slime.tscn" id="14_orumr"]
+[ext_resource type="PackedScene" path="res://Scene/slime.tscn" id="14_orumr"]
+[ext_resource type="PackedScene" uid="uid://ch5x0doigc5ge" path="res://Scene/feature_chooser_ui.tscn" id="16_3ut77"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_euuoh"]
 size = Vector2(264, 20)
@@ -28,6 +29,12 @@ enemy1 = ExtResource("2_m0uvw")
 enemy2 = ExtResource("2_ixmfe")
 trap = ExtResource("4_b7axx")
 
+[node name="FeatureChooser" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="FeatureChooserUI" parent="FeatureChooser" instance=ExtResource("16_3ut77")]
+z_index = 3
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(454, 432)
 zoom = Vector2(1.17, 1.17)
@@ -36,6 +43,7 @@ zoom = Vector2(1.17, 1.17)
 position = Vector2(137, 519)
 
 [node name="Debug" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="CheckButton" type="CheckButton" parent="Debug"]
 offset_right = 44.0
@@ -51,28 +59,31 @@ offset_bottom = 36.0
 text = "Enemy 2"
 metadata/_edit_use_anchors_ = true
 
-[node name="Walls_Trap_StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Story_mode" parent="." instance=ExtResource("7_qvbas")]
 visible = false
-position = Vector2(1195, 611)
-metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls_Trap_StaticBody2D"]
-position = Vector2(-270, -105)
-shape = SubResource("RectangleShape2D_euuoh")
+[node name="UI_CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("9_5lsd1")
 
-[node name="Sprite2D" type="Sprite2D" parent="Walls_Trap_StaticBody2D/CollisionShape2D"]
-position = Vector2(4, -3)
-scale = Vector2(2.175, 0.141667)
-texture = ExtResource("6_vglg2")
+[node name="Game_Timer" type="Timer" parent="UI_CanvasLayer"]
+wait_time = 60.0
+one_shot = true
+autostart = true
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls_Trap_StaticBody2D"]
-position = Vector2(-268, -263)
-shape = SubResource("RectangleShape2D_h7kn0")
+[node name="Timer_Label" type="Label" parent="UI_CanvasLayer"]
+offset_left = 36.0
+offset_top = 33.0
+offset_right = 76.0
+offset_bottom = 56.0
+text = "Timer: 00"
 
-[node name="Sprite2D2" type="Sprite2D" parent="Walls_Trap_StaticBody2D/CollisionShape2D2"]
-position = Vector2(2.5, 1.50001)
-scale = Vector2(2.175, 0.908333)
-texture = ExtResource("6_vglg2")
+[node name="Coins_Label" type="Label" parent="UI_CanvasLayer"]
+offset_left = 546.0
+offset_top = 21.0
+offset_right = 618.0
+offset_bottom = 44.0
+text = "Coins: 00"
 
 [node name="Walls_Gate_StaticBody2D2" type="StaticBody2D" parent="."]
 visible = false
@@ -99,9 +110,6 @@ texture = ExtResource("6_vglg2")
 
 [node name="Map" parent="." instance=ExtResource("7_t2y8m")]
 
-[node name="Story_mode" parent="." instance=ExtResource("7_qvbas")]
-visible = false
-
 [node name="Princess" parent="." instance=ExtResource("8_x7y06")]
 position = Vector2(2638, 444)
 
@@ -110,29 +118,6 @@ position = Vector2(1384, 415)
 
 [node name="Gate" parent="." instance=ExtResource("8_5nvpr")]
 position = Vector2(2053, 576)
-
-[node name="UI_CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
-script = ExtResource("9_5lsd1")
-
-[node name="Game_Timer" type="Timer" parent="UI_CanvasLayer"]
-wait_time = 60.0
-one_shot = true
-autostart = true
-
-[node name="Timer_Label" type="Label" parent="UI_CanvasLayer"]
-offset_left = 36.0
-offset_top = 33.0
-offset_right = 76.0
-offset_bottom = 56.0
-text = "Timer: 00"
-
-[node name="Coins_Label" type="Label" parent="UI_CanvasLayer"]
-offset_left = 546.0
-offset_top = 21.0
-offset_right = 618.0
-offset_bottom = 44.0
-text = "Coins: 00"
 
 [node name="Coins" type="Node2D" parent="."]
 position = Vector2(1165, 445)
