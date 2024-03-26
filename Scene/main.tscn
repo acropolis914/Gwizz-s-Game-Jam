@@ -57,12 +57,9 @@ position = Vector2(334, 455)
 zoom = Vector2(1.17, 1.17)
 
 [node name="Player" parent="." instance=ExtResource("2_b3uek")]
-position = Vector2(1052, 438)
+position = Vector2(184, 550)
 
 [node name="Option" parent="." instance=ExtResource("6_sx2wb")]
-visible = false
-
-[node name="Story_in_Game" parent="." instance=ExtResource("15_dc871")]
 visible = false
 
 [node name="Map" parent="." instance=ExtResource("7_t2y8m")]
@@ -220,8 +217,8 @@ position = Vector2(1627, 99)
 shape = SubResource("RectangleShape2D_2cc16")
 
 [node name="Black" type="Sprite2D" parent="."]
-visible = false
 modulate = Color(0, 0, 0, 1)
+z_index = 2
 position = Vector2(178.5, 433.5)
 scale = Vector2(9.99167, 6.09167)
 texture = ExtResource("14_upyrm")
@@ -240,6 +237,9 @@ position = Vector2(0, 0)
 
 [node name="Trap2" parent="Traps" instance=ExtResource("4_b7axx")]
 position = Vector2(948, 193)
+
+[node name="Story_in_Game" parent="." instance=ExtResource("15_dc871")]
+visible = false
 
 [connection signal="body_entered" from="Enemy_Move_Triggers/Room2_trigger_Area2D" to="Enemy_Move_Triggers" method="_on_room_2_trigger_area_2d_body_entered"]
 [connection signal="body_entered" from="Enemy_Move_Triggers/Room3_trigger_Area2D" to="Enemy_Move_Triggers" method="_on_room_3_trigger_area_2d_body_entered"]

@@ -5,19 +5,21 @@ extends Node2D
 @export var trap : PackedScene
 var screen_size
 @onready var fade = $Fade
+@onready var story_in_game = $Story_in_Game
 
 func _ready():
 	fade.play("fade")
-	$Story_in_Game.show()
 	screen_size = get_viewport_rect().size
+	if GlobalScript.in_game:
+		story_in_game.queue_free()
 
 func _process(delta):
 	camera_mode(delta)
 	if has_node("Story_in_Game"):
 		if $Option.is_visible():
-			$Story_in_Game.hide()
+			story_in_game.hide()
 		else:
-			$Story_in_Game.show()
+			story_in_game.show()
 
 func camera_mode(delta):
 	if !GlobalScript.camera_mode:

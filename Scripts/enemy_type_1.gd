@@ -16,9 +16,12 @@ func change_art():
 
 func _process(delta):
 	var player_pos = get_parent().get_node("Player").get_position()
+	await get_tree().create_timer(2.0).timeout
 	if GlobalScript.in_game:
+		
 		position += speed * (player_pos-position) * delta
 	move_and_slide()
+
 
 func _on_killer_area_2d_body_entered(body):
 	if body.is_in_group("player"):

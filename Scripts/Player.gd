@@ -22,6 +22,7 @@ func for_movement(_delta):
 		gwizz_sprite.flip_h = velocity.x < 0
 	if velocity == Vector2.ZERO:
 		gwizz_sprite.animation = "idle"
+
 	#position = position.clamp(Vector2.ZERO,get_parent().screen_size)
 
 func for_mouse_movement(_delta):

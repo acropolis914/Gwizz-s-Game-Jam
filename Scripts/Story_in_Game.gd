@@ -30,7 +30,6 @@ var dialogs = {
 var dialog_num = 0
 
 func _ready():
-	GlobalScript.in_game = false
 	GlobalScript.in_room2 = false
 	GlobalScript.in_room3 = false
 	$Next_Button.hide()
