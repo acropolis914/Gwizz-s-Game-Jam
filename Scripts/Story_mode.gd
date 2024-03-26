@@ -82,23 +82,55 @@ IF stress >= 10000000000000:
 ",
 	4 :
 "
-???
+adding music and sfx
+func _ready():
+   good_music.play()
+
+func _misuc():
+   if player dash:
+   then dash.play()
+
+func _kidnap_musician():
+   notes is hitting:
+   autoplay_good_music
 ",
 	5 :
 "
-???
+Learning Gwizz
+We be Gwizzing
+Gwizz
+Zzzzzzzzz Bee :3
 ",
 	6 :
 "
-???
+func _input(event):
+   if event == lit:
+   on_fire = true
+
+func _process(_delta):
+   if on_fire == true:
+   dancing_queen = true
+   power += 9000*delta
+   depression = false
 ",
 	7 :
 "
-???
+var procratination = 10
+var 
 ",
 	8 :
 "
-???
+func finishing_game(happiness):
+   godot.open()
+   code.write()
+   play_test.test()
+   game.submit(happiness)
+
+func rating():
+   if game == bad:
+   YUCK
+   elif game == good:
+   NICE
 "
 }
 @onready var next_button = $Next_Button
@@ -136,7 +168,6 @@ func _process(_delta):
 func coding_done():
 	play_button.show()
 	dialog_num = 21
-
 
 func _on_next_button_button_up():
 	dialog_num += 1
@@ -177,8 +208,6 @@ func reset_game_stats():
 	var var_zero = ["level", "aesthetic", "coins"]
 	for vars_z in var_zero:
 		GlobalScript[vars_z] = 0
-		
-
 
 #Below are temporary for the cards
 func _on_card_button_button_down():
@@ -198,3 +227,7 @@ func _on_error_button_button_down():
 
 func _on_testing_button_button_down():
 	print(GlobalScript.coins)
+
+
+func _on_feature_chooser_ui_chosen():
+	pass # Replace with function body.

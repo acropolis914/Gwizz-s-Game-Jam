@@ -330,6 +330,7 @@ bbcode_enabled = true
 text = "[center]Added"
 
 [node name="Trap" type="Panel" parent="Panel"]
+visible = false
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 14
@@ -693,6 +694,7 @@ bbcode_enabled = true
 text = "[center]Added"
 
 [node name="Skip" type="Panel" parent="Panel"]
+visible = false
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 14
@@ -744,6 +746,7 @@ bbcode_enabled = true
 text = "[center]Added"
 
 [node name="Pre-req_comp" type="Node2D" parent="."]
+visible = false
 script = ExtResource("14_gjsda")
 
 [connection signal="focus_entered" from="Panel/Enemy_1" to="." method="_on_enemy_1_focus_entered"]

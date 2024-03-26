@@ -60,7 +60,6 @@ func _on_enemy_1_gui_input(_event:InputEvent):
 	$Panel/Enemy_1.modulate = Color.AQUAMARINE
 	if Input.is_action_just_pressed("left_click"):
 		GlobalScript.emeny_1 = true
-		print($Panel/Enemy_1/Label.text)
 
 func _on_enemy_1_mouse_exited() -> void:
 	$Panel/Enemy_1.modulate = Color.WHITE
@@ -72,7 +71,6 @@ func _on_enemy_2_gui_input(_event:InputEvent):
 	$Panel/Enemy_2.modulate = Color.AQUAMARINE
 	if Input.is_action_just_pressed("left_click"):
 		GlobalScript.emeny_2 = true
-		print($Panel/Enemy_2/Label.text)
 
 func _on_enemy_2_mouse_exited() -> void:
 	$Panel/Enemy_2.modulate = Color.WHITE
