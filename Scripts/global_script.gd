@@ -16,7 +16,7 @@ var dash = false
 var vissuals = false
 var pots = false
 var story = false
-var skip = true
+var skip = false
 
 #Plauyer holding
 var key = false
@@ -29,7 +29,7 @@ var in_room3 = false
 
 #Settings
 var mouse_mode = false
-var camera_mode = true
+var camera_mode = false
 var vissual_got = false #indicates if already got vissual
 
 var ending_1 = false

@@ -34,14 +34,14 @@ var dialog_text = {
 	#for Level6
 	8 : "Gotta add more stuff!",
 	#for Level7
-	9 : "Gotta add more stuff!",
+	9 : "I. Want. More.",
 	#for Level8
-	10 : "Gotta add more stuff!",
+	10 : "Almost perfect.",
 	11 : "",
 
 	#for coding
 	19 : "CHOOSE",
-	20 : "KEY SMASH!!!",
+	20 : "Coding time! (KEY SMASH! Type randomly on your keyboard)",
 	21 : "PLAY TEST IT!"
 }
 
@@ -116,7 +116,16 @@ func _process(_delta):
 	7 :
 "
 var procratination = 10
-var 
+var rush = 100
+
+@ready var deadline_timer
+
+func rushing_hour():
+   for i in time:
+   m(i)nutes_pass += procratination/rush
+
+func on_deadline_timer_time_out():
+   dead.emit
 ",
 	8 :
 "
@@ -165,6 +174,8 @@ func _process(_delta):
 	if coding_label.visible_ratio == 1:
 		play_button.show()
 		dialog_num = 21
+		if has_node("BgArrow"):
+			$BgArrow.show()
 		
 
 func _on_next_button_button_up():
@@ -177,23 +188,23 @@ func _on_next_button_button_up():
 		
 	if dialog_num == 3:
 		dialog_num = 20
-	if dialog_num in [4, 5, 6, 7, 8, 9, 10]:
+	if dialog_num in [4, 5, 6, 7, 8, 9, 10, 11]:
 		dialog_num = 19
 		$FeatureChooserUI.show()
 
 func _input(event):
 	if event is InputEventKey && event.pressed:
 		if dialog_num == 20:
-			
-			coding_label.visible_ratio += .07
+			coding_label.visible_ratio += .05
 
 var bad_end = false
 @onready var fade = $Error/Fade
 
 func _on_play_button_button_down():
 	if bad_end:
+		$BgArrow.queue_free()
+		dialog_label.hide()
 		$Error.show()
-		#PLAY GAME OVER SONG
 	else:
 		get_tree().change_scene_to_file("res://Scene/main.tscn")
 
@@ -221,8 +232,8 @@ func _on_card_button_button_down():
 
 func _on_feature_chooser_ui_error() -> void:
 	bad_end = true
+	GlobalScript.ending_4 = true
 	_on_card_button_button_down()
 
 func _on_feature_chooser_ui_chosen() -> void:
 	_on_card_button_button_down()
-

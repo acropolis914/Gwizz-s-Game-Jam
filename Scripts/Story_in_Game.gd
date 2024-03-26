@@ -27,9 +27,24 @@ var dialogs = {
 	to possess for himself.",
 	8: "No time to waste, young hero! On with your quest!"}
 
+var face_sprite = {
+	0: preload("res://ImageAssets/Face5.png"),
+	1: preload("res://ImageAssets/Face2.png"),
+	2: preload("res://ImageAssets/Face3.png"),
+	3: preload("res://ImageAssets/Face4.png"),
+	4: preload("res://ImageAssets/Face6.png"),
+	5: preload("res://ImageAssets/Face5.png"),
+	6: preload("res://ImageAssets/Face3.png"),
+	7: preload("res://ImageAssets/Face2.png"),
+	8: preload("res://ImageAssets/Face5.png"),
+}
+
 var dialog_num = 0
 
 func _ready():
+	if !GlobalScript.story:
+		GlobalScript.in_game = true
+		queue_free()
 	GlobalScript.in_room2 = false
 	GlobalScript.in_room3 = false
 	$Next_Button.hide()
@@ -41,6 +56,7 @@ func _ready():
 
 func _process(_delta):
 	dialog_label.text = dialogs[dialog_num]
+	$Art_Sprite.texture = face_sprite[dialog_num]
 	dialog_label.visible_ratio += .005
 	if dialog_label.visible_ratio == 1:
 		$Next_Button.show()

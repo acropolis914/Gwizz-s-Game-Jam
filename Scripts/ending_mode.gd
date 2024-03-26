@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 var bg_ending = {
-	0 : preload("res://ImageAssets/BG Gwizz Jam Site.png"),
+	0 : preload("res://ImageAssets/BG Gwizz Jam Site 2.png"),
 	1 : preload("res://ImageAssets/BG Ending 1.png"),
 	2 : preload("res://ImageAssets/BG Ending 2.png"),
 	3 : preload("res://ImageAssets/BG Ending 3.png")
@@ -23,10 +23,13 @@ func _on_submit_button_button_down():
 	await fade_anim.animation_finished
 	if GlobalScript.aesthetic >= 4:
 		bg_num = 1
+		GlobalScript.ending_1 = true
 	elif GlobalScript.aesthetic <= 2:
 		bg_num = 2
+		GlobalScript.ending_2 = true
 	else:
 		bg_num = 3
+		GlobalScript.ending_3 = true
 	reset_game_stats()
 	fade_anim.play("fade")
 	await fade_anim.animation_finished

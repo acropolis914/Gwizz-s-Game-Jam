@@ -1,11 +1,13 @@
-[gd_scene load_steps=19 format=3 uid="uid://p58fom250kv0"]
+[gd_scene load_steps=22 format=3 uid="uid://p58fom250kv0"]
 
 [ext_resource type="Script" path="res://Scene/feature_chooser_ui.gd" id="1_eucfm"]
 [ext_resource type="Shader" path="res://Scene/Blur.gdshader" id="1_krqgw"]
 [ext_resource type="Texture2D" uid="uid://totoi4gofejm" path="res://ImageAssets/BG Godot UI.png" id="2_gl2t5"]
 [ext_resource type="Texture2D" uid="uid://ddofncep5nh56" path="res://ImageAssets/enemy1_programmerart_64.png" id="3_5tjur"]
 [ext_resource type="Texture2D" uid="uid://cmvq7i5mkbdji" path="res://ImageAssets/fly1 (20240321023820).png" id="4_jumbo"]
+[ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="5_ionhi"]
 [ext_resource type="Texture2D" uid="uid://mkl2jw4gbx4e" path="res://ImageAssets/Enemy3/enemy3_0005_3.png" id="5_thw8f"]
+[ext_resource type="Script" path="res://Scripts/Vissual_comp.gd" id="6_00s1h"]
 [ext_resource type="Texture2D" uid="uid://bhrjflbuiikul" path="res://ImageAssets/player_idle1_programmerart_64.png" id="6_8njgr"]
 [ext_resource type="Texture2D" uid="uid://hrmxcdr3lett" path="res://ImageAssets/TilesAndStonesbyPol/rocktrap.png" id="7_ntk0m"]
 [ext_resource type="Texture2D" uid="uid://7kqtu887rjw0" path="res://ImageAssets/Coin.png" id="8_2sxbo"]
@@ -16,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://djupu0ttnro4v" path="res://ImageAssets/player_dash_programmerart_64.png" id="13_yovpi"]
 [ext_resource type="Script" path="res://Scripts/Pre-req_comp.gd" id="14_gjsda"]
 [ext_resource type="Texture2D" uid="uid://k5sxd47omogv" path="res://ImageAssets/StickyNote.png" id="14_qog2j"]
+[ext_resource type="Texture2D" uid="uid://cn12176u7akwm" path="res://ImageAssets/3D Gwizz.png" id="16_ava3j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tt18p"]
 shader = ExtResource("1_krqgw")
@@ -33,6 +36,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_eucfm")
+metadata/_edit_horizontal_guides_ = [195.0, 358.0]
 
 [node name="Background_Sprite2D2" type="Sprite2D" parent="."]
 visible = false
@@ -104,7 +108,8 @@ bbcode_enabled = true
 text = "[center][b] Chasing Enemy"
 fit_content = true
 
-[node name="TextureRect" type="TextureRect" parent="Panel/Enemy_1"]
+[node name="Art_Sprite" type="TextureRect" parent="Panel/Enemy_1"]
+visible = false
 layout_mode = 0
 offset_left = 17.0
 offset_top = 17.0
@@ -112,6 +117,15 @@ offset_right = 86.0
 offset_bottom = 81.0
 scale = Vector2(0.845, 0.845)
 texture = ExtResource("3_5tjur")
+
+[node name="Temp_Sprite" type="Sprite2D" parent="Panel/Enemy_1"]
+modulate = Color(0.592157, 1, 0.592157, 1)
+position = Vector2(44, 44)
+scale = Vector2(0.458333, 0.408333)
+texture = ExtResource("5_ionhi")
+
+[node name="Vissual_comp" type="Node2D" parent="Panel/Enemy_1"]
+script = ExtResource("6_00s1h")
 
 [node name="Added" type="RichTextLabel" parent="Panel/Enemy_1"]
 visible = false
@@ -156,7 +170,8 @@ bbcode_enabled = true
 text = "[center][b] Flying Enemy"
 fit_content = true
 
-[node name="TextureRect" type="TextureRect" parent="Panel/Enemy_2"]
+[node name="Art_Sprite" type="TextureRect" parent="Panel/Enemy_2"]
+visible = false
 layout_mode = 0
 offset_left = 15.0
 offset_top = 20.0
@@ -175,6 +190,15 @@ theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
 theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
 text = "[center]Added"
+
+[node name="Vissual_comp" type="Node2D" parent="Panel/Enemy_2"]
+script = ExtResource("6_00s1h")
+
+[node name="Temp_Sprite" type="Sprite2D" parent="Panel/Enemy_2"]
+modulate = Color(0.682353, 0.427451, 0.247059, 1)
+position = Vector2(51, 44)
+scale = Vector2(0.458333, 0.408333)
+texture = ExtResource("5_ionhi")
 
 [node name="Enemy_3" type="Panel" parent="Panel"]
 self_modulate = Color(1, 1, 1, 0)
@@ -207,7 +231,8 @@ bbcode_enabled = true
 text = "[center][b] Range Enemy"
 fit_content = true
 
-[node name="TextureRect" type="TextureRect" parent="Panel/Enemy_3"]
+[node name="Art_Sprite" type="TextureRect" parent="Panel/Enemy_3"]
+visible = false
 layout_mode = 0
 offset_left = 13.0
 offset_top = 24.0
@@ -225,6 +250,15 @@ theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
 theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
 text = "[center]Added"
+
+[node name="Vissual_comp" type="Node2D" parent="Panel/Enemy_3"]
+script = ExtResource("6_00s1h")
+
+[node name="Temp_Sprite" type="Sprite2D" parent="Panel/Enemy_3"]
+modulate = Color(0.74902, 0.345098, 0.333333, 1)
+position = Vector2(47, 51)
+scale = Vector2(0.458333, 0.408333)
+texture = ExtResource("5_ionhi")
 
 [node name="Slime" type="Panel" parent="Panel"]
 self_modulate = Color(1, 1, 1, 0)
@@ -258,7 +292,8 @@ text = "[center] [b]Slime[/b]
 Slows player down"
 fit_content = true
 
-[node name="TextureRect" type="TextureRect" parent="Panel/Slime"]
+[node name="Art_Sprite" type="TextureRect" parent="Panel/Slime"]
+visible = false
 layout_mode = 0
 offset_left = -25.0
 offset_top = -7.0
@@ -277,6 +312,12 @@ theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
 theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
 text = "[center]Added"
+
+[node name="Temp_Sprite" type="Sprite2D" parent="Panel/Slime"]
+modulate = Color(0.537255, 1, 0.745098, 1)
+position = Vector2(48, 45)
+scale = Vector2(0.458333, 0.408333)
+texture = ExtResource("5_ionhi")
 
 [node name="Puzzle" type="Panel" parent="Panel"]
 self_modulate = Color(1, 1, 1, 0)
@@ -308,7 +349,8 @@ text = "[center] [b]Puzzle[/b]
 Find the key to unlock the gate"
 fit_content = true
 
-[node name="TextureRect" type="TextureRect" parent="Panel/Puzzle"]
+[node name="Art_Sprite" type="TextureRect" parent="Panel/Puzzle"]
+visible = false
 layout_mode = 0
 offset_left = 4.0
 offset_top = 8.0
@@ -328,6 +370,15 @@ theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
 theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
 text = "[center]Added"
+
+[node name="Vissual_comp" type="Node2D" parent="Panel/Puzzle"]
+script = ExtResource("6_00s1h")
+
+[node name="Temp_Sprite" type="Sprite2D" parent="Panel/Puzzle"]
+modulate = Color(0.247059, 0.25098, 1, 1)
+position = Vector2(47, 44)
+scale = Vector2(0.458333, 0.408333)
+texture = ExtResource("5_ionhi")
 
 [node name="Trap" type="Panel" parent="Panel"]
 visible = false
@@ -350,7 +401,8 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -25.0
+offset_top = -37.0
+offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/normal_font_size = 11
@@ -358,7 +410,8 @@ bbcode_enabled = true
 text = "[center][b] Trap"
 fit_content = true
 
-[node name="TextureRect" type="TextureRect" parent="Panel/Trap"]
+[node name="Art_Sprite" type="TextureRect" parent="Panel/Trap"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -366,9 +419,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -18.5
-offset_top = -33.5
+offset_top = -39.5
 offset_right = 51.5
-offset_bottom = 78.5
+offset_bottom = 72.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.54, 0.54)
@@ -385,6 +438,12 @@ theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
 theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
 text = "[center]Added"
+
+[node name="Temp_Sprite" type="Sprite2D" parent="Panel/Trap"]
+modulate = Color(0.682353, 0.682353, 0.682353, 1)
+position = Vector2(49, 46)
+scale = Vector2(0.458333, 0.408333)
+texture = ExtResource("5_ionhi")
 
 [node name="Pots" type="Panel" parent="Panel"]
 self_modulate = Color(1, 1, 1, 0)
@@ -415,7 +474,8 @@ bbcode_enabled = true
 text = "[center][b]Breakable items"
 fit_content = true
 
-[node name="TextureRect" type="TextureRect" parent="Panel/Pots"]
+[node name="Art_Sprite" type="TextureRect" parent="Panel/Pots"]
+visible = false
 layout_mode = 0
 offset_left = 14.0
 offset_top = 11.0
@@ -433,6 +493,15 @@ theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
 theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
 text = "[center]Added"
+
+[node name="Vissual_comp" type="Node2D" parent="Panel/Pots"]
+script = ExtResource("6_00s1h")
+
+[node name="Temp_Sprite" type="Sprite2D" parent="Panel/Pots"]
+modulate = Color(0.47451, 0.266667, 0.223529, 1)
+position = Vector2(46.5, 41.5)
+scale = Vector2(0.458333, 0.408333)
+texture = ExtResource("5_ionhi")
 
 [node name="Visuals" type="Panel" parent="Panel"]
 self_modulate = Color(1, 1, 1, 0)
@@ -466,7 +535,8 @@ text = "[center] [b]Visuals[/b]
 Add art assets"
 fit_content = true
 
-[node name="TextureRect" type="TextureRect" parent="Panel/Visuals"]
+[node name="Art_Sprite" type="TextureRect" parent="Panel/Visuals"]
+visible = false
 layout_mode = 0
 offset_left = 14.0
 offset_top = 11.0
@@ -484,6 +554,15 @@ theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
 theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
 text = "[center]Added"
+
+[node name="Vissual_comp" type="Node2D" parent="Panel/Visuals"]
+script = ExtResource("6_00s1h")
+
+[node name="Temp_Sprite" type="Sprite2D" parent="Panel/Visuals"]
+modulate = Color(0.286275, 0.643137, 0.937255, 1)
+position = Vector2(47, 41)
+scale = Vector2(0.458333, 0.408333)
+texture = ExtResource("5_ionhi")
 
 [node name="Coins" type="Panel" parent="Panel"]
 self_modulate = Color(1, 1, 1, 0)
@@ -516,7 +595,8 @@ bbcode_enabled = true
 text = "[center] [b]Collectibles"
 fit_content = true
 
-[node name="TextureRect" type="TextureRect" parent="Panel/Coins"]
+[node name="Art_Sprite" type="TextureRect" parent="Panel/Coins"]
+visible = false
 layout_mode = 0
 offset_left = 14.0
 offset_top = 11.0
@@ -535,6 +615,15 @@ theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
 theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
 text = "[center]Added"
+
+[node name="Vissual_comp" type="Node2D" parent="Panel/Coins"]
+script = ExtResource("6_00s1h")
+
+[node name="Temp_Sprite" type="Sprite2D" parent="Panel/Coins"]
+modulate = Color(1, 0.788235, 0, 1)
+position = Vector2(50, 39)
+scale = Vector2(0.458333, 0.408333)
+texture = ExtResource("5_ionhi")
 
 [node name="Dash" type="Panel" parent="Panel"]
 self_modulate = Color(1, 1, 1, 0)
@@ -566,7 +655,8 @@ text = "[center] [b]Dash[/b]
 Shift/Space to dash"
 fit_content = true
 
-[node name="TextureRect" type="TextureRect" parent="Panel/Dash"]
+[node name="Art_Sprite" type="TextureRect" parent="Panel/Dash"]
+visible = false
 layout_mode = 0
 offset_left = 20.0
 offset_top = 9.0
@@ -587,6 +677,15 @@ theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
 theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
 text = "[center]Added"
+
+[node name="Vissual_comp" type="Node2D" parent="Panel/Dash"]
+script = ExtResource("6_00s1h")
+
+[node name="Temp_Sprite" type="Sprite2D" parent="Panel/Dash"]
+modulate = Color(0.768627, 0.835294, 0, 1)
+position = Vector2(49, 39)
+scale = Vector2(0.458333, 0.408333)
+texture = ExtResource("5_ionhi")
 
 [node name="Error" type="Panel" parent="Panel"]
 self_modulate = Color(1, 1, 1, 0)
@@ -618,15 +717,16 @@ text = "[center] [b]3d World[/b]
 Open world game mode"
 fit_content = true
 
-[node name="TextureRect" type="TextureRect" parent="Panel/Error"]
+[node name="Art_Sprite" type="TextureRect" parent="Panel/Error"]
+visible = false
 layout_mode = 0
-offset_left = 20.0
-offset_top = 9.0
-offset_right = 302.0
-offset_bottom = 196.0
+offset_left = 21.0
+offset_top = 15.0
+offset_right = 221.0
+offset_bottom = 179.0
 scale = Vector2(0.305, 0.305)
-texture = ExtResource("13_yovpi")
-stretch_mode = 4
+texture = ExtResource("16_ava3j")
+expand_mode = 1
 
 [node name="Added" type="RichTextLabel" parent="Panel/Error"]
 visible = false
@@ -639,6 +739,12 @@ theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
 theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
 text = "[center]Added"
+
+[node name="Temp_Sprite" type="Sprite2D" parent="Panel/Error"]
+modulate = Color(0.733333, 0.929412, 0.937255, 1)
+position = Vector2(53, 39)
+scale = Vector2(0.458333, 0.408333)
+texture = ExtResource("5_ionhi")
 
 [node name="Story" type="Panel" parent="Panel"]
 self_modulate = Color(1, 1, 1, 0)
@@ -660,10 +766,10 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = -37.0
-offset_right = 5.0
-offset_bottom = -12.0
+offset_left = 12.0
+offset_top = -56.0
+offset_right = 12.0
+offset_bottom = -31.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/normal_font_size = 11
@@ -671,12 +777,13 @@ bbcode_enabled = true
 text = "[center] [b]Story"
 fit_content = true
 
-[node name="TextureRect" type="TextureRect" parent="Panel/Story"]
+[node name="Art_Sprite" type="TextureRect" parent="Panel/Story"]
+visible = false
 layout_mode = 0
 offset_left = 15.0
-offset_top = 10.0
+offset_top = -4.0
 offset_right = 314.0
-offset_bottom = 213.0
+offset_bottom = 199.0
 scale = Vector2(0.305, 0.305)
 texture = ExtResource("14_qog2j")
 stretch_mode = 4
@@ -692,6 +799,15 @@ theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
 theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
 text = "[center]Added"
+
+[node name="Vissual_comp" type="Node2D" parent="Panel/Story"]
+script = ExtResource("6_00s1h")
+
+[node name="Temp_Sprite" type="Sprite2D" parent="Panel/Story"]
+modulate = Color(0.980392, 0.960784, 0.85098, 1)
+position = Vector2(61, 30)
+scale = Vector2(0.458333, 0.408333)
+texture = ExtResource("5_ionhi")
 
 [node name="Skip" type="Panel" parent="Panel"]
 visible = false
@@ -714,8 +830,10 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -38.0
-offset_bottom = -13.0
+offset_left = -10.0
+offset_top = -58.0
+offset_right = -10.0
+offset_bottom = -33.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/normal_font_size = 11
@@ -723,14 +841,16 @@ bbcode_enabled = true
 text = "[center] [b]Skip Button"
 fit_content = true
 
-[node name="TextureRect" type="TextureRect" parent="Panel/Skip"]
+[node name="Art_Sprite" type="TextureRect" parent="Panel/Skip"]
+visible = false
 layout_mode = 0
-offset_left = -8.0
+offset_left = -2.0
 offset_top = 5.0
-offset_right = 366.0
-offset_bottom = 192.0
+offset_right = 372.0
+offset_bottom = 156.0
 scale = Vector2(0.305, 0.305)
 texture = ExtResource("12_5ovop")
+expand_mode = 3
 stretch_mode = 4
 
 [node name="Added" type="RichTextLabel" parent="Panel/Skip"]
@@ -744,6 +864,15 @@ theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
 theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
 text = "[center]Added"
+
+[node name="Vissual_comp" type="Node2D" parent="Panel/Skip"]
+script = ExtResource("6_00s1h")
+
+[node name="Temp_Sprite" type="Sprite2D" parent="Panel/Skip"]
+modulate = Color(0.592157, 0.352941, 0.592157, 1)
+position = Vector2(44, 28)
+scale = Vector2(0.458333, 0.408333)
+texture = ExtResource("5_ionhi")
 
 [node name="Pre-req_comp" type="Node2D" parent="."]
 visible = false

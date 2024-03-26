@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://td8el4u2my65"]
+[gd_scene load_steps=6 format=3 uid="uid://td8el4u2my65"]
 
 [ext_resource type="Script" path="res://Scripts/story_in_game.gd" id="1_a0f30"]
 [ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="2_ghx0a"]
-[ext_resource type="Texture2D" uid="uid://d2rrm0wgymmxe" path="res://ImageAssets/Frog_1.png" id="3_1q2ux"]
+[ext_resource type="Texture2D" uid="uid://bfn0jb83swaey" path="res://ImageAssets/Face3.png" id="3_tbllj"]
+[ext_resource type="Script" path="res://Scripts/Vissual_comp.gd" id="4_3ljav"]
+[ext_resource type="Texture2D" uid="uid://nlqgtsxr41gt" path="res://icon.svg" id="5_12lgr"]
 
 [node name="Story_in_Game" type="CanvasLayer"]
 script = ExtResource("1_a0f30")
@@ -11,8 +13,14 @@ script = ExtResource("1_a0f30")
 
 [node name="Box" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.282353)
-position = Vector2(755.5, 611)
-scale = Vector2(8.30833, 1.5)
+position = Vector2(755.5, 637.5)
+scale = Vector2(8.30833, 1.05833)
+texture = ExtResource("2_ghx0a")
+
+[node name="Box3" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.282353)
+position = Vector2(372, 549.5)
+scale = Vector2(1.91667, 0.341667)
 texture = ExtResource("2_ghx0a")
 
 [node name="Box2" type="Sprite2D" parent="."]
@@ -21,28 +29,23 @@ position = Vector2(135.25, 611)
 scale = Vector2(1.8125, 1.5)
 texture = ExtResource("2_ghx0a")
 
-[node name="Frog" type="Sprite2D" parent="."]
-position = Vector2(131, 579.75)
-scale = Vector2(0.647059, 0.772727)
-texture = ExtResource("3_1q2ux")
-
 [node name="dialog_Label" type="Label" parent="."]
-offset_left = 271.0
-offset_top = 519.0
-offset_right = 1425.0
-offset_bottom = 732.0
-theme_override_font_sizes/font_size = 35
+offset_left = 263.0
+offset_top = 574.0
+offset_right = 1417.0
+offset_bottom = 787.0
+theme_override_font_sizes/font_size = 28
 text = "Brave hero, I have a quest for you to go on. 
 	Our village is in danger from an Evil Wizard who 
 	has captured Princess Papaya."
 
 [node name="dialog_Label2" type="Label" parent="."]
-offset_left = 34.0
-offset_top = 646.0
-offset_right = 274.0
-offset_bottom = 721.0
+offset_left = 258.0
+offset_top = 526.0
+offset_right = 498.0
+offset_bottom = 601.0
 theme_override_font_sizes/font_size = 35
-text = "Wise Froggo"
+text = "Wise old man"
 
 [node name="Next_Button" type="Button" parent="."]
 offset_left = 1163.0
@@ -57,6 +60,20 @@ offset_top = 663.0
 offset_right = 1135.0
 offset_bottom = 694.0
 text = "Skip"
+
+[node name="Art_Sprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(135, 604)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("3_tbllj")
+
+[node name="Vissual_comp" type="Node2D" parent="."]
+script = ExtResource("4_3ljav")
+
+[node name="Temp_Sprite" type="Sprite2D" parent="."]
+position = Vector2(135.5, 611.5)
+scale = Vector2(1.58594, 1.33594)
+texture = ExtResource("5_12lgr")
 
 [connection signal="button_down" from="Next_Button" to="." method="_on_next_button_button_down"]
 [connection signal="button_down" from="Skip_Button" to="." method="_on_skip_button_button_down"]

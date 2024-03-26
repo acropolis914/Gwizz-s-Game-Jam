@@ -13,7 +13,6 @@ func _ready():
 	art_sprite.animation = "flap"
 	art_sprite.play()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	speed_multiplier = randf_range(0.75, 1.1)
 	if resting:

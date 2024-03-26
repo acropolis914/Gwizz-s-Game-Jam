@@ -25,21 +25,36 @@ var daily_bg = {
 func _process(delta):
 	if GlobalScript.vissuals:
 		$Toggles/Art_Mode.show()
-	
 	if Input.is_action_just_pressed("pause"):
 		if !is_visible():
 			show()
 			GlobalScript.in_game = false
 		else:
 			_on_x_button_button_down()
-	
+
 	if GlobalScript.ending_1 ||GlobalScript.ending_2 ||GlobalScript.ending_3 ||GlobalScript.ending_4:
 		$Backgrounds/BgArrowR.show()
 		$Backgrounds/BgArrowL.show()
+	show_endings()
+	toggles()
 
-	for i in range(1, 4):
+func show_endings():
+	for i in range(1, 5):
 		if GlobalScript.get("ending_" + str(i)):
 			get_node("Endings/Ending" + str(i)).show()
+
+
+func toggles():
+	if GlobalScript.mouse_mode:
+		$Toggles/Mouse_Mode.button_pressed = true
+	else :
+		$Toggles/Mouse_Mode.button_pressed = false
+	
+	if GlobalScript.camera_mode:
+		$Toggles/Camera_Mode.button_pressed = true
+	else:
+		$Toggles/Camera_Mode.button_pressed = false
+
 
 func _on_x_button_button_down():
 	hide()

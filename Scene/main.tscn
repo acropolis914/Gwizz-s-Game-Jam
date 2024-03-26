@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c4ehycwbenis3"]
+[gd_scene load_steps=24 format=3 uid="uid://c4ehycwbenis3"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_0qhc5"]
 [ext_resource type="PackedScene" uid="uid://dwbgo21cx8lyu" path="res://Scene/player.tscn" id="2_b3uek"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://f12olo3uq6e6" path="res://Scene/gate.tscn" id="8_5nvpr"]
 [ext_resource type="PackedScene" uid="uid://b8dd2kjotn5vx" path="res://Scene/princess.tscn" id="8_x7y06"]
 [ext_resource type="Script" path="res://Scripts/Timer_CanvasLayer.gd" id="9_5lsd1"]
+[ext_resource type="Script" path="res://Scripts/Vissual_comp.gd" id="9_l0d3v"]
 [ext_resource type="PackedScene" uid="uid://cfh6fu6sg2kyy" path="res://Scene/coin.tscn" id="12_gs1c4"]
 [ext_resource type="PackedScene" uid="uid://gwrdgj65fsr4" path="res://Scene/enemy_type_3.tscn" id="13_1u1k8"]
 [ext_resource type="PackedScene" uid="uid://03tyh5acohqu" path="res://Scene/slime.tscn" id="14_orumr"]
@@ -57,12 +58,153 @@ position = Vector2(334, 455)
 zoom = Vector2(1.17, 1.17)
 
 [node name="Player" parent="." instance=ExtResource("2_b3uek")]
-position = Vector2(1040, 444)
+position = Vector2(1726, -164)
 
 [node name="Option" parent="." instance=ExtResource("6_sx2wb")]
 visible = false
 
-[node name="Map" parent="." instance=ExtResource("7_t2y8m")]
+[node name="Map" type="Node2D" parent="."]
+
+[node name="Art_Sprite" parent="Map" instance=ExtResource("7_t2y8m")]
+visible = false
+
+[node name="Temp_Sprite" type="Sprite2D" parent="Map"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(690.75, -127)
+scale = Vector2(11.1375, 4.53333)
+texture = ExtResource("14_upyrm")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(390, 960)
+scale = Vector2(11.1375, 4.53333)
+texture = ExtResource("14_upyrm")
+
+[node name="Sprite2D19" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0.282353, 0.360784, 0.443137, 1)
+z_index = -2
+position = Vector2(1011.88, 378)
+scale = Vector2(21.5021, 14.2333)
+texture = ExtResource("14_upyrm")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(-585, 389)
+scale = Vector2(11.1375, 13.2833)
+texture = ExtResource("14_upyrm")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(1188, 1152)
+scale = Vector2(11.1375, 6.625)
+texture = ExtResource("14_upyrm")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(2084, 1280)
+scale = Vector2(11.1375, 6.625)
+texture = ExtResource("14_upyrm")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(2768, 776)
+scale = Vector2(11.1375, 6.625)
+texture = ExtResource("14_upyrm")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(2449, 353)
+scale = Vector2(11.1375, 3.96667)
+texture = ExtResource("14_upyrm")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(2559.88, -184)
+scale = Vector2(7.75208, 6.78333)
+texture = ExtResource("14_upyrm")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(1520.5, -779)
+scale = Vector2(23.475, 6.78333)
+texture = ExtResource("14_upyrm")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(895.969, -7.50001)
+scale = Vector2(3.41719, 6.775)
+texture = ExtResource("14_upyrm")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(1191, 191.75)
+scale = Vector2(5.95, 1.3125)
+texture = ExtResource("14_upyrm")
+
+[node name="Sprite2D12" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(2069, 191.75)
+scale = Vector2(5.95, 1.3125)
+texture = ExtResource("14_upyrm")
+
+[node name="Sprite2D13" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(1824.75, 804)
+scale = Vector2(0.795832, 1.9125)
+texture = ExtResource("14_upyrm")
+
+[node name="Sprite2D14" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(1279.88, 606.875)
+scale = Vector2(1.29792, 0.764582)
+texture = ExtResource("14_upyrm")
+
+[node name="Sprite2D15" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(1280, 415)
+scale = Vector2(1.29792, 0.764582)
+texture = ExtResource("14_upyrm")
+
+[node name="Sprite2D16" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(1567.94, 415)
+scale = Vector2(1.83229, 0.764582)
+texture = ExtResource("14_upyrm")
+
+[node name="Sprite2D17" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(1538.5, 512.563)
+scale = Vector2(1.34167, 2.39062)
+texture = ExtResource("14_upyrm")
+
+[node name="Sprite2D18" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(895.75, 641)
+scale = Vector2(3.44583, 2.39062)
+texture = ExtResource("14_upyrm")
+
+[node name="Vissual_comp" type="Node2D" parent="Map"]
+script = ExtResource("9_l0d3v")
 
 [node name="Princess" parent="." instance=ExtResource("8_x7y06")]
 position = Vector2(1721, -294)
@@ -108,8 +250,17 @@ position = Vector2(-730, -229)
 [node name="Coin4" parent="Coins" instance=ExtResource("12_gs1c4")]
 position = Vector2(-710, 110)
 
+[node name="Coin12" parent="Coins" instance=ExtResource("12_gs1c4")]
+position = Vector2(-710, 110)
+
+[node name="Coin13" parent="Coins" instance=ExtResource("12_gs1c4")]
+position = Vector2(-279, 11)
+
 [node name="Coin7" parent="Coins" instance=ExtResource("12_gs1c4")]
 position = Vector2(897, 198)
+
+[node name="Coin14" parent="Coins" instance=ExtResource("12_gs1c4")]
+position = Vector2(674, -723)
 
 [node name="Coin8" parent="Coins" instance=ExtResource("12_gs1c4")]
 position = Vector2(908, 247)
@@ -135,11 +286,20 @@ position = Vector2(25, 2)
 [node name="Slime2" parent="Slime" instance=ExtResource("14_orumr")]
 position = Vector2(-1105, -14)
 
+[node name="Slime5" parent="Slime" instance=ExtResource("14_orumr")]
+position = Vector2(533, -373)
+
 [node name="Slime3" parent="Slime" instance=ExtResource("14_orumr")]
 position = Vector2(299, 382)
 
 [node name="Slime4" parent="Slime" instance=ExtResource("14_orumr")]
 position = Vector2(-981, -115)
+
+[node name="Slime6" parent="Slime" instance=ExtResource("14_orumr")]
+position = Vector2(-915, 203)
+
+[node name="Slime7" parent="Slime" instance=ExtResource("14_orumr")]
+position = Vector2(331, -488)
 
 [node name="Pot" type="Node2D" parent="."]
 position = Vector2(2195, 358)
@@ -168,8 +328,23 @@ position = Vector2(-1757, -137)
 [node name="Pot4" parent="Pot" instance=ExtResource("14_yj3bj")]
 position = Vector2(-1697, -58)
 
+[node name="Pot10" parent="Pot" instance=ExtResource("14_yj3bj")]
+position = Vector2(-925, 152)
+
 [node name="Pot5" parent="Pot" instance=ExtResource("14_yj3bj")]
 position = Vector2(-1618, -16)
+
+[node name="Pot11" parent="Pot" instance=ExtResource("14_yj3bj")]
+position = Vector2(-1967, 229)
+
+[node name="Pot12" parent="Pot" instance=ExtResource("14_yj3bj")]
+position = Vector2(-1580, 233)
+
+[node name="Pot13" parent="Pot" instance=ExtResource("14_yj3bj")]
+position = Vector2(-291, -596)
+
+[node name="Pot14" parent="Pot" instance=ExtResource("14_yj3bj")]
+position = Vector2(-231, -315)
 
 [node name="enemy_type_1_1" parent="." instance=ExtResource("2_m0uvw")]
 position = Vector2(263, 285)
