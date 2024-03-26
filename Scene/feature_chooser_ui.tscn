@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://p58fom250kv0"]
+[gd_scene load_steps=19 format=3 uid="uid://p58fom250kv0"]
 
 [ext_resource type="Script" path="res://Scene/feature_chooser_ui.gd" id="1_eucfm"]
 [ext_resource type="Shader" path="res://Scene/Blur.gdshader" id="1_krqgw"]
@@ -13,7 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://tcv5cg0xe0rj" path="res://ImageAssets/Gate.png" id="10_khucr"]
 [ext_resource type="Texture2D" uid="uid://c6p6dq3rbudx3" path="res://ImageAssets/Pot.png" id="11_fidlx"]
 [ext_resource type="Texture2D" uid="uid://d2rrm0wgymmxe" path="res://ImageAssets/Frog_1.png" id="12_5ovop"]
+[ext_resource type="Texture2D" uid="uid://djupu0ttnro4v" path="res://ImageAssets/player_dash_programmerart_64.png" id="13_yovpi"]
 [ext_resource type="Script" path="res://Scripts/Pre-req_comp.gd" id="14_gjsda"]
+[ext_resource type="Texture2D" uid="uid://k5sxd47omogv" path="res://ImageAssets/StickyNote.png" id="14_qog2j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tt18p"]
 shader = ExtResource("1_krqgw")
@@ -91,30 +93,33 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -30.0
-offset_bottom = -5.0
+offset_left = -8.0
+offset_top = -40.0
+offset_right = -8.0
+offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/normal_font_size = 11
 bbcode_enabled = true
-text = "[center] Chasing Enemy"
+text = "[center][b] Chasing Enemy"
 fit_content = true
 
 [node name="TextureRect" type="TextureRect" parent="Panel/Enemy_1"]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 11.0
-offset_right = 83.0
-offset_bottom = 75.0
+offset_left = 17.0
+offset_top = 17.0
+offset_right = 86.0
+offset_bottom = 81.0
+scale = Vector2(0.845, 0.845)
 texture = ExtResource("3_5tjur")
 
 [node name="Added" type="RichTextLabel" parent="Panel/Enemy_1"]
 visible = false
 layout_mode = 0
 offset_left = 5.0
-offset_top = 96.0
+offset_top = 4.0
 offset_right = 95.0
-offset_bottom = 136.0
+offset_bottom = 44.0
 theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
 theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
@@ -127,10 +132,10 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 112.0
-offset_top = -193.5
-offset_right = -880.0
-offset_bottom = -82.5
+offset_left = 119.0
+offset_top = -189.5
+offset_right = -873.0
+offset_bottom = -78.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -140,30 +145,32 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -30.0
-offset_bottom = -5.0
+offset_left = -1.0
+offset_top = -37.0
+offset_right = -1.0
+offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/normal_font_size = 11
 bbcode_enabled = true
-text = "[center] Flying Enemy"
+text = "[center][b] Flying Enemy"
 fit_content = true
 
 [node name="TextureRect" type="TextureRect" parent="Panel/Enemy_2"]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 11.0
-offset_right = 83.0
-offset_bottom = 75.0
+offset_left = 15.0
+offset_top = 20.0
+offset_right = 84.0
+offset_bottom = 84.0
 texture = ExtResource("4_jumbo")
 
 [node name="Added" type="RichTextLabel" parent="Panel/Enemy_2"]
 visible = false
 layout_mode = 0
 offset_left = 5.0
-offset_top = 96.0
+offset_top = 7.0
 offset_right = 95.0
-offset_bottom = 136.0
+offset_bottom = 47.0
 theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
 theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
@@ -176,10 +183,10 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 234.0
-offset_top = -199.5
-offset_right = -758.0
-offset_bottom = -88.5
+offset_left = 255.0
+offset_top = -197.5
+offset_right = -737.0
+offset_bottom = -86.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -189,30 +196,31 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -30.0
-offset_bottom = -5.0
+offset_left = -3.0
+offset_top = -31.0
+offset_right = -3.0
+offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/normal_font_size = 11
 bbcode_enabled = true
-text = "[center] Range Enemy"
+text = "[center][b] Range Enemy"
 fit_content = true
 
 [node name="TextureRect" type="TextureRect" parent="Panel/Enemy_3"]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 11.0
-offset_right = 83.0
-offset_bottom = 75.0
+offset_left = 13.0
+offset_top = 24.0
+offset_right = 82.0
+offset_bottom = 88.0
 texture = ExtResource("5_thw8f")
 
 [node name="Added" type="RichTextLabel" parent="Panel/Enemy_3"]
 visible = false
 layout_mode = 0
-offset_left = 5.0
-offset_top = 96.0
-offset_right = 95.0
-offset_bottom = 136.0
+offset_top = 11.0
+offset_right = 90.0
+offset_bottom = 51.0
 theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
 theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
@@ -225,9 +233,9 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 368.0
+offset_left = 383.0
 offset_top = -190.5
-offset_right = -624.0
+offset_right = -609.0
 offset_bottom = -79.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -238,32 +246,33 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -30.0
-offset_bottom = -5.0
+offset_left = -1.0
+offset_top = -35.0
+offset_right = -1.0
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/normal_font_size = 11
 bbcode_enabled = true
-text = "[center] Slime
+text = "[center] [b]Slime[/b]
 Slows player down"
 fit_content = true
 
 [node name="TextureRect" type="TextureRect" parent="Panel/Slime"]
 layout_mode = 0
-offset_left = -27.0
-offset_top = -16.0
-offset_right = 172.0
-offset_bottom = 141.0
+offset_left = -25.0
+offset_top = -7.0
+offset_right = 174.0
+offset_bottom = 150.0
 scale = Vector2(0.695, 0.695)
 texture = ExtResource("9_vvtcn")
 
 [node name="Added" type="RichTextLabel" parent="Panel/Slime"]
 visible = false
 layout_mode = 0
-offset_left = 5.0
-offset_top = 96.0
-offset_right = 95.0
-offset_bottom = 136.0
+offset_top = 4.0
+offset_right = 90.0
+offset_bottom = 44.0
 theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
 theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
@@ -289,15 +298,13 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = -34.0
-offset_right = -1.0
-offset_bottom = 14.0
+offset_top = -36.0
+offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/normal_font_size = 11
 bbcode_enabled = true
-text = "[center] Puzzle
+text = "[center] [b]Puzzle[/b]
 Find the key to unlock the gate"
 fit_content = true
 
@@ -314,26 +321,25 @@ texture = ExtResource("10_khucr")
 visible = false
 layout_mode = 0
 offset_left = 5.0
-offset_top = 96.0
+offset_top = 4.0
 offset_right = 95.0
-offset_bottom = 136.0
+offset_bottom = 44.0
 theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
 theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
 text = "[center]Added"
 
 [node name="Trap" type="Panel" parent="Panel"]
-visible = false
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 653.0
-offset_top = -187.5
-offset_right = -339.0
-offset_bottom = -76.5
+offset_left = 631.0
+offset_top = -190.5
+offset_right = -361.0
+offset_bottom = -79.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -343,13 +349,12 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -30.0
-offset_bottom = -5.0
+offset_top = -25.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/normal_font_size = 11
 bbcode_enabled = true
-text = "[center] Trap"
+text = "[center][b] Trap"
 fit_content = true
 
 [node name="TextureRect" type="TextureRect" parent="Panel/Trap"]
@@ -359,22 +364,22 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -25.5
-offset_top = -55.5
-offset_right = 44.5
-offset_bottom = 56.5
+offset_left = -18.5
+offset_top = -33.5
+offset_right = 51.5
+offset_bottom = 78.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.645, 0.645)
+scale = Vector2(0.54, 0.54)
 texture = ExtResource("7_ntk0m")
 
 [node name="Added" type="RichTextLabel" parent="Panel/Trap"]
 visible = false
 layout_mode = 0
 offset_left = 5.0
-offset_top = 96.0
+offset_top = 5.0
 offset_right = 95.0
-offset_bottom = 136.0
+offset_bottom = 45.0
 theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
 theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
@@ -400,15 +405,13 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 2.0
-offset_top = -30.0
-offset_right = 2.0
-offset_bottom = -5.0
+offset_top = -35.0
+offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/normal_font_size = 11
 bbcode_enabled = true
-text = "[center]Breakable items"
+text = "[center][b]Breakable items"
 fit_content = true
 
 [node name="TextureRect" type="TextureRect" parent="Panel/Pots"]
@@ -422,10 +425,9 @@ texture = ExtResource("11_fidlx")
 [node name="Added" type="RichTextLabel" parent="Panel/Pots"]
 visible = false
 layout_mode = 0
-offset_left = 5.0
-offset_top = 96.0
-offset_right = 95.0
-offset_bottom = 136.0
+offset_left = 6.0
+offset_right = 96.0
+offset_bottom = 40.0
 theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
 theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
@@ -438,9 +440,9 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 102.0
+offset_left = 89.0
 offset_top = -23.5
-offset_right = -890.0
+offset_right = -903.0
 offset_bottom = 87.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -459,7 +461,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/normal_font_size = 11
 bbcode_enabled = true
-text = "[center] Visuals
+text = "[center] [b]Visuals[/b]
 Add art assets"
 fit_content = true
 
@@ -475,9 +477,8 @@ texture = ExtResource("6_8njgr")
 visible = false
 layout_mode = 0
 offset_left = 5.0
-offset_top = 96.0
 offset_right = 95.0
-offset_bottom = 136.0
+offset_bottom = 40.0
 theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
 theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
@@ -490,10 +491,10 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 232.0
-offset_top = -12.5
-offset_right = -760.0
-offset_bottom = 98.5
+offset_left = 202.0
+offset_top = -21.5
+offset_right = -790.0
+offset_bottom = 89.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -503,15 +504,15 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -5.0
-offset_top = -29.0
-offset_right = -5.0
-offset_bottom = -4.0
+offset_left = -1.0
+offset_top = -40.0
+offset_right = -1.0
+offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/normal_font_size = 11
 bbcode_enabled = true
-text = "[center] Collectibles"
+text = "[center] [b]Collectibles"
 fit_content = true
 
 [node name="TextureRect" type="TextureRect" parent="Panel/Coins"]
@@ -525,10 +526,10 @@ texture = ExtResource("8_2sxbo")
 [node name="Added" type="RichTextLabel" parent="Panel/Coins"]
 visible = false
 layout_mode = 0
-offset_left = 5.0
-offset_top = 96.0
-offset_right = 95.0
-offset_bottom = 136.0
+offset_left = 2.0
+offset_top = -12.0
+offset_right = 92.0
+offset_bottom = 28.0
 theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
 theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
@@ -541,10 +542,10 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 363.0
-offset_top = -10.5
-offset_right = -629.0
-offset_bottom = 100.5
+offset_left = 316.0
+offset_top = -21.5
+offset_right = -676.0
+offset_bottom = 89.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -554,34 +555,85 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -4.0
-offset_top = -30.0
-offset_right = -4.0
-offset_bottom = -5.0
+offset_top = -45.0
+offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/normal_font_size = 11
 bbcode_enabled = true
-text = "[center] Dash"
+text = "[center] [b]Dash[/b]
+Shift/Space to dash"
 fit_content = true
 
 [node name="TextureRect" type="TextureRect" parent="Panel/Dash"]
 layout_mode = 0
-offset_left = -8.0
-offset_top = 16.0
-offset_right = 366.0
-offset_bottom = 203.0
+offset_left = 20.0
+offset_top = 9.0
+offset_right = 302.0
+offset_bottom = 196.0
 scale = Vector2(0.305, 0.305)
-texture = ExtResource("12_5ovop")
+texture = ExtResource("13_yovpi")
 stretch_mode = 4
 
 [node name="Added" type="RichTextLabel" parent="Panel/Dash"]
 visible = false
 layout_mode = 0
-offset_left = 5.0
-offset_top = 96.0
-offset_right = 95.0
-offset_bottom = 136.0
+offset_left = 4.0
+offset_top = -14.0
+offset_right = 94.0
+offset_bottom = 26.0
+theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
+theme_override_font_sizes/normal_font_size = 9
+bbcode_enabled = true
+text = "[center]Added"
+
+[node name="Error" type="Panel" parent="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 423.0
+offset_top = -21.5
+offset_right = -569.0
+offset_bottom = 89.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="RichTextLabel" parent="Panel/Error"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -45.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+text = "[center] [b]3d World[/b]
+Open world game mode"
+fit_content = true
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Error"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 9.0
+offset_right = 302.0
+offset_bottom = 196.0
+scale = Vector2(0.305, 0.305)
+texture = ExtResource("13_yovpi")
+stretch_mode = 4
+
+[node name="Added" type="RichTextLabel" parent="Panel/Error"]
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = -14.0
+offset_right = 94.0
+offset_bottom = 26.0
 theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
 theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
@@ -594,10 +646,10 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 501.0
-offset_top = -11.5
-offset_right = -491.0
-offset_bottom = 99.5
+offset_left = 514.0
+offset_top = -12.5
+offset_right = -478.0
+offset_bottom = 98.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -607,41 +659,40 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -4.0
-offset_top = -30.0
-offset_right = -4.0
-offset_bottom = -5.0
+offset_left = 5.0
+offset_top = -37.0
+offset_right = 5.0
+offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/normal_font_size = 11
 bbcode_enabled = true
-text = "[center] Story"
+text = "[center] [b]Story"
 fit_content = true
 
 [node name="TextureRect" type="TextureRect" parent="Panel/Story"]
 layout_mode = 0
-offset_left = -8.0
-offset_top = 16.0
-offset_right = 366.0
-offset_bottom = 203.0
+offset_left = 15.0
+offset_top = 10.0
+offset_right = 314.0
+offset_bottom = 213.0
 scale = Vector2(0.305, 0.305)
-texture = ExtResource("12_5ovop")
+texture = ExtResource("14_qog2j")
 stretch_mode = 4
 
 [node name="Added" type="RichTextLabel" parent="Panel/Story"]
 visible = false
 layout_mode = 0
-offset_left = 5.0
-offset_top = 96.0
-offset_right = 95.0
-offset_bottom = 136.0
+offset_left = 10.0
+offset_top = -10.0
+offset_right = 100.0
+offset_bottom = 30.0
 theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
 theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
 text = "[center]Added"
 
 [node name="Skip" type="Panel" parent="Panel"]
-visible = false
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 14
@@ -661,23 +712,21 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -4.0
-offset_top = -30.0
-offset_right = -4.0
-offset_bottom = -5.0
+offset_top = -38.0
+offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/normal_font_size = 11
 bbcode_enabled = true
-text = "[center] Skip Button"
+text = "[center] [b]Skip Button"
 fit_content = true
 
 [node name="TextureRect" type="TextureRect" parent="Panel/Skip"]
 layout_mode = 0
 offset_left = -8.0
-offset_top = 16.0
+offset_top = 5.0
 offset_right = 366.0
-offset_bottom = 203.0
+offset_bottom = 192.0
 scale = Vector2(0.305, 0.305)
 texture = ExtResource("12_5ovop")
 stretch_mode = 4
@@ -686,9 +735,9 @@ stretch_mode = 4
 visible = false
 layout_mode = 0
 offset_left = 5.0
-offset_top = 96.0
+offset_top = -13.0
 offset_right = 95.0
-offset_bottom = 136.0
+offset_bottom = 27.0
 theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
 theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
@@ -701,47 +750,27 @@ script = ExtResource("14_gjsda")
 [connection signal="focus_exited" from="Panel/Enemy_1" to="." method="_on_enemy_1_focus_exited"]
 [connection signal="gui_input" from="Panel/Enemy_1" to="." method="_on_enemy_1_gui_input"]
 [connection signal="mouse_exited" from="Panel/Enemy_1" to="." method="_on_enemy_1_mouse_exited"]
-[connection signal="focus_entered" from="Panel/Enemy_2" to="." method="_on_enemy_1_focus_entered"]
-[connection signal="focus_exited" from="Panel/Enemy_2" to="." method="_on_enemy_1_focus_exited"]
-[connection signal="gui_input" from="Panel/Enemy_2" to="." method="_on_enemy_1_gui_input"]
-[connection signal="mouse_exited" from="Panel/Enemy_2" to="." method="_on_enemy_1_mouse_exited"]
-[connection signal="focus_entered" from="Panel/Enemy_3" to="." method="_on_enemy_1_focus_entered"]
-[connection signal="focus_exited" from="Panel/Enemy_3" to="." method="_on_enemy_1_focus_exited"]
-[connection signal="gui_input" from="Panel/Enemy_3" to="." method="_on_enemy_1_gui_input"]
-[connection signal="mouse_exited" from="Panel/Enemy_3" to="." method="_on_enemy_1_mouse_exited"]
-[connection signal="focus_entered" from="Panel/Slime" to="." method="_on_enemy_1_focus_entered"]
-[connection signal="focus_exited" from="Panel/Slime" to="." method="_on_enemy_1_focus_exited"]
-[connection signal="gui_input" from="Panel/Slime" to="." method="_on_enemy_1_gui_input"]
-[connection signal="mouse_exited" from="Panel/Slime" to="." method="_on_enemy_1_mouse_exited"]
-[connection signal="focus_entered" from="Panel/Puzzle" to="." method="_on_enemy_1_focus_entered"]
-[connection signal="focus_exited" from="Panel/Puzzle" to="." method="_on_enemy_1_focus_exited"]
-[connection signal="gui_input" from="Panel/Puzzle" to="." method="_on_enemy_1_gui_input"]
-[connection signal="mouse_exited" from="Panel/Puzzle" to="." method="_on_enemy_1_mouse_exited"]
-[connection signal="focus_entered" from="Panel/Trap" to="." method="_on_enemy_1_focus_entered"]
-[connection signal="focus_exited" from="Panel/Trap" to="." method="_on_enemy_1_focus_exited"]
-[connection signal="gui_input" from="Panel/Trap" to="." method="_on_enemy_1_gui_input"]
-[connection signal="mouse_exited" from="Panel/Trap" to="." method="_on_enemy_1_mouse_exited"]
-[connection signal="focus_entered" from="Panel/Pots" to="." method="_on_enemy_1_focus_entered"]
-[connection signal="focus_exited" from="Panel/Pots" to="." method="_on_enemy_1_focus_exited"]
-[connection signal="gui_input" from="Panel/Pots" to="." method="_on_enemy_1_gui_input"]
-[connection signal="mouse_exited" from="Panel/Pots" to="." method="_on_enemy_1_mouse_exited"]
-[connection signal="focus_entered" from="Panel/Visuals" to="." method="_on_enemy_1_focus_entered"]
-[connection signal="focus_exited" from="Panel/Visuals" to="." method="_on_enemy_1_focus_exited"]
-[connection signal="gui_input" from="Panel/Visuals" to="." method="_on_enemy_1_gui_input"]
-[connection signal="mouse_exited" from="Panel/Visuals" to="." method="_on_enemy_1_mouse_exited"]
-[connection signal="focus_entered" from="Panel/Coins" to="." method="_on_enemy_1_focus_entered"]
-[connection signal="focus_exited" from="Panel/Coins" to="." method="_on_enemy_1_focus_exited"]
-[connection signal="gui_input" from="Panel/Coins" to="." method="_on_enemy_1_gui_input"]
-[connection signal="mouse_exited" from="Panel/Coins" to="." method="_on_enemy_1_mouse_exited"]
-[connection signal="focus_entered" from="Panel/Dash" to="." method="_on_enemy_1_focus_entered"]
-[connection signal="focus_exited" from="Panel/Dash" to="." method="_on_enemy_1_focus_exited"]
-[connection signal="gui_input" from="Panel/Dash" to="." method="_on_enemy_1_gui_input"]
-[connection signal="mouse_exited" from="Panel/Dash" to="." method="_on_enemy_1_mouse_exited"]
-[connection signal="focus_entered" from="Panel/Story" to="." method="_on_enemy_1_focus_entered"]
-[connection signal="focus_exited" from="Panel/Story" to="." method="_on_enemy_1_focus_exited"]
-[connection signal="gui_input" from="Panel/Story" to="." method="_on_enemy_1_gui_input"]
-[connection signal="mouse_exited" from="Panel/Story" to="." method="_on_enemy_1_mouse_exited"]
-[connection signal="focus_entered" from="Panel/Skip" to="." method="_on_enemy_1_focus_entered"]
-[connection signal="focus_exited" from="Panel/Skip" to="." method="_on_enemy_1_focus_exited"]
-[connection signal="gui_input" from="Panel/Skip" to="." method="_on_enemy_1_gui_input"]
-[connection signal="mouse_exited" from="Panel/Skip" to="." method="_on_enemy_1_mouse_exited"]
+[connection signal="gui_input" from="Panel/Enemy_2" to="." method="_on_enemy_2_gui_input"]
+[connection signal="mouse_exited" from="Panel/Enemy_2" to="." method="_on_enemy_2_mouse_exited"]
+[connection signal="gui_input" from="Panel/Enemy_3" to="." method="_on_enemy_3_gui_input"]
+[connection signal="mouse_exited" from="Panel/Enemy_3" to="." method="_on_enemy_3_mouse_exited"]
+[connection signal="gui_input" from="Panel/Slime" to="." method="_on_slime_gui_input"]
+[connection signal="mouse_exited" from="Panel/Slime" to="." method="_on_slime_mouse_exited"]
+[connection signal="gui_input" from="Panel/Puzzle" to="." method="_on_puzzle_gui_input"]
+[connection signal="mouse_exited" from="Panel/Puzzle" to="." method="_on_puzzle_mouse_exited"]
+[connection signal="gui_input" from="Panel/Trap" to="." method="_on_trap_gui_input"]
+[connection signal="mouse_exited" from="Panel/Trap" to="." method="_on_trap_mouse_exited"]
+[connection signal="gui_input" from="Panel/Pots" to="." method="_on_pots_gui_input"]
+[connection signal="mouse_exited" from="Panel/Pots" to="." method="_on_pots_mouse_exited"]
+[connection signal="gui_input" from="Panel/Visuals" to="." method="_on_visuals_gui_input"]
+[connection signal="mouse_exited" from="Panel/Visuals" to="." method="_on_visuals_mouse_exited"]
+[connection signal="gui_input" from="Panel/Coins" to="." method="_on_coins_gui_input"]
+[connection signal="mouse_exited" from="Panel/Coins" to="." method="_on_coins_mouse_exited"]
+[connection signal="gui_input" from="Panel/Dash" to="." method="_on_dash_gui_input"]
+[connection signal="mouse_exited" from="Panel/Dash" to="." method="_on_dash_mouse_exited"]
+[connection signal="gui_input" from="Panel/Error" to="." method="_on_error_gui_input"]
+[connection signal="mouse_exited" from="Panel/Error" to="." method="_on_error_mouse_exited"]
+[connection signal="gui_input" from="Panel/Story" to="." method="_on_story_gui_input"]
+[connection signal="mouse_exited" from="Panel/Story" to="." method="_on_story_mouse_exited"]
+[connection signal="gui_input" from="Panel/Skip" to="." method="_on_skip_gui_input"]
+[connection signal="mouse_exited" from="Panel/Skip" to="." method="_on_skip_mouse_exited"]
