@@ -156,6 +156,7 @@ offset_right = 151.0
 offset_bottom = 137.0
 
 [node name="FeatureChooserUI" parent="." instance=ExtResource("6_7q6ad")]
+visible = false
 
 [connection signal="button_up" from="Next_Button" to="." method="_on_next_button_button_up"]
 [connection signal="button_down" from="Play_Button" to="." method="_on_play_button_button_down"]
@@ -163,7 +164,7 @@ offset_bottom = 137.0
 [connection signal="button_down" from="Error_Card_Button" to="." method="_on_card_button_button_down"]
 [connection signal="button_down" from="Error_Card_Button" to="." method="_on_error_card_button_button_down"]
 [connection signal="button_down" from="Error/Error_Button" to="." method="_on_error_button_button_down"]
-[connection signal="button_down" from="Testing_Button" to="." method="_on_button_button_downsccs"]
 [connection signal="button_down" from="Testing_Button" to="." method="_on_testing_button_button_down"]
+[connection signal="button_down" from="Testing_Button" to="." method="_on_button_button_downsccs"]
 [connection signal="chosen" from="FeatureChooserUI" to="." method="_on_feature_chooser_ui_chosen"]
 [connection signal="error" from="FeatureChooserUI" to="." method="_on_feature_chooser_ui_error"]

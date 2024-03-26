@@ -163,11 +163,9 @@ func _process(_delta):
 	BG_Sprite.texture = background_sprite[bg_number]
 	
 	if coding_label.visible_ratio == 1:
-		coding_done()
-
-func coding_done():
-	play_button.show()
-	dialog_num = 21
+		play_button.show()
+		dialog_num = 21
+		
 
 func _on_next_button_button_up():
 	dialog_num += 1
@@ -181,12 +179,12 @@ func _on_next_button_button_up():
 		dialog_num = 20
 	if dialog_num in [4, 5, 6, 7, 8, 9, 10]:
 		dialog_num = 19
-		$Card_Button.show()
-		$Error_Card_Button.show()
+		$FeatureChooserUI.show()
 
 func _input(event):
 	if event is InputEventKey && event.pressed:
 		if dialog_num == 20:
+			
 			coding_label.visible_ratio += .07
 
 var bad_end = false
@@ -209,15 +207,6 @@ func reset_game_stats():
 	for vars_z in var_zero:
 		GlobalScript[vars_z] = 0
 
-#Below are temporary for the cards
-func _on_card_button_button_down():
-	dialog_num += 1
-	$Card_Button.hide()
-	$Error_Card_Button.hide()
-	
-func _on_error_card_button_button_down():
-	bad_end = true
-
 func _on_error_button_button_down():
 	$Error/Error_Button.hide()
 	fade.play("Fade")
@@ -225,14 +214,15 @@ func _on_error_button_button_down():
 	reset_game_stats()
 	get_tree().change_scene_to_file("res://Scene/main_menu.tscn")
 
-func _on_testing_button_button_down():
-	print(GlobalScript.coins)
-
-
+#Below are temporary for the cards
+func _on_card_button_button_down():
+	dialog_num += 1
+	$FeatureChooserUI.hide()
 
 func _on_feature_chooser_ui_error() -> void:
 	bad_end = true
+	_on_card_button_button_down()
 
 func _on_feature_chooser_ui_chosen() -> void:
-	dialog_num += 1
+	_on_card_button_button_down()
 

@@ -60,6 +60,7 @@ func _on_enemy_1_gui_input(_event:InputEvent):
 	$Panel/Enemy_1.modulate = Color.AQUAMARINE
 	if Input.is_action_just_pressed("left_click"):
 		GlobalScript.emeny_1 = true
+		chosen.emit()
 
 func _on_enemy_1_mouse_exited() -> void:
 	$Panel/Enemy_1.modulate = Color.WHITE
@@ -71,6 +72,7 @@ func _on_enemy_2_gui_input(_event:InputEvent):
 	$Panel/Enemy_2.modulate = Color.AQUAMARINE
 	if Input.is_action_just_pressed("left_click"):
 		GlobalScript.emeny_2 = true
+		chosen.emit()
 
 func _on_enemy_2_mouse_exited() -> void:
 	$Panel/Enemy_2.modulate = Color.WHITE
@@ -82,6 +84,7 @@ func _on_enemy_3_gui_input(_event:InputEvent):
 	$Panel/Enemy_3.modulate = Color.AQUAMARINE
 	if Input.is_action_just_pressed("left_click"):
 		GlobalScript.emeny_3 = true
+		chosen.emit()
 
 func _on_enemy_3_mouse_exited() -> void:
 	$Panel/Enemy_3.modulate = Color.WHITE
@@ -93,6 +96,7 @@ func _on_slime_gui_input(event: InputEvent) -> void:
 	$Panel/Slime.modulate = Color.AQUAMARINE
 	if Input.is_action_just_pressed("left_click"):
 		GlobalScript.trap_slime = true
+		chosen.emit()
 
 func _on_slime_mouse_exited() -> void:
 	$Panel/Slime.modulate = Color.WHITE
@@ -103,6 +107,7 @@ func _on_puzzle_gui_input(event: InputEvent) -> void:
 	$Panel/Puzzle.modulate = Color.AQUAMARINE
 	if Input.is_action_just_pressed("left_click"):
 		GlobalScript.puzzle = true
+		chosen.emit()
 
 func _on_puzzle_mouse_exited() -> void:
 	$Panel/Puzzle.modulate = Color.WHITE
@@ -114,6 +119,7 @@ func _on_pots_gui_input(event: InputEvent) -> void:
 	$Panel/Pots.modulate = Color.AQUAMARINE
 	if Input.is_action_just_pressed("left_click"):
 		GlobalScript.pots = true
+		chosen.emit()
 
 
 func _on_pots_mouse_exited() -> void:
@@ -126,6 +132,7 @@ func _on_visuals_gui_input(event: InputEvent) -> void:
 	$Panel/Visuals.modulate = Color.AQUAMARINE
 	if Input.is_action_just_pressed("left_click"):
 		GlobalScript.vissuals = true
+		chosen.emit()
 
 
 func _on_visuals_mouse_exited() -> void:
@@ -139,6 +146,7 @@ func _on_coins_gui_input(event: InputEvent) -> void:
 	$Panel/Coins.modulate = Color.AQUAMARINE
 	if Input.is_action_just_pressed("left_click"):
 		GlobalScript.collectible = true
+		chosen.emit()
 
 func _on_coins_mouse_exited() -> void:
 	$Panel/Coins.modulate = Color.WHITE
@@ -150,6 +158,7 @@ func _on_dash_gui_input(event: InputEvent) -> void:
 	$Panel/Dash.modulate = Color.AQUAMARINE
 	if Input.is_action_just_pressed("left_click"):
 		GlobalScript.dash = true
+		chosen.emit()
 
 
 func _on_dash_mouse_exited() -> void:
@@ -162,6 +171,7 @@ func _on_story_gui_input(event: InputEvent) -> void:
 	$Panel/Story.modulate = Color.AQUAMARINE
 	if Input.is_action_just_pressed("left_click"):
 		GlobalScript.story = true
+		chosen.emit()
 
 
 func _on_story_mouse_exited() -> void:
@@ -174,6 +184,7 @@ func _on_skip_gui_input(event: InputEvent) -> void:
 	$Panel/Skip.modulate = Color.AQUAMARINE
 	if Input.is_action_just_pressed("left_click"):
 		GlobalScript.skip = true
+		chosen.emit()
 
 
 func _on_skip_mouse_exited() -> void:
@@ -186,6 +197,7 @@ func _on_trap_gui_input(event: InputEvent) -> void:
 	$Panel/Trap.modulate = Color.AQUAMARINE
 	if Input.is_action_just_pressed("left_click"):
 		GlobalScript.trap_rock = true
+		chosen.emit()
 
 
 func _on_trap_mouse_exited() -> void:

@@ -16,7 +16,7 @@ var dash = false
 var vissuals = false
 var pots = false
 var story = false
-var skip = false
+var skip = true
 
 #Plauyer holding
 var key = false
