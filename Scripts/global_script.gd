@@ -4,19 +4,19 @@ var level = 0
 var aesthetic = 0
 
 #UPGRADES
-var emeny_1 = true
-var emeny_2 = true
-var emeny_3 = true
-var trap_rock = true
-var trap_slime = true
-var puzzle = true
+var emeny_1 = false
+var emeny_2 = false
+var emeny_3 = false
+var trap_rock = false
+var trap_slime = false
+var puzzle = false
 
-var collectible = true #coins
-var dash = true
+var collectible = false #coins
+var dash = false
 var vissuals = false
-var pots = true
-var story = true
-var skip = true
+var pots = false
+var story = false
+var skip = false
 
 #Plauyer holding
 var key = false

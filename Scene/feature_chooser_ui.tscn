@@ -1,6 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://p58fom250kv0"]
+[gd_scene load_steps=14 format=3 uid="uid://p58fom250kv0"]
 
+[ext_resource type="Script" path="res://Scene/feature_chooser_ui.gd" id="1_eucfm"]
 [ext_resource type="Shader" path="res://Scene/Blur.gdshader" id="1_krqgw"]
+[ext_resource type="Texture2D" uid="uid://ddofncep5nh56" path="res://ImageAssets/enemy1_programmerart_64.png" id="3_5tjur"]
+[ext_resource type="Texture2D" uid="uid://cmvq7i5mkbdji" path="res://ImageAssets/fly1 (20240321023820).png" id="4_jumbo"]
+[ext_resource type="Texture2D" uid="uid://mkl2jw4gbx4e" path="res://ImageAssets/Enemy3/enemy3_0005_3.png" id="5_thw8f"]
+[ext_resource type="Texture2D" uid="uid://bhrjflbuiikul" path="res://ImageAssets/player_idle1_programmerart_64.png" id="6_8njgr"]
+[ext_resource type="Texture2D" uid="uid://hrmxcdr3lett" path="res://ImageAssets/TilesAndStonesbyPol/rocktrap.png" id="7_ntk0m"]
+[ext_resource type="Texture2D" uid="uid://7kqtu887rjw0" path="res://ImageAssets/Coin.png" id="8_2sxbo"]
+[ext_resource type="Texture2D" uid="uid://dqkj1hcdda7pv" path="res://ImageAssets/Slime.png" id="9_vvtcn"]
+[ext_resource type="Texture2D" uid="uid://tcv5cg0xe0rj" path="res://ImageAssets/Gate.png" id="10_khucr"]
+[ext_resource type="Texture2D" uid="uid://c6p6dq3rbudx3" path="res://ImageAssets/Pot.png" id="11_fidlx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tt18p"]
 shader = ExtResource("1_krqgw")
@@ -10,12 +20,14 @@ shader_parameter/radius = 10.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v4fcm"]
 
 [node name="FeatureChooserUI" type="Control"]
+self_modulate = Color(0.423529, 0.631373, 0.631373, 0.745098)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_eucfm")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -35,44 +47,505 @@ offset_bottom = 615.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.425298
-anchor_top = 0.0313112
-anchor_right = 0.571952
-anchor_bottom = 0.0450098
-offset_bottom = 23.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 24.0
+offset_bottom = 47.0
 grow_horizontal = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel/VBoxContainer"]
 layout_mode = 2
-text = "Choose one of each..."
+theme_override_font_sizes/normal_font_size = 23
+bbcode_enabled = true
+text = "[center]Choose one feature to add..."
 fit_content = true
 
-[node name="GridContainer" type="GridContainer" parent="Panel"]
+[node name="Enemy_1" type="Panel" parent="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 112.0
+offset_top = -143.5
+offset_right = -880.0
+offset_bottom = -32.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="RichTextLabel" parent="Panel/Enemy_1"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -30.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+text = "[center] Chasing Enemy"
+fit_content = true
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Enemy_1"]
 layout_mode = 0
-offset_left = 40.0
-offset_top = 72.0
-offset_right = 1056.0
-offset_bottom = 95.0
-columns = 2
+offset_left = 14.0
+offset_top = 11.0
+offset_right = 83.0
+offset_bottom = 75.0
+texture = ExtResource("3_5tjur")
 
-[node name="HBox" type="HBoxContainer" parent="Panel/GridContainer"]
-layout_mode = 2
-alignment = 1
+[node name="Added" type="RichTextLabel" parent="Panel/Enemy_1"]
+visible = false
+layout_mode = 0
+offset_left = 5.0
+offset_top = 96.0
+offset_right = 95.0
+offset_bottom = 136.0
+theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
+theme_override_font_sizes/normal_font_size = 9
+bbcode_enabled = true
+text = "[center]Added"
 
-[node name="Challenges" type="Label" parent="Panel/GridContainer/HBox"]
-layout_mode = 2
-text = "fggdfgdhghfghhgfhfghfgh"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Enemy_2" type="Panel" parent="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 304.0
+offset_top = -143.5
+offset_right = -688.0
+offset_bottom = -32.5
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="HBox2" type="HBoxContainer" parent="Panel/GridContainer"]
-layout_mode = 2
-alignment = 1
+[node name="Label" type="RichTextLabel" parent="Panel/Enemy_2"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -30.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+text = "[center] Flying Enemy"
+fit_content = true
 
-[node name="Aesthetics" type="Label" parent="Panel/GridContainer/HBox2"]
-layout_mode = 2
-text = "fggdfgdhghfghhgfhfghfgh"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="TextureRect" type="TextureRect" parent="Panel/Enemy_2"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 11.0
+offset_right = 83.0
+offset_bottom = 75.0
+texture = ExtResource("4_jumbo")
+
+[node name="Added" type="RichTextLabel" parent="Panel/Enemy_2"]
+visible = false
+layout_mode = 0
+offset_left = 5.0
+offset_top = 96.0
+offset_right = 95.0
+offset_bottom = 136.0
+theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
+theme_override_font_sizes/normal_font_size = 9
+bbcode_enabled = true
+text = "[center]Added"
+
+[node name="Enemy_3" type="Panel" parent="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 496.0
+offset_top = -143.5
+offset_right = -496.0
+offset_bottom = -32.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="RichTextLabel" parent="Panel/Enemy_3"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -30.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+text = "[center] Projectile Enemy"
+fit_content = true
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Enemy_3"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 11.0
+offset_right = 83.0
+offset_bottom = 75.0
+texture = ExtResource("5_thw8f")
+
+[node name="Added" type="RichTextLabel" parent="Panel/Enemy_3"]
+visible = false
+layout_mode = 0
+offset_left = 5.0
+offset_top = 96.0
+offset_right = 95.0
+offset_bottom = 136.0
+theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
+theme_override_font_sizes/normal_font_size = 9
+bbcode_enabled = true
+text = "[center]Added"
+
+[node name="Visuals" type="Panel" parent="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 688.0
+offset_top = -143.5
+offset_right = -304.0
+offset_bottom = -32.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="RichTextLabel" parent="Panel/Visuals"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -30.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+text = "[center] Visuals"
+fit_content = true
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Visuals"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 11.0
+offset_right = 83.0
+offset_bottom = 75.0
+texture = ExtResource("6_8njgr")
+
+[node name="Added" type="RichTextLabel" parent="Panel/Visuals"]
+visible = false
+layout_mode = 0
+offset_left = 5.0
+offset_top = 96.0
+offset_right = 95.0
+offset_bottom = 136.0
+theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
+theme_override_font_sizes/normal_font_size = 9
+bbcode_enabled = true
+text = "[center]Added"
+
+[node name="Trap" type="Panel" parent="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 880.0
+offset_top = -143.5
+offset_right = -112.0
+offset_bottom = -32.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="RichTextLabel" parent="Panel/Trap"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -30.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+text = "[center] Trap"
+fit_content = true
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Trap"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.5
+offset_top = -55.5
+offset_right = 44.5
+offset_bottom = 56.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.645, 0.645)
+texture = ExtResource("7_ntk0m")
+
+[node name="Added" type="RichTextLabel" parent="Panel/Trap"]
+visible = false
+layout_mode = 0
+offset_left = 5.0
+offset_top = 96.0
+offset_right = 95.0
+offset_bottom = 136.0
+theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
+theme_override_font_sizes/normal_font_size = 9
+bbcode_enabled = true
+text = "[center]Added"
+
+[node name="Coins" type="Panel" parent="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 203.0
+offset_top = -7.5
+offset_right = -789.0
+offset_bottom = 103.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="RichTextLabel" parent="Panel/Coins"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -30.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+text = "[center] Coins"
+fit_content = true
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Coins"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 11.0
+offset_right = 83.0
+offset_bottom = 75.0
+texture = ExtResource("8_2sxbo")
+
+[node name="Added" type="RichTextLabel" parent="Panel/Coins"]
+visible = false
+layout_mode = 0
+offset_left = 5.0
+offset_top = 96.0
+offset_right = 95.0
+offset_bottom = 136.0
+theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
+theme_override_font_sizes/normal_font_size = 9
+bbcode_enabled = true
+text = "[center]Added"
+
+[node name="Slime" type="Panel" parent="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 403.0
+offset_top = -7.5
+offset_right = -589.0
+offset_bottom = 103.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="RichTextLabel" parent="Panel/Slime"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -30.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+text = "[center] Slime"
+fit_content = true
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Slime"]
+layout_mode = 0
+offset_left = -27.0
+offset_top = -16.0
+offset_right = 172.0
+offset_bottom = 141.0
+scale = Vector2(0.695, 0.695)
+texture = ExtResource("9_vvtcn")
+
+[node name="Added" type="RichTextLabel" parent="Panel/Slime"]
+visible = false
+layout_mode = 0
+offset_left = 5.0
+offset_top = 96.0
+offset_right = 95.0
+offset_bottom = 136.0
+theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
+theme_override_font_sizes/normal_font_size = 9
+bbcode_enabled = true
+text = "[center]Added"
+
+[node name="Puzzle" type="Panel" parent="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 591.0
+offset_top = -7.5
+offset_right = -401.0
+offset_bottom = 103.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="RichTextLabel" parent="Panel/Puzzle"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -30.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+text = "[center] Gate"
+fit_content = true
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Puzzle"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 8.0
+offset_right = 203.0
+offset_bottom = 165.0
+scale = Vector2(0.435, 0.435)
+texture = ExtResource("10_khucr")
+
+[node name="Added" type="RichTextLabel" parent="Panel/Puzzle"]
+visible = false
+layout_mode = 0
+offset_left = 5.0
+offset_top = 96.0
+offset_right = 95.0
+offset_bottom = 136.0
+theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
+theme_override_font_sizes/normal_font_size = 9
+bbcode_enabled = true
+text = "[center]Added"
+
+[node name="Coins2" type="Panel" parent="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 787.0
+offset_top = -7.5
+offset_right = -205.0
+offset_bottom = 103.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="RichTextLabel" parent="Panel/Coins2"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -30.0
+offset_right = -4.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+text = "[center] Pots"
+fit_content = true
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Coins2"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 11.0
+offset_right = 83.0
+offset_bottom = 75.0
+texture = ExtResource("11_fidlx")
+
+[node name="Added" type="RichTextLabel" parent="Panel/Coins2"]
+visible = false
+layout_mode = 0
+offset_left = 5.0
+offset_top = 96.0
+offset_right = 95.0
+offset_bottom = 136.0
+theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
+theme_override_font_sizes/normal_font_size = 9
+bbcode_enabled = true
+text = "[center]Added"
+
+[connection signal="focus_entered" from="Panel/Enemy_1" to="." method="_on_enemy_1_focus_entered"]
+[connection signal="focus_exited" from="Panel/Enemy_1" to="." method="_on_enemy_1_focus_exited"]
+[connection signal="gui_input" from="Panel/Enemy_1" to="." method="_on_enemy_1_gui_input"]
+[connection signal="mouse_exited" from="Panel/Enemy_1" to="." method="_on_enemy_1_mouse_exited"]
+[connection signal="focus_entered" from="Panel/Enemy_2" to="." method="_on_enemy_1_focus_entered"]
+[connection signal="focus_exited" from="Panel/Enemy_2" to="." method="_on_enemy_1_focus_exited"]
+[connection signal="gui_input" from="Panel/Enemy_2" to="." method="_on_enemy_1_gui_input"]
+[connection signal="mouse_exited" from="Panel/Enemy_2" to="." method="_on_enemy_1_mouse_exited"]
+[connection signal="focus_entered" from="Panel/Enemy_3" to="." method="_on_enemy_1_focus_entered"]
+[connection signal="focus_exited" from="Panel/Enemy_3" to="." method="_on_enemy_1_focus_exited"]
+[connection signal="gui_input" from="Panel/Enemy_3" to="." method="_on_enemy_1_gui_input"]
+[connection signal="mouse_exited" from="Panel/Enemy_3" to="." method="_on_enemy_1_mouse_exited"]
+[connection signal="focus_entered" from="Panel/Visuals" to="." method="_on_enemy_1_focus_entered"]
+[connection signal="focus_exited" from="Panel/Visuals" to="." method="_on_enemy_1_focus_exited"]
+[connection signal="gui_input" from="Panel/Visuals" to="." method="_on_enemy_1_gui_input"]
+[connection signal="mouse_exited" from="Panel/Visuals" to="." method="_on_enemy_1_mouse_exited"]
+[connection signal="focus_entered" from="Panel/Trap" to="." method="_on_enemy_1_focus_entered"]
+[connection signal="focus_exited" from="Panel/Trap" to="." method="_on_enemy_1_focus_exited"]
+[connection signal="gui_input" from="Panel/Trap" to="." method="_on_enemy_1_gui_input"]
+[connection signal="mouse_exited" from="Panel/Trap" to="." method="_on_enemy_1_mouse_exited"]
+[connection signal="focus_entered" from="Panel/Coins" to="." method="_on_enemy_1_focus_entered"]
+[connection signal="focus_exited" from="Panel/Coins" to="." method="_on_enemy_1_focus_exited"]
+[connection signal="gui_input" from="Panel/Coins" to="." method="_on_enemy_1_gui_input"]
+[connection signal="mouse_exited" from="Panel/Coins" to="." method="_on_enemy_1_mouse_exited"]
+[connection signal="focus_entered" from="Panel/Slime" to="." method="_on_enemy_1_focus_entered"]
+[connection signal="focus_exited" from="Panel/Slime" to="." method="_on_enemy_1_focus_exited"]
+[connection signal="gui_input" from="Panel/Slime" to="." method="_on_enemy_1_gui_input"]
+[connection signal="mouse_exited" from="Panel/Slime" to="." method="_on_enemy_1_mouse_exited"]
+[connection signal="focus_entered" from="Panel/Puzzle" to="." method="_on_enemy_1_focus_entered"]
+[connection signal="focus_exited" from="Panel/Puzzle" to="." method="_on_enemy_1_focus_exited"]
+[connection signal="gui_input" from="Panel/Puzzle" to="." method="_on_enemy_1_gui_input"]
+[connection signal="mouse_exited" from="Panel/Puzzle" to="." method="_on_enemy_1_mouse_exited"]
+[connection signal="focus_entered" from="Panel/Coins2" to="." method="_on_enemy_1_focus_entered"]
+[connection signal="focus_exited" from="Panel/Coins2" to="." method="_on_enemy_1_focus_exited"]
+[connection signal="gui_input" from="Panel/Coins2" to="." method="_on_enemy_1_gui_input"]
+[connection signal="mouse_exited" from="Panel/Coins2" to="." method="_on_enemy_1_mouse_exited"]
