@@ -57,7 +57,7 @@ position = Vector2(334, 455)
 zoom = Vector2(1.17, 1.17)
 
 [node name="Player" parent="." instance=ExtResource("2_b3uek")]
-position = Vector2(1754, -142)
+position = Vector2(1040, 444)
 
 [node name="Option" parent="." instance=ExtResource("6_sx2wb")]
 visible = false

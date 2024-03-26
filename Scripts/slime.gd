@@ -2,7 +2,7 @@ extends Area2D
 @onready var slime_sfx = $Slime_sfx
 
 func _ready():
-	if !GlobalScript.trap_rock:
+	if !GlobalScript.trap_slime:
 		queue_free()
 
 func _on_body_entered(body):

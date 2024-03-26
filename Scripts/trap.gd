@@ -2,8 +2,12 @@ extends Area2D
 
 @onready var trap_anim = $AnimationPlayer
 
+func _ready():
+	if !GlobalScript.trap_rock:
+		queue_free()
 #Area of main body
 func _on_body_entered(body):
+
 	if body is Player:
 		body.kill()
 

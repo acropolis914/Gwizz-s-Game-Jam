@@ -164,7 +164,7 @@ visible = false
 [connection signal="button_down" from="Error_Card_Button" to="." method="_on_card_button_button_down"]
 [connection signal="button_down" from="Error_Card_Button" to="." method="_on_error_card_button_button_down"]
 [connection signal="button_down" from="Error/Error_Button" to="." method="_on_error_button_button_down"]
-[connection signal="button_down" from="Testing_Button" to="." method="_on_testing_button_button_down"]
 [connection signal="button_down" from="Testing_Button" to="." method="_on_button_button_downsccs"]
+[connection signal="button_down" from="Testing_Button" to="." method="_on_testing_button_button_down"]
 [connection signal="chosen" from="FeatureChooserUI" to="." method="_on_feature_chooser_ui_chosen"]
 [connection signal="error" from="FeatureChooserUI" to="." method="_on_feature_chooser_ui_error"]

@@ -120,6 +120,7 @@ func _on_pots_gui_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("left_click"):
 		GlobalScript.pots = true
 		chosen.emit()
+		GlobalScript.aesthetic += 1
 
 
 func _on_pots_mouse_exited() -> void:
@@ -133,6 +134,7 @@ func _on_visuals_gui_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("left_click"):
 		GlobalScript.vissuals = true
 		chosen.emit()
+		GlobalScript.aesthetic += 1
 
 
 func _on_visuals_mouse_exited() -> void:
@@ -147,6 +149,7 @@ func _on_coins_gui_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("left_click"):
 		GlobalScript.collectible = true
 		chosen.emit()
+		GlobalScript.aesthetic += 1
 
 func _on_coins_mouse_exited() -> void:
 	$Panel/Coins.modulate = Color.WHITE
@@ -159,6 +162,7 @@ func _on_dash_gui_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("left_click"):
 		GlobalScript.dash = true
 		chosen.emit()
+		GlobalScript.aesthetic += 1
 
 
 func _on_dash_mouse_exited() -> void:
@@ -172,6 +176,7 @@ func _on_story_gui_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("left_click"):
 		GlobalScript.story = true
 		chosen.emit()
+		GlobalScript.aesthetic += 1
 
 
 func _on_story_mouse_exited() -> void:
@@ -185,6 +190,7 @@ func _on_skip_gui_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("left_click"):
 		GlobalScript.skip = true
 		chosen.emit()
+		GlobalScript.aesthetic += 1
 
 
 func _on_skip_mouse_exited() -> void:
