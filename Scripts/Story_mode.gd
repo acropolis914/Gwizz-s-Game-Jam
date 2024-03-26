@@ -229,13 +229,10 @@ func _on_testing_button_button_down():
 	print(GlobalScript.coins)
 
 
-<<<<<<< Updated upstream
-func _on_feature_chooser_ui_chosen():
-	pass # Replace with function body.
-=======
+
 func _on_feature_chooser_ui_error() -> void:
 	bad_end = true
 
 func _on_feature_chooser_ui_chosen() -> void:
 	dialog_num += 1
->>>>>>> Stashed changes
+
