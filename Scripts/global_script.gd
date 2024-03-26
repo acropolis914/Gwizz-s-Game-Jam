@@ -13,10 +13,10 @@ var puzzle = false
 
 var collectible = false #coins
 var dash = false
-var vissuals = false
+var vissuals = true
 var pots = false
-var story = false
-var skip = false
+var story = true
+var skip = true
 
 #Plauyer holding
 var key = false

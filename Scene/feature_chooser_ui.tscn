@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://p58fom250kv0"]
+[gd_scene load_steps=17 format=3 uid="uid://p58fom250kv0"]
 
 [ext_resource type="Script" path="res://Scene/feature_chooser_ui.gd" id="1_eucfm"]
 [ext_resource type="Shader" path="res://Scene/Blur.gdshader" id="1_krqgw"]
+[ext_resource type="Texture2D" uid="uid://totoi4gofejm" path="res://ImageAssets/BG Godot UI.png" id="2_gl2t5"]
 [ext_resource type="Texture2D" uid="uid://ddofncep5nh56" path="res://ImageAssets/enemy1_programmerart_64.png" id="3_5tjur"]
 [ext_resource type="Texture2D" uid="uid://cmvq7i5mkbdji" path="res://ImageAssets/fly1 (20240321023820).png" id="4_jumbo"]
 [ext_resource type="Texture2D" uid="uid://mkl2jw4gbx4e" path="res://ImageAssets/Enemy3/enemy3_0005_3.png" id="5_thw8f"]
@@ -12,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://tcv5cg0xe0rj" path="res://ImageAssets/Gate.png" id="10_khucr"]
 [ext_resource type="Texture2D" uid="uid://c6p6dq3rbudx3" path="res://ImageAssets/Pot.png" id="11_fidlx"]
 [ext_resource type="Texture2D" uid="uid://d2rrm0wgymmxe" path="res://ImageAssets/Frog_1.png" id="12_5ovop"]
+[ext_resource type="Script" path="res://Scripts/Pre-req_comp.gd" id="14_gjsda"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tt18p"]
 shader = ExtResource("1_krqgw")
@@ -30,6 +32,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_eucfm")
 
+[node name="Background_Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("2_gl2t5")
+
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
 material = SubResource("ShaderMaterial_tt18p")
@@ -38,28 +45,31 @@ offset_right = 1281.0
 offset_bottom = 723.0
 color = Color(1, 1, 1, 0)
 
-[node name="Panel" type="Panel" parent="."]
-material = SubResource("ShaderMaterial_v4fcm")
-layout_mode = 0
-offset_left = 96.0
-offset_top = 104.0
-offset_right = 1187.0
-offset_bottom = 615.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_top = 24.0
-offset_bottom = 47.0
+offset_left = 200.0
+offset_top = 104.0
+offset_right = -259.0
+offset_bottom = 136.0
 grow_horizontal = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 23
 bbcode_enabled = true
 text = "[center]Choose one feature to add..."
 fit_content = true
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_v4fcm")
+layout_mode = 0
+offset_left = 329.0
+offset_top = 110.0
+offset_right = 1420.0
+offset_bottom = 621.0
 
 [node name="Enemy_1" type="Panel" parent="Panel"]
 self_modulate = Color(1, 1, 1, 0)
@@ -68,10 +78,10 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 112.0
-offset_top = -143.5
-offset_right = -880.0
-offset_bottom = -32.5
+offset_left = -10.0
+offset_top = -190.5
+offset_right = -1002.0
+offset_bottom = -79.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -117,10 +127,10 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 304.0
-offset_top = -143.5
-offset_right = -688.0
-offset_bottom = -32.5
+offset_left = 112.0
+offset_top = -193.5
+offset_right = -880.0
+offset_bottom = -82.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -166,10 +176,10 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 496.0
-offset_top = -143.5
-offset_right = -496.0
-offset_bottom = -32.5
+offset_left = 234.0
+offset_top = -199.5
+offset_right = -758.0
+offset_bottom = -88.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -185,7 +195,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/normal_font_size = 11
 bbcode_enabled = true
-text = "[center] Projectile Enemy"
+text = "[center] Range Enemy"
 fit_content = true
 
 [node name="TextureRect" type="TextureRect" parent="Panel/Enemy_3"]
@@ -208,21 +218,21 @@ theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
 text = "[center]Added"
 
-[node name="Visuals" type="Panel" parent="Panel"]
+[node name="Slime" type="Panel" parent="Panel"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 688.0
-offset_top = -143.5
-offset_right = -304.0
-offset_bottom = -32.5
+offset_left = 368.0
+offset_top = -190.5
+offset_right = -624.0
+offset_bottom = -79.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="RichTextLabel" parent="Panel/Visuals"]
+[node name="Label" type="RichTextLabel" parent="Panel/Slime"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -234,18 +244,73 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/normal_font_size = 11
 bbcode_enabled = true
-text = "[center] Visuals"
+text = "[center] Slime
+Slows player down"
 fit_content = true
 
-[node name="TextureRect" type="TextureRect" parent="Panel/Visuals"]
+[node name="TextureRect" type="TextureRect" parent="Panel/Slime"]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 11.0
-offset_right = 83.0
-offset_bottom = 75.0
-texture = ExtResource("6_8njgr")
+offset_left = -27.0
+offset_top = -16.0
+offset_right = 172.0
+offset_bottom = 141.0
+scale = Vector2(0.695, 0.695)
+texture = ExtResource("9_vvtcn")
 
-[node name="Added" type="RichTextLabel" parent="Panel/Visuals"]
+[node name="Added" type="RichTextLabel" parent="Panel/Slime"]
+visible = false
+layout_mode = 0
+offset_left = 5.0
+offset_top = 96.0
+offset_right = 95.0
+offset_bottom = 136.0
+theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
+theme_override_font_sizes/normal_font_size = 9
+bbcode_enabled = true
+text = "[center]Added"
+
+[node name="Puzzle" type="Panel" parent="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 516.0
+offset_top = -190.5
+offset_right = -476.0
+offset_bottom = -79.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="RichTextLabel" parent="Panel/Puzzle"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -34.0
+offset_right = -1.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+text = "[center] Puzzle
+Find the key to unlock the gate"
+fit_content = true
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Puzzle"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 8.0
+offset_right = 203.0
+offset_bottom = 165.0
+scale = Vector2(0.435, 0.435)
+texture = ExtResource("10_khucr")
+
+[node name="Added" type="RichTextLabel" parent="Panel/Puzzle"]
 visible = false
 layout_mode = 0
 offset_left = 5.0
@@ -258,16 +323,17 @@ bbcode_enabled = true
 text = "[center]Added"
 
 [node name="Trap" type="Panel" parent="Panel"]
+visible = false
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 880.0
-offset_top = -143.5
-offset_right = -112.0
-offset_bottom = -32.5
+offset_left = 653.0
+offset_top = -187.5
+offset_right = -339.0
+offset_bottom = -76.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -314,155 +380,6 @@ theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
 text = "[center]Added"
 
-[node name="Coins" type="Panel" parent="Panel"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 203.0
-offset_top = -7.5
-offset_right = -789.0
-offset_bottom = 103.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="RichTextLabel" parent="Panel/Coins"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -30.0
-offset_bottom = -5.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/normal_font_size = 11
-bbcode_enabled = true
-text = "[center] Coins"
-fit_content = true
-
-[node name="TextureRect" type="TextureRect" parent="Panel/Coins"]
-layout_mode = 0
-offset_left = 14.0
-offset_top = 11.0
-offset_right = 83.0
-offset_bottom = 75.0
-texture = ExtResource("8_2sxbo")
-
-[node name="Added" type="RichTextLabel" parent="Panel/Coins"]
-visible = false
-layout_mode = 0
-offset_left = 5.0
-offset_top = 96.0
-offset_right = 95.0
-offset_bottom = 136.0
-theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
-theme_override_font_sizes/normal_font_size = 9
-bbcode_enabled = true
-text = "[center]Added"
-
-[node name="Slime" type="Panel" parent="Panel"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 403.0
-offset_top = -7.5
-offset_right = -589.0
-offset_bottom = 103.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="RichTextLabel" parent="Panel/Slime"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -30.0
-offset_bottom = -5.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/normal_font_size = 11
-bbcode_enabled = true
-text = "[center] Slime"
-fit_content = true
-
-[node name="TextureRect" type="TextureRect" parent="Panel/Slime"]
-layout_mode = 0
-offset_left = -27.0
-offset_top = -16.0
-offset_right = 172.0
-offset_bottom = 141.0
-scale = Vector2(0.695, 0.695)
-texture = ExtResource("9_vvtcn")
-
-[node name="Added" type="RichTextLabel" parent="Panel/Slime"]
-visible = false
-layout_mode = 0
-offset_left = 5.0
-offset_top = 96.0
-offset_right = 95.0
-offset_bottom = 136.0
-theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
-theme_override_font_sizes/normal_font_size = 9
-bbcode_enabled = true
-text = "[center]Added"
-
-[node name="Puzzle" type="Panel" parent="Panel"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 591.0
-offset_top = -7.5
-offset_right = -401.0
-offset_bottom = 103.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="RichTextLabel" parent="Panel/Puzzle"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -30.0
-offset_bottom = -5.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/normal_font_size = 11
-bbcode_enabled = true
-text = "[center] Gate"
-fit_content = true
-
-[node name="TextureRect" type="TextureRect" parent="Panel/Puzzle"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 8.0
-offset_right = 203.0
-offset_bottom = 165.0
-scale = Vector2(0.435, 0.435)
-texture = ExtResource("10_khucr")
-
-[node name="Added" type="RichTextLabel" parent="Panel/Puzzle"]
-visible = false
-layout_mode = 0
-offset_left = 5.0
-offset_top = 96.0
-offset_right = 95.0
-offset_bottom = 136.0
-theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
-theme_override_font_sizes/normal_font_size = 9
-bbcode_enabled = true
-text = "[center]Added"
-
 [node name="Pots" type="Panel" parent="Panel"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
@@ -470,10 +387,10 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 787.0
-offset_top = -7.5
-offset_right = -205.0
-offset_bottom = 103.5
+offset_left = -23.0
+offset_top = -24.5
+offset_right = -1015.0
+offset_bottom = 86.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -483,15 +400,15 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -4.0
+offset_left = 2.0
 offset_top = -30.0
-offset_right = -4.0
+offset_right = 2.0
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/normal_font_size = 11
 bbcode_enabled = true
-text = "[center] Pots"
+text = "[center]Breakable items"
 fit_content = true
 
 [node name="TextureRect" type="TextureRect" parent="Panel/Pots"]
@@ -514,21 +431,124 @@ theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
 text = "[center]Added"
 
-[node name="SkipFrog" type="Panel" parent="Panel"]
+[node name="Visuals" type="Panel" parent="Panel"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 112.0
-offset_top = 112.5
-offset_right = -880.0
-offset_bottom = 223.5
+offset_left = 102.0
+offset_top = -23.5
+offset_right = -890.0
+offset_bottom = 87.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="RichTextLabel" parent="Panel/SkipFrog"]
+[node name="Label" type="RichTextLabel" parent="Panel/Visuals"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -29.0
+offset_right = -4.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+text = "[center] Visuals
+Add art assets"
+fit_content = true
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Visuals"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 11.0
+offset_right = 83.0
+offset_bottom = 75.0
+texture = ExtResource("6_8njgr")
+
+[node name="Added" type="RichTextLabel" parent="Panel/Visuals"]
+visible = false
+layout_mode = 0
+offset_left = 5.0
+offset_top = 96.0
+offset_right = 95.0
+offset_bottom = 136.0
+theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
+theme_override_font_sizes/normal_font_size = 9
+bbcode_enabled = true
+text = "[center]Added"
+
+[node name="Coins" type="Panel" parent="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 232.0
+offset_top = -12.5
+offset_right = -760.0
+offset_bottom = 98.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="RichTextLabel" parent="Panel/Coins"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -29.0
+offset_right = -5.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+text = "[center] Collectibles"
+fit_content = true
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Coins"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 11.0
+offset_right = 83.0
+offset_bottom = 75.0
+texture = ExtResource("8_2sxbo")
+
+[node name="Added" type="RichTextLabel" parent="Panel/Coins"]
+visible = false
+layout_mode = 0
+offset_left = 5.0
+offset_top = 96.0
+offset_right = 95.0
+offset_bottom = 136.0
+theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
+theme_override_font_sizes/normal_font_size = 9
+bbcode_enabled = true
+text = "[center]Added"
+
+[node name="Dash" type="Panel" parent="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 363.0
+offset_top = -10.5
+offset_right = -629.0
+offset_bottom = 100.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="RichTextLabel" parent="Panel/Dash"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -542,10 +562,10 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/normal_font_size = 11
 bbcode_enabled = true
-text = "[center] Pots"
+text = "[center] Dash"
 fit_content = true
 
-[node name="TextureRect" type="TextureRect" parent="Panel/SkipFrog"]
+[node name="TextureRect" type="TextureRect" parent="Panel/Dash"]
 layout_mode = 0
 offset_left = -8.0
 offset_top = 16.0
@@ -555,7 +575,7 @@ scale = Vector2(0.305, 0.305)
 texture = ExtResource("12_5ovop")
 stretch_mode = 4
 
-[node name="Added" type="RichTextLabel" parent="Panel/SkipFrog"]
+[node name="Added" type="RichTextLabel" parent="Panel/Dash"]
 visible = false
 layout_mode = 0
 offset_left = 5.0
@@ -566,6 +586,116 @@ theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
 theme_override_font_sizes/normal_font_size = 9
 bbcode_enabled = true
 text = "[center]Added"
+
+[node name="Story" type="Panel" parent="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 501.0
+offset_top = -11.5
+offset_right = -491.0
+offset_bottom = 99.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="RichTextLabel" parent="Panel/Story"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -30.0
+offset_right = -4.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+text = "[center] Story"
+fit_content = true
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Story"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = 16.0
+offset_right = 366.0
+offset_bottom = 203.0
+scale = Vector2(0.305, 0.305)
+texture = ExtResource("12_5ovop")
+stretch_mode = 4
+
+[node name="Added" type="RichTextLabel" parent="Panel/Story"]
+visible = false
+layout_mode = 0
+offset_left = 5.0
+offset_top = 96.0
+offset_right = 95.0
+offset_bottom = 136.0
+theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
+theme_override_font_sizes/normal_font_size = 9
+bbcode_enabled = true
+text = "[center]Added"
+
+[node name="Skip" type="Panel" parent="Panel"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 644.0
+offset_top = -10.5
+offset_right = -348.0
+offset_bottom = 100.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="RichTextLabel" parent="Panel/Skip"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -30.0
+offset_right = -4.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+text = "[center] Skip Button"
+fit_content = true
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Skip"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = 16.0
+offset_right = 366.0
+offset_bottom = 203.0
+scale = Vector2(0.305, 0.305)
+texture = ExtResource("12_5ovop")
+stretch_mode = 4
+
+[node name="Added" type="RichTextLabel" parent="Panel/Skip"]
+visible = false
+layout_mode = 0
+offset_left = 5.0
+offset_top = 96.0
+offset_right = 95.0
+offset_bottom = 136.0
+theme_override_colors/default_color = Color(0.45098, 0.866667, 0.980392, 1)
+theme_override_font_sizes/normal_font_size = 9
+bbcode_enabled = true
+text = "[center]Added"
+
+[node name="Pre-req_comp" type="Node2D" parent="."]
+script = ExtResource("14_gjsda")
 
 [connection signal="focus_entered" from="Panel/Enemy_1" to="." method="_on_enemy_1_focus_entered"]
 [connection signal="focus_exited" from="Panel/Enemy_1" to="." method="_on_enemy_1_focus_exited"]
@@ -579,18 +709,6 @@ text = "[center]Added"
 [connection signal="focus_exited" from="Panel/Enemy_3" to="." method="_on_enemy_1_focus_exited"]
 [connection signal="gui_input" from="Panel/Enemy_3" to="." method="_on_enemy_1_gui_input"]
 [connection signal="mouse_exited" from="Panel/Enemy_3" to="." method="_on_enemy_1_mouse_exited"]
-[connection signal="focus_entered" from="Panel/Visuals" to="." method="_on_enemy_1_focus_entered"]
-[connection signal="focus_exited" from="Panel/Visuals" to="." method="_on_enemy_1_focus_exited"]
-[connection signal="gui_input" from="Panel/Visuals" to="." method="_on_enemy_1_gui_input"]
-[connection signal="mouse_exited" from="Panel/Visuals" to="." method="_on_enemy_1_mouse_exited"]
-[connection signal="focus_entered" from="Panel/Trap" to="." method="_on_enemy_1_focus_entered"]
-[connection signal="focus_exited" from="Panel/Trap" to="." method="_on_enemy_1_focus_exited"]
-[connection signal="gui_input" from="Panel/Trap" to="." method="_on_enemy_1_gui_input"]
-[connection signal="mouse_exited" from="Panel/Trap" to="." method="_on_enemy_1_mouse_exited"]
-[connection signal="focus_entered" from="Panel/Coins" to="." method="_on_enemy_1_focus_entered"]
-[connection signal="focus_exited" from="Panel/Coins" to="." method="_on_enemy_1_focus_exited"]
-[connection signal="gui_input" from="Panel/Coins" to="." method="_on_enemy_1_gui_input"]
-[connection signal="mouse_exited" from="Panel/Coins" to="." method="_on_enemy_1_mouse_exited"]
 [connection signal="focus_entered" from="Panel/Slime" to="." method="_on_enemy_1_focus_entered"]
 [connection signal="focus_exited" from="Panel/Slime" to="." method="_on_enemy_1_focus_exited"]
 [connection signal="gui_input" from="Panel/Slime" to="." method="_on_enemy_1_gui_input"]
@@ -599,11 +717,31 @@ text = "[center]Added"
 [connection signal="focus_exited" from="Panel/Puzzle" to="." method="_on_enemy_1_focus_exited"]
 [connection signal="gui_input" from="Panel/Puzzle" to="." method="_on_enemy_1_gui_input"]
 [connection signal="mouse_exited" from="Panel/Puzzle" to="." method="_on_enemy_1_mouse_exited"]
+[connection signal="focus_entered" from="Panel/Trap" to="." method="_on_enemy_1_focus_entered"]
+[connection signal="focus_exited" from="Panel/Trap" to="." method="_on_enemy_1_focus_exited"]
+[connection signal="gui_input" from="Panel/Trap" to="." method="_on_enemy_1_gui_input"]
+[connection signal="mouse_exited" from="Panel/Trap" to="." method="_on_enemy_1_mouse_exited"]
 [connection signal="focus_entered" from="Panel/Pots" to="." method="_on_enemy_1_focus_entered"]
 [connection signal="focus_exited" from="Panel/Pots" to="." method="_on_enemy_1_focus_exited"]
 [connection signal="gui_input" from="Panel/Pots" to="." method="_on_enemy_1_gui_input"]
 [connection signal="mouse_exited" from="Panel/Pots" to="." method="_on_enemy_1_mouse_exited"]
-[connection signal="focus_entered" from="Panel/SkipFrog" to="." method="_on_enemy_1_focus_entered"]
-[connection signal="focus_exited" from="Panel/SkipFrog" to="." method="_on_enemy_1_focus_exited"]
-[connection signal="gui_input" from="Panel/SkipFrog" to="." method="_on_enemy_1_gui_input"]
-[connection signal="mouse_exited" from="Panel/SkipFrog" to="." method="_on_enemy_1_mouse_exited"]
+[connection signal="focus_entered" from="Panel/Visuals" to="." method="_on_enemy_1_focus_entered"]
+[connection signal="focus_exited" from="Panel/Visuals" to="." method="_on_enemy_1_focus_exited"]
+[connection signal="gui_input" from="Panel/Visuals" to="." method="_on_enemy_1_gui_input"]
+[connection signal="mouse_exited" from="Panel/Visuals" to="." method="_on_enemy_1_mouse_exited"]
+[connection signal="focus_entered" from="Panel/Coins" to="." method="_on_enemy_1_focus_entered"]
+[connection signal="focus_exited" from="Panel/Coins" to="." method="_on_enemy_1_focus_exited"]
+[connection signal="gui_input" from="Panel/Coins" to="." method="_on_enemy_1_gui_input"]
+[connection signal="mouse_exited" from="Panel/Coins" to="." method="_on_enemy_1_mouse_exited"]
+[connection signal="focus_entered" from="Panel/Dash" to="." method="_on_enemy_1_focus_entered"]
+[connection signal="focus_exited" from="Panel/Dash" to="." method="_on_enemy_1_focus_exited"]
+[connection signal="gui_input" from="Panel/Dash" to="." method="_on_enemy_1_gui_input"]
+[connection signal="mouse_exited" from="Panel/Dash" to="." method="_on_enemy_1_mouse_exited"]
+[connection signal="focus_entered" from="Panel/Story" to="." method="_on_enemy_1_focus_entered"]
+[connection signal="focus_exited" from="Panel/Story" to="." method="_on_enemy_1_focus_exited"]
+[connection signal="gui_input" from="Panel/Story" to="." method="_on_enemy_1_gui_input"]
+[connection signal="mouse_exited" from="Panel/Story" to="." method="_on_enemy_1_mouse_exited"]
+[connection signal="focus_entered" from="Panel/Skip" to="." method="_on_enemy_1_focus_entered"]
+[connection signal="focus_exited" from="Panel/Skip" to="." method="_on_enemy_1_focus_exited"]
+[connection signal="gui_input" from="Panel/Skip" to="." method="_on_enemy_1_gui_input"]
+[connection signal="mouse_exited" from="Panel/Skip" to="." method="_on_enemy_1_mouse_exited"]

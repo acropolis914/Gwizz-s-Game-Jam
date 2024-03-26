@@ -48,7 +48,7 @@ _data = {
 script = ExtResource("1_i7m82")
 
 [node name="Background_Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(639, 350)
+position = Vector2(640, 360)
 texture = ExtResource("2_6g53f")
 
 [node name="Dialog_Label" type="Label" parent="."]
@@ -157,8 +157,8 @@ offset_bottom = 137.0
 [connection signal="button_up" from="Next_Button" to="." method="_on_next_button_button_up"]
 [connection signal="button_down" from="Play_Button" to="." method="_on_play_button_button_down"]
 [connection signal="button_down" from="Card_Button" to="." method="_on_card_button_button_down"]
-[connection signal="button_down" from="Error_Card_Button" to="." method="_on_error_card_button_button_down"]
 [connection signal="button_down" from="Error_Card_Button" to="." method="_on_card_button_button_down"]
+[connection signal="button_down" from="Error_Card_Button" to="." method="_on_error_card_button_button_down"]
 [connection signal="button_down" from="Error/Error_Button" to="." method="_on_error_button_button_down"]
-[connection signal="button_down" from="Testing_Button" to="." method="_on_testing_button_button_down"]
 [connection signal="button_down" from="Testing_Button" to="." method="_on_button_button_downsccs"]
+[connection signal="button_down" from="Testing_Button" to="." method="_on_testing_button_button_down"]
