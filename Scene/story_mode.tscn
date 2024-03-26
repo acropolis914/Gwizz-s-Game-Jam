@@ -5,7 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://cnybskrryfdby" path="res://ImageAssets/Screenshot Error.png" id="3_a52ai"]
 [ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="4_7gl02"]
 [ext_resource type="Texture2D" uid="uid://du4o6c2b8b1dk" path="res://ImageAssets/BG Ending 4.png" id="5_eybe2"]
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://p58fom250kv0" path="res://Scene/feature_chooser_ui.tscn" id="6_7q6ad"]
+=======
+[ext_resource type="PackedScene" uid="uid://p58fom250kv0" path="res://Scene/feature_chooser_ui.tscn" id="6_iyvyn"]
+>>>>>>> Stashed changes
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2bs7b"]
 bg_color = Color(0.494118, 0.494118, 0.494118, 0.356863)
@@ -155,7 +159,11 @@ offset_top = 28.0
 offset_right = 151.0
 offset_bottom = 137.0
 
+<<<<<<< Updated upstream
 [node name="FeatureChooserUI" parent="." instance=ExtResource("6_7q6ad")]
+=======
+[node name="FeatureChooserUI" parent="." instance=ExtResource("6_iyvyn")]
+>>>>>>> Stashed changes
 
 [connection signal="button_up" from="Next_Button" to="." method="_on_next_button_button_up"]
 [connection signal="button_down" from="Play_Button" to="." method="_on_play_button_button_down"]
@@ -166,3 +174,7 @@ offset_bottom = 137.0
 [connection signal="button_down" from="Testing_Button" to="." method="_on_testing_button_button_down"]
 [connection signal="button_down" from="Testing_Button" to="." method="_on_button_button_downsccs"]
 [connection signal="chosen" from="FeatureChooserUI" to="." method="_on_feature_chooser_ui_chosen"]
+<<<<<<< Updated upstream
+=======
+[connection signal="error" from="FeatureChooserUI" to="." method="_on_feature_chooser_ui_error"]
+>>>>>>> Stashed changes
