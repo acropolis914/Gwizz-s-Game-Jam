@@ -21,7 +21,7 @@ func _on_submit_button_button_down():
 	$Submit_Button.hide()
 	fade_anim.play("fade_to_black")
 	await fade_anim.animation_finished
-	if GlobalScript.aesthetic >= 7:
+	if GlobalScript.aesthetic >= 4:
 		bg_num = 1
 	elif GlobalScript.aesthetic <= 2:
 		bg_num = 2
