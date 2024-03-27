@@ -14,11 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://dqkj1hcdda7pv" path="res://ImageAssets/Slime.png" id="9_vvtcn"]
 [ext_resource type="Texture2D" uid="uid://tcv5cg0xe0rj" path="res://ImageAssets/Gate.png" id="10_khucr"]
 [ext_resource type="Texture2D" uid="uid://c6p6dq3rbudx3" path="res://ImageAssets/Pot.png" id="11_fidlx"]
-[ext_resource type="Texture2D" uid="uid://d2rrm0wgymmxe" path="res://ImageAssets/Frog_1.png" id="12_5ovop"]
 [ext_resource type="Texture2D" uid="uid://djupu0ttnro4v" path="res://ImageAssets/player_dash_programmerart_64.png" id="13_yovpi"]
 [ext_resource type="Script" path="res://Scripts/Pre-req_comp.gd" id="14_gjsda"]
 [ext_resource type="Texture2D" uid="uid://k5sxd47omogv" path="res://ImageAssets/StickyNote.png" id="14_qog2j"]
 [ext_resource type="Texture2D" uid="uid://cn12176u7akwm" path="res://ImageAssets/3D Gwizz.png" id="16_ava3j"]
+[ext_resource type="Texture2D" uid="uid://bfn0jb83swaey" path="res://ImageAssets/Face3.png" id="18_bgomu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tt18p"]
 shader = ExtResource("1_krqgw")
@@ -319,6 +319,9 @@ position = Vector2(48, 45)
 scale = Vector2(0.458333, 0.408333)
 texture = ExtResource("5_ionhi")
 
+[node name="Vissual_comp" type="Node2D" parent="Panel/Slime"]
+script = ExtResource("6_00s1h")
+
 [node name="Puzzle" type="Panel" parent="Panel"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
@@ -444,6 +447,9 @@ modulate = Color(0.682353, 0.682353, 0.682353, 1)
 position = Vector2(49, 46)
 scale = Vector2(0.458333, 0.408333)
 texture = ExtResource("5_ionhi")
+
+[node name="Vissual_comp" type="Node2D" parent="Panel/Trap"]
+script = ExtResource("6_00s1h")
 
 [node name="Pots" type="Panel" parent="Panel"]
 self_modulate = Color(1, 1, 1, 0)
@@ -746,6 +752,9 @@ position = Vector2(53, 39)
 scale = Vector2(0.458333, 0.408333)
 texture = ExtResource("5_ionhi")
 
+[node name="Vissual_comp" type="Node2D" parent="Panel/Error"]
+script = ExtResource("6_00s1h")
+
 [node name="Story" type="Panel" parent="Panel"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
@@ -841,18 +850,6 @@ bbcode_enabled = true
 text = "[center] [b]Skip Button"
 fit_content = true
 
-[node name="Art_Sprite" type="TextureRect" parent="Panel/Skip"]
-visible = false
-layout_mode = 0
-offset_left = -2.0
-offset_top = 5.0
-offset_right = 372.0
-offset_bottom = 156.0
-scale = Vector2(0.305, 0.305)
-texture = ExtResource("12_5ovop")
-expand_mode = 3
-stretch_mode = 4
-
 [node name="Added" type="RichTextLabel" parent="Panel/Skip"]
 visible = false
 layout_mode = 0
@@ -873,6 +870,18 @@ modulate = Color(0.592157, 0.352941, 0.592157, 1)
 position = Vector2(44, 28)
 scale = Vector2(0.458333, 0.408333)
 texture = ExtResource("5_ionhi")
+
+[node name="Art_Sprite" type="TextureRect" parent="Panel/Skip"]
+visible = false
+layout_mode = 0
+offset_left = 14.0
+offset_top = -6.0
+offset_right = 408.0
+offset_bottom = 181.0
+scale = Vector2(0.305, 0.305)
+texture = ExtResource("18_bgomu")
+expand_mode = 3
+stretch_mode = 4
 
 [node name="Pre-req_comp" type="Node2D" parent="."]
 visible = false
