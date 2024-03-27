@@ -1,0 +1,434 @@
+[gd_scene load_steps=25 format=3 uid="uid://b68fc65c3v1bb"]
+
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_aitbx"]
+[ext_resource type="PackedScene" uid="uid://bioel72emf3f1" path="res://Scene/enemy_type_1.tscn" id="2_ppd4j"]
+[ext_resource type="PackedScene" uid="uid://b0weg8ntix058" path="res://Scene/enemy_type_2.tscn" id="3_nepnh"]
+[ext_resource type="PackedScene" uid="uid://bfh71fonobawn" path="res://Scene/trap.tscn" id="4_68ni8"]
+[ext_resource type="PackedScene" uid="uid://dwbgo21cx8lyu" path="res://Scene/player.tscn" id="5_itrce"]
+[ext_resource type="AudioStream" uid="uid://ds13ecxona8a0" path="res://Music/The Soulless.mp3" id="6_s6bwu"]
+[ext_resource type="PackedScene" uid="uid://da304333dokve" path="res://Scene/option.tscn" id="7_mna5w"]
+[ext_resource type="PackedScene" uid="uid://qrv2sr1c543e" path="res://Scene/Map.tscn" id="8_gakli"]
+[ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="9_xrmr8"]
+[ext_resource type="Script" path="res://Scripts/Vissual_comp.gd" id="10_xl8yn"]
+[ext_resource type="PackedScene" uid="uid://1qgfs1qinp1g" path="res://Scene/key.tscn" id="12_dre27"]
+[ext_resource type="PackedScene" uid="uid://f12olo3uq6e6" path="res://Scene/gate.tscn" id="13_qodfh"]
+[ext_resource type="Script" path="res://Scripts/Timer_CanvasLayer.gd" id="14_d5et6"]
+[ext_resource type="PackedScene" uid="uid://cfh6fu6sg2kyy" path="res://Scene/coin.tscn" id="15_rswqb"]
+[ext_resource type="PackedScene" uid="uid://03tyh5acohqu" path="res://Scene/slime.tscn" id="16_iulab"]
+[ext_resource type="PackedScene" uid="uid://b8v23jfry1r7" path="res://Scene/pot.tscn" id="17_0k0la"]
+[ext_resource type="PackedScene" uid="uid://gwrdgj65fsr4" path="res://Scene/enemy_type_3.tscn" id="18_ydl5x"]
+[ext_resource type="Script" path="res://Scripts/Enemy_Move_Triggers.gd" id="19_8fhbc"]
+[ext_resource type="PackedScene" uid="uid://td8el4u2my65" path="res://Scene/story_in_game.tscn" id="20_h5isa"]
+[ext_resource type="PackedScene" uid="uid://crdil2hcgjn8i" path="res://Scene/princess_full.tscn" id="21_wpn2b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpe1n"]
+size = Vector2(49, 108)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cc16"]
+size = Vector2(220, 35)
+
+[sub_resource type="Animation" id="Animation_atqlq"]
+resource_name = "fade"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ovo7"]
+_data = {
+"fade": SubResource("Animation_atqlq")
+}
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_aitbx")
+enemy1 = ExtResource("2_ppd4j")
+enemy2 = ExtResource("3_nepnh")
+trap = ExtResource("4_68ni8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(334, 455)
+zoom = Vector2(1.17, 1.17)
+
+[node name="Player" parent="." instance=ExtResource("5_itrce")]
+position = Vector2(142, 470)
+
+[node name="BMG" type="AudioStreamPlayer2D" parent="Player"]
+position = Vector2(-142, -470)
+stream = ExtResource("6_s6bwu")
+volume_db = -9.389
+autoplay = true
+
+[node name="Option" parent="." instance=ExtResource("7_mna5w")]
+visible = false
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="Art_Sprite" parent="Map" instance=ExtResource("8_gakli")]
+visible = false
+
+[node name="Temp_Sprite" type="Sprite2D" parent="Map"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(690.75, -127)
+scale = Vector2(11.1375, 4.53333)
+texture = ExtResource("9_xrmr8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(390, 960)
+scale = Vector2(11.1375, 4.53333)
+texture = ExtResource("9_xrmr8")
+
+[node name="Sprite2D19" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0.282353, 0.360784, 0.443137, 1)
+z_index = -2
+position = Vector2(1011.88, 378)
+scale = Vector2(21.5021, 14.2333)
+texture = ExtResource("9_xrmr8")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(-585, 389)
+scale = Vector2(11.1375, 13.2833)
+texture = ExtResource("9_xrmr8")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(1188, 1152)
+scale = Vector2(11.1375, 6.625)
+texture = ExtResource("9_xrmr8")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(2084, 1280)
+scale = Vector2(11.1375, 6.625)
+texture = ExtResource("9_xrmr8")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(2768, 776)
+scale = Vector2(11.1375, 6.625)
+texture = ExtResource("9_xrmr8")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(2449, 353)
+scale = Vector2(11.1375, 3.96667)
+texture = ExtResource("9_xrmr8")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(2559.88, -184)
+scale = Vector2(7.75208, 6.78333)
+texture = ExtResource("9_xrmr8")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(1520.5, -779)
+scale = Vector2(23.475, 6.78333)
+texture = ExtResource("9_xrmr8")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(895.969, -7.50001)
+scale = Vector2(3.41719, 6.775)
+texture = ExtResource("9_xrmr8")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(1191, 191.75)
+scale = Vector2(5.95, 1.3125)
+texture = ExtResource("9_xrmr8")
+
+[node name="Sprite2D12" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(2069, 191.75)
+scale = Vector2(5.95, 1.3125)
+texture = ExtResource("9_xrmr8")
+
+[node name="Sprite2D13" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(1824.75, 804)
+scale = Vector2(0.795832, 1.9125)
+texture = ExtResource("9_xrmr8")
+
+[node name="Sprite2D14" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(1279.88, 606.875)
+scale = Vector2(1.29792, 0.764582)
+texture = ExtResource("9_xrmr8")
+
+[node name="Sprite2D15" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(1280, 415)
+scale = Vector2(1.29792, 0.764582)
+texture = ExtResource("9_xrmr8")
+
+[node name="Sprite2D16" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(1567.94, 415)
+scale = Vector2(1.83229, 0.764582)
+texture = ExtResource("9_xrmr8")
+
+[node name="Sprite2D17" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(1538.5, 512.563)
+scale = Vector2(1.34167, 2.39062)
+texture = ExtResource("9_xrmr8")
+
+[node name="Sprite2D18" type="Sprite2D" parent="Map/Temp_Sprite"]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+position = Vector2(895.75, 641)
+scale = Vector2(3.44583, 2.39062)
+texture = ExtResource("9_xrmr8")
+
+[node name="Vissual_comp" type="Node2D" parent="Map"]
+script = ExtResource("10_xl8yn")
+
+[node name="Key" parent="." instance=ExtResource("12_dre27")]
+position = Vector2(1989, 833)
+
+[node name="Gate" parent="." instance=ExtResource("13_qodfh")]
+position = Vector2(1630, 182)
+
+[node name="UI_CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("14_d5et6")
+
+[node name="Level_Label" type="Label" parent="UI_CanvasLayer"]
+offset_left = 36.0
+offset_top = 33.0
+offset_right = 76.0
+offset_bottom = 56.0
+text = "Level: 0"
+
+[node name="Coins_Label" type="Label" parent="UI_CanvasLayer"]
+visible = false
+offset_left = 1173.0
+offset_top = 32.0
+offset_right = 1245.0
+offset_bottom = 55.0
+text = "Coins: 00"
+
+[node name="Coins" type="Node2D" parent="."]
+position = Vector2(1165, 445)
+
+[node name="Coin" parent="Coins" instance=ExtResource("15_rswqb")]
+position = Vector2(-1023, -240)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("15_rswqb")]
+position = Vector2(561, -134)
+
+[node name="Coin15" parent="Coins" instance=ExtResource("15_rswqb")]
+position = Vector2(-621, -259)
+
+[node name="Coin16" parent="Coins" instance=ExtResource("15_rswqb")]
+position = Vector2(-821, -70)
+
+[node name="Coin6" parent="Coins" instance=ExtResource("15_rswqb")]
+position = Vector2(871, -428)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("15_rswqb")]
+position = Vector2(-730, -229)
+
+[node name="Coin4" parent="Coins" instance=ExtResource("15_rswqb")]
+position = Vector2(-710, 110)
+
+[node name="Coin12" parent="Coins" instance=ExtResource("15_rswqb")]
+position = Vector2(-710, 110)
+
+[node name="Coin13" parent="Coins" instance=ExtResource("15_rswqb")]
+position = Vector2(-279, 11)
+
+[node name="Coin7" parent="Coins" instance=ExtResource("15_rswqb")]
+position = Vector2(897, 198)
+
+[node name="Coin14" parent="Coins" instance=ExtResource("15_rswqb")]
+position = Vector2(674, -723)
+
+[node name="Coin8" parent="Coins" instance=ExtResource("15_rswqb")]
+position = Vector2(908, 247)
+
+[node name="Coin9" parent="Coins" instance=ExtResource("15_rswqb")]
+position = Vector2(888, 288)
+
+[node name="Coin10" parent="Coins" instance=ExtResource("15_rswqb")]
+position = Vector2(910, 312)
+
+[node name="Coin11" parent="Coins" instance=ExtResource("15_rswqb")]
+position = Vector2(727, 295)
+
+[node name="Coin5" parent="Coins" instance=ExtResource("15_rswqb")]
+position = Vector2(-554, 163)
+
+[node name="Slime" type="Node2D" parent="."]
+position = Vector2(1247, 317)
+
+[node name="Slime1" parent="Slime" instance=ExtResource("16_iulab")]
+position = Vector2(25, 2)
+
+[node name="Slime2" parent="Slime" instance=ExtResource("16_iulab")]
+position = Vector2(-1105, -14)
+
+[node name="Slime5" parent="Slime" instance=ExtResource("16_iulab")]
+position = Vector2(533, -373)
+
+[node name="Slime3" parent="Slime" instance=ExtResource("16_iulab")]
+position = Vector2(299, 382)
+
+[node name="Slime4" parent="Slime" instance=ExtResource("16_iulab")]
+position = Vector2(-981, -115)
+
+[node name="Slime6" parent="Slime" instance=ExtResource("16_iulab")]
+position = Vector2(-915, 203)
+
+[node name="Slime7" parent="Slime" instance=ExtResource("16_iulab")]
+position = Vector2(331, -488)
+
+[node name="Pot" type="Node2D" parent="."]
+position = Vector2(2195, 358)
+
+[node name="Pot" parent="Pot" instance=ExtResource("17_0k0la")]
+position = Vector2(-736, -433)
+
+[node name="Pot2" parent="Pot" instance=ExtResource("17_0k0la")]
+position = Vector2(-211, 466)
+
+[node name="Pot6" parent="Pot" instance=ExtResource("17_0k0la")]
+position = Vector2(-278, 454)
+
+[node name="Pot7" parent="Pot" instance=ExtResource("17_0k0la")]
+position = Vector2(-138, 459)
+
+[node name="Pot8" parent="Pot" instance=ExtResource("17_0k0la")]
+position = Vector2(-140, 278)
+
+[node name="Pot9" parent="Pot" instance=ExtResource("17_0k0la")]
+position = Vector2(-212, 266)
+
+[node name="Pot3" parent="Pot" instance=ExtResource("17_0k0la")]
+position = Vector2(-1757, -137)
+
+[node name="Pot4" parent="Pot" instance=ExtResource("17_0k0la")]
+position = Vector2(-1697, -58)
+
+[node name="Pot10" parent="Pot" instance=ExtResource("17_0k0la")]
+position = Vector2(-925, 152)
+
+[node name="Pot5" parent="Pot" instance=ExtResource("17_0k0la")]
+position = Vector2(-1618, -16)
+
+[node name="Pot11" parent="Pot" instance=ExtResource("17_0k0la")]
+position = Vector2(-1967, 229)
+
+[node name="Pot12" parent="Pot" instance=ExtResource("17_0k0la")]
+position = Vector2(-1580, 233)
+
+[node name="Pot13" parent="Pot" instance=ExtResource("17_0k0la")]
+position = Vector2(-291, -596)
+
+[node name="Pot14" parent="Pot" instance=ExtResource("17_0k0la")]
+position = Vector2(-231, -315)
+
+[node name="enemy_type_1_1" parent="." instance=ExtResource("2_ppd4j")]
+position = Vector2(263, 285)
+
+[node name="enemy_type_1_2" parent="." instance=ExtResource("2_ppd4j")]
+position = Vector2(605, 227)
+
+[node name="enemy_type_1_3" parent="." instance=ExtResource("2_ppd4j")]
+position = Vector2(543, 618)
+
+[node name="enemy_type_2_1" parent="." instance=ExtResource("3_nepnh")]
+position = Vector2(1472, 315)
+
+[node name="enemy_type_2_2" parent="." instance=ExtResource("3_nepnh")]
+position = Vector2(1228, 713)
+
+[node name="enemy_type_2_3" parent="." instance=ExtResource("3_nepnh")]
+position = Vector2(1659, 705)
+
+[node name="enemy_type_3_1" parent="." instance=ExtResource("18_ydl5x")]
+position = Vector2(1480, -277)
+
+[node name="enemy_type_3_2" parent="." instance=ExtResource("18_ydl5x")]
+position = Vector2(1601, -45)
+
+[node name="enemy_type_3_4" parent="." instance=ExtResource("18_ydl5x")]
+position = Vector2(2006, -295)
+
+[node name="enemy_type_3_3" parent="." instance=ExtResource("18_ydl5x")]
+position = Vector2(1901, 27)
+
+[node name="Enemy_Move_Triggers" type="Node2D" parent="."]
+script = ExtResource("19_8fhbc")
+
+[node name="Room2_trigger_Area2D" type="Area2D" parent="Enemy_Move_Triggers"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy_Move_Triggers/Room2_trigger_Area2D"]
+position = Vector2(1174, 463)
+shape = SubResource("RectangleShape2D_rpe1n")
+
+[node name="Room3_trigger_Area2D" type="Area2D" parent="Enemy_Move_Triggers"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy_Move_Triggers/Room3_trigger_Area2D"]
+position = Vector2(1627, 99)
+shape = SubResource("RectangleShape2D_2cc16")
+
+[node name="Black" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = 2
+position = Vector2(291, 381)
+scale = Vector2(11.8667, 6.96667)
+texture = ExtResource("9_xrmr8")
+
+[node name="Fade" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Black")
+libraries = {
+"": SubResource("AnimationLibrary_6ovo7")
+}
+
+[node name="Traps" type="Node2D" parent="."]
+position = Vector2(889, 433)
+
+[node name="Trap" parent="Traps" instance=ExtResource("4_68ni8")]
+position = Vector2(0, 0)
+
+[node name="Trap2" parent="Traps" instance=ExtResource("4_68ni8")]
+position = Vector2(948, 193)
+
+[node name="Story_in_Game" parent="." instance=ExtResource("20_h5isa")]
+visible = false
+
+[node name="Princess2" parent="." instance=ExtResource("21_wpn2b")]
+position = Vector2(1721, -294)
+
+[connection signal="body_entered" from="Enemy_Move_Triggers/Room2_trigger_Area2D" to="Enemy_Move_Triggers" method="_on_room_2_trigger_area_2d_body_entered"]
+[connection signal="body_entered" from="Enemy_Move_Triggers/Room3_trigger_Area2D" to="Enemy_Move_Triggers" method="_on_room_3_trigger_area_2d_body_entered"]

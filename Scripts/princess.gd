@@ -10,6 +10,8 @@ func _on_body_entered(body):
 	if body.is_in_group("player"):
 		giggle_sfx.play()
 		GlobalScript.in_game = false
+		GlobalScript.key = false
+		GlobalScript.coins = 0
 		print(GlobalScript.level)
 		canvas_layer.show()
 

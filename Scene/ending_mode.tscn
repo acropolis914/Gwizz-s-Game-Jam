@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://df5ioo34xm154"]
+[gd_scene load_steps=13 format=3 uid="uid://df5ioo34xm154"]
 
 [ext_resource type="Script" path="res://Scripts/ending_mode.gd" id="1_kejtb"]
 [ext_resource type="Texture2D" uid="uid://dhqx6slcop3q4" path="res://ImageAssets/BG Gwizz Jam Site.png" id="2_cbd6o"]
 [ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="3_aipnl"]
 [ext_resource type="Script" path="res://Scripts/Game_reset_comp.gd" id="4_p0vjy"]
+[ext_resource type="AudioStream" uid="uid://lmsaepw70p0i" path="res://Music/Planets.mp3" id="5_nu24a"]
+[ext_resource type="AudioStream" uid="uid://fvqgpv3rdqqt" path="res://Music/In His mind.mp3" id="6_v0yej"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7xsow"]
 bg_color = Color(0.215686, 0.643137, 0.682353, 0.482353)
@@ -89,6 +91,14 @@ libraries = {
 
 [node name="Game_reset_comp" type="Node2D" parent="."]
 script = ExtResource("4_p0vjy")
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_nu24a")
+volume_db = -5.056
+
+[node name="BGM2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_v0yej")
+volume_db = -1.0
 
 [connection signal="button_down" from="Submit_Button" to="." method="_on_submit_button_button_down"]
 [connection signal="button_down" from="End_Button" to="." method="_on_end_button_button_down"]

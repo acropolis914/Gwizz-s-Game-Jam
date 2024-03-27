@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://fvqgpv3rdqqt"
+path="res://.godot/imported/In His mind.mp3-18d6cf0088bc99d836e83e9d868e2502.mp3str"
+
+[deps]
+
+source_file="res://Music/In His mind.mp3"
+dest_files=["res://.godot/imported/In His mind.mp3-18d6cf0088bc99d836e83e9d868e2502.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

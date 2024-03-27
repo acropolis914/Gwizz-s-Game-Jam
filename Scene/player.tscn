@@ -100,7 +100,7 @@ linear_accel_max = 12.12
 
 [node name="Whoosh_sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_86mly")
-volume_db = -2.857
+volume_db = -6.468
 
 [node name="unlock_sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_fgop3")
@@ -124,3 +124,8 @@ texture = ExtResource("6_c6fmo")
 
 [node name="Vissual_comp" type="Node2D" parent="KeyBag"]
 script = ExtResource("6_6cwco")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

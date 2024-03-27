@@ -12,9 +12,12 @@ func _ready():
 	screen_size = get_viewport_rect().size
 	if GlobalScript.in_game:
 		story_in_game.queue_free()
+	if GlobalScript.collectible:
+		$UI_CanvasLayer/Coins_Label.show()
 
 func _process(delta):
 	camera_mode(delta)
+	
 	if has_node("Story_in_Game"):
 		if $Option.is_visible():
 			story_in_game.hide()

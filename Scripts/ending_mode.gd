@@ -13,6 +13,10 @@ var bg_num = 0
 func _ready():
 	$Black_Sprite2D.show()
 	fade_anim.play("fade")
+	if GlobalScript.aesthetic >= 3 && GlobalScript.aesthetic <= 5:
+		$BGM.play()
+	else:
+		$BGM2.play()
 
 func _process(_delta):
 	$Background.texture = bg_ending[bg_num]
@@ -21,7 +25,7 @@ func _on_submit_button_button_down():
 	$Submit_Button.hide()
 	fade_anim.play("fade_to_black")
 	await fade_anim.animation_finished
-	if GlobalScript.aesthetic >= 4:
+	if GlobalScript.aesthetic >= 6:
 		bg_num = 1
 		GlobalScript.ending_1 = true
 	elif GlobalScript.aesthetic <= 2:

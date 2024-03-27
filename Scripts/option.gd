@@ -22,7 +22,7 @@ var daily_bg = {
 
 @onready var endings_sprite = $Endings_sprite
 
-func _process(delta):
+func _process(_delta):
 	if GlobalScript.vissuals:
 		$Toggles/Art_Mode.show()
 	if Input.is_action_just_pressed("pause"):
@@ -82,5 +82,7 @@ func _on_end_close_button_button_down():
 var bg_num = 0
 
 func _on_arrow_button_down(i):
-	bg_num += 1
+	bg_num += i
+	if bg_num < 0:
+		return
 	$Backgrounds/DailyBackground.texture = daily_bg[bg_num%8]

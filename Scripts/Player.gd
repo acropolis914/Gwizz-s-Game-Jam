@@ -9,10 +9,13 @@ class_name Player
 
 var dead = false
 var mouse_pos
-
+var to_move = false
 func _ready():
 	killer_area.disabled = true
 	gwizz_sprite.animation = "walk"
+	await get_tree().create_timer(1.0).timeout
+	to_move = true
+	
 
 func for_movement(_delta):
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -27,14 +30,18 @@ func for_movement(_delta):
 
 func for_mouse_movement(_delta):
 	mouse_pos = get_global_mouse_position()
+	if !to_move:
+		return
 	if position.distance_to(mouse_pos) > 30:
 		velocity = speed * (mouse_pos-global_position).normalized()
 	else:
 		velocity = Vector2.ZERO
-
+var okDash = true
 func for_dash_and_kill():
 	#var mouse_dis = position.distance_to(get_global_mouse_position())
 	if Input.is_action_just_pressed("dash") && velocity != Vector2.ZERO:
+		okDash = false
+		$Timer.start()
 		whoosh_sfx.play()
 		speed = speed*6
 		gwizz_sprite.animation = "dash"
@@ -46,6 +53,7 @@ func for_dash_and_kill():
 		gwizz_sprite.animation = "walk"
 		speed= 300
 		killer_area.disabled = true
+		
 
 func _physics_process(delta):
 	if dead || !GlobalScript.in_game:
@@ -54,7 +62,7 @@ func _physics_process(delta):
 		for_mouse_movement(delta)
 	else:
 		for_movement(delta)
-	if GlobalScript.dash:
+	if GlobalScript.dash && okDash:
 		for_dash_and_kill()
 		
 	gwizz_sprite.play()
@@ -87,3 +95,7 @@ func slimed():
 	speed = .3 * speed
 func unslimed():
 	speed = 300
+
+
+func _on_timer_timeout():
+	okDash = true

@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 var background_sprite = {
-	0 : preload("res://ImageAssets/BG Computer Day 0.png"),
+	0 : preload("res://ImageAssets/BG Computer Day start.png"),
 	1 : preload("res://ImageAssets/BG Gwizz Jam Site.png"),
 	2 : preload("res://ImageAssets/BG Godot UI.png"),
 	3 : preload("res://ImageAssets/BG Computer Day 0.png"),
@@ -18,11 +18,11 @@ var background_sprite = {
 var dialog_text = {
 	#for Level0
 	0 : "I wanna make a game.",
-	1 : "A gwizz jam? This looks.. fun. Alright, let's do it!",
+	1 : "A game jam? This looks.. fun. Alright, let's do it!",
 	2 : "I'll make an RPG. How hard could it be?",
 
 	#for Level1
-	3 : "Hmm... too easy. Let's add more features.",
+	3 : "Hmm... too boring. Let's add more features.",
 	#for Level2
 	4 : "Boring! I could add that thing.",
 	#for Level3
@@ -30,13 +30,13 @@ var dialog_text = {
 	#for Level4
 	6 : "Oh I have this another idea.",
 	#for Level5
-	7 : "My game is aweful... I should add more.",
+	7 : "My game is awful... I should add more features.",
 	#for Level6
 	8 : "Gotta add more stuff!",
 	#for Level7
 	9 : "I. Want. More.",
 	#for Level8
-	10 : "Almost perfect.",
+	10 : "Almost there just needs...",
 	11 : "",
 
 	#for coding
@@ -150,7 +150,7 @@ func rating():
 
 @onready var BG_Sprite = $Background_Sprite2D
 
-var dialog_num = 3
+var dialog_num = 0
 var code_num = 0
 var bg_number = 0
 
@@ -165,6 +165,7 @@ func _ready():
 		dialog_num = dialog_num_level[GlobalScript.level]
 		code_num = GlobalScript.level
 		bg_number = bg_num_level[GlobalScript.level]
+		
 
 func _process(_delta):
 	dialog_label.text = dialog_text[dialog_num]
@@ -204,6 +205,8 @@ func _on_play_button_button_down():
 	if bad_end:
 		$BgArrow.queue_free()
 		dialog_label.hide()
+		$BGM.stop()
+		$BGM2.play()
 		$Error.show()
 	else:
 		get_tree().change_scene_to_file("res://Scene/main.tscn")

@@ -58,7 +58,7 @@ offset_top = 81.3333
 offset_right = 337.0
 offset_bottom = 112.333
 focus_mode = 0
-text = "Camera Follow"
+text = "Camera Pan"
 icon = SubResource("CompressedTexture2D_8v6av")
 
 [node name="Art_Mode" type="CheckBox" parent="Toggles"]
@@ -240,4 +240,5 @@ flat = true
 [connection signal="button_down" from="Endings/Ending3/Button" to="." method="_on_button_button_down" binds= [3]]
 [connection signal="button_down" from="Endings/Ending4/Button" to="." method="_on_button_button_down" binds= [4]]
 [connection signal="button_down" from="Backgrounds/BgArrowR/ArrowR" to="." method="_on_arrow_button_down" binds= [1]]
+[connection signal="button_down" from="Backgrounds/BgArrowL/ArrowL" to="." method="_on_arrow_button_down" binds= [-1]]
 [connection signal="button_down" from="Endings_sprite/End_Close_Button" to="." method="_on_end_close_button_button_down"]

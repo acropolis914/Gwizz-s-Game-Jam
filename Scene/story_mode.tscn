@@ -1,12 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://cr8t15u2vq6hx"]
+[gd_scene load_steps=17 format=3 uid="uid://cr8t15u2vq6hx"]
 
 [ext_resource type="Script" path="res://Scripts/Story_mode.gd" id="1_i7m82"]
-[ext_resource type="Texture2D" uid="uid://totoi4gofejm" path="res://ImageAssets/BG Godot UI.png" id="2_8qlur"]
+[ext_resource type="Texture2D" uid="uid://dp754rv36rqqq" path="res://ImageAssets/BG Computer Day start.png" id="2_g0y5m"]
 [ext_resource type="Texture2D" uid="uid://cnybskrryfdby" path="res://ImageAssets/Screenshot Error.png" id="3_a52ai"]
 [ext_resource type="Texture2D" uid="uid://ca43nx0s8p3wh" path="res://ImageAssets/White.png" id="4_7gl02"]
 [ext_resource type="Texture2D" uid="uid://du4o6c2b8b1dk" path="res://ImageAssets/BG Ending 4.png" id="5_eybe2"]
 [ext_resource type="PackedScene" uid="uid://p58fom250kv0" path="res://Scene/feature_chooser_ui.tscn" id="6_7q6ad"]
 [ext_resource type="Texture2D" uid="uid://74ss7bnbb3y4" path="res://ImageAssets/BG Arrow.png" id="7_k1lh4"]
+[ext_resource type="AudioStream" uid="uid://cjit6y11ubhuq" path="res://Music/Schematist.mp3" id="8_pd4dm"]
+[ext_resource type="AudioStream" uid="uid://bl5ty5qr4wk32" path="res://Music/Windows Error.mp3" id="9_81y7s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2bs7b"]
 bg_color = Color(0.721569, 0.721569, 0.721569, 0.560784)
@@ -65,7 +67,7 @@ script = ExtResource("1_i7m82")
 
 [node name="Background_Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
-texture = ExtResource("2_8qlur")
+texture = ExtResource("2_g0y5m")
 
 [node name="Dialog_Label" type="Label" parent="."]
 offset_left = 44.0
@@ -91,10 +93,10 @@ text = "Next"
 flat = true
 
 [node name="Coding_Label" type="Label" parent="."]
-offset_left = 251.0
-offset_top = 156.0
-offset_right = 388.0
-offset_bottom = 231.0
+offset_left = 240.0
+offset_top = 110.0
+offset_right = 377.0
+offset_bottom = 185.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "efsvsbjdwgrVDwg
 GWrjbjovd
@@ -175,6 +177,13 @@ frame_progress = 0.00806241
 
 [node name="FeatureChooserUI" parent="." instance=ExtResource("6_7q6ad")]
 visible = false
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_pd4dm")
+autoplay = true
+
+[node name="BGM2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_81y7s")
 
 [connection signal="button_up" from="Next_Button" to="." method="_on_next_button_button_up"]
 [connection signal="button_down" from="Play_Button" to="." method="_on_play_button_button_down"]

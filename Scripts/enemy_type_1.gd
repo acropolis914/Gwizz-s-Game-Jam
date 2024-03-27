@@ -9,7 +9,7 @@ func _ready():
 	if !GlobalScript.emeny_1:
 		queue_free()
 	enemy_1_sprite.hide()
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(1.0).timeout
 	to_move = true
 
 func change_art():

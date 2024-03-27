@@ -28,6 +28,7 @@ texture = ExtResource("4_f8gyg")
 
 [node name="coin_sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_lvwko")
+volume_db = -7.944
 
 [node name="Vissual_comp" type="Node2D" parent="."]
 script = ExtResource("5_236cc")

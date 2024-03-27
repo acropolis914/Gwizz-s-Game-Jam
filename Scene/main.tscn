@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c4ehycwbenis3"]
+[gd_scene load_steps=25 format=3 uid="uid://c4ehycwbenis3"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_0qhc5"]
 [ext_resource type="PackedScene" uid="uid://dwbgo21cx8lyu" path="res://Scene/player.tscn" id="2_b3uek"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://b8v23jfry1r7" path="res://Scene/pot.tscn" id="14_yj3bj"]
 [ext_resource type="Script" path="res://Scripts/Enemy_Move_Triggers.gd" id="15_1mu1m"]
 [ext_resource type="PackedScene" uid="uid://td8el4u2my65" path="res://Scene/story_in_game.tscn" id="15_dc871"]
+[ext_resource type="AudioStream" uid="uid://ds13ecxona8a0" path="res://Music/The Soulless.mp3" id="20_v1uc5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rpe1n"]
 size = Vector2(49, 108)
@@ -58,7 +59,13 @@ position = Vector2(334, 455)
 zoom = Vector2(1.17, 1.17)
 
 [node name="Player" parent="." instance=ExtResource("2_b3uek")]
-position = Vector2(1726, -164)
+position = Vector2(142, 470)
+
+[node name="BMG" type="AudioStreamPlayer2D" parent="Player"]
+position = Vector2(-142, -470)
+stream = ExtResource("20_v1uc5")
+volume_db = -9.389
+autoplay = true
 
 [node name="Option" parent="." instance=ExtResource("6_sx2wb")]
 visible = false
@@ -226,6 +233,7 @@ offset_bottom = 56.0
 text = "Level: 0"
 
 [node name="Coins_Label" type="Label" parent="UI_CanvasLayer"]
+visible = false
 offset_left = 1173.0
 offset_top = 32.0
 offset_right = 1245.0
@@ -240,6 +248,12 @@ position = Vector2(-1023, -240)
 
 [node name="Coin2" parent="Coins" instance=ExtResource("12_gs1c4")]
 position = Vector2(561, -134)
+
+[node name="Coin15" parent="Coins" instance=ExtResource("12_gs1c4")]
+position = Vector2(-621, -259)
+
+[node name="Coin16" parent="Coins" instance=ExtResource("12_gs1c4")]
+position = Vector2(-821, -70)
 
 [node name="Coin6" parent="Coins" instance=ExtResource("12_gs1c4")]
 position = Vector2(871, -428)
@@ -394,8 +408,8 @@ shape = SubResource("RectangleShape2D_2cc16")
 [node name="Black" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
 z_index = 2
-position = Vector2(178.5, 433.5)
-scale = Vector2(9.99167, 6.09167)
+position = Vector2(291, 381)
+scale = Vector2(11.8667, 6.96667)
 texture = ExtResource("14_upyrm")
 
 [node name="Fade" type="AnimationPlayer" parent="."]
